@@ -8,14 +8,14 @@ const topics = [
   { icon: ChartNoAxesCombined, title: "Financial Planning", description: "Tools and insights for a secure future", href: "#resource-library" },
   { icon: ShieldCheck, title: "Insurance Guidance", description: "Understand your options", href: "https://www.clhia.ca/en-ca" },
   { icon: BriefcaseBusiness, title: "Business Resources", description: "Support for growth and compliance", href: "https://www.canada.ca/en/services/business.html" },
-  { icon: GraduationCap, title: "Training & Learning", description: "Build your financial knowledge", href: "/services#professional-training" },
-  { icon: Globe2, title: "International Clients", description: "Cross-border tax and financial resources", href: "/services#international-services" },
+  { icon: GraduationCap, title: "Education & Mentorship", description: "Exam preparation and career support", href: "/services#professional-education-mentorship" },
+  { icon: Globe2, title: "Payroll & Treasury", description: "Payroll, liquidity, and cash flow support", href: "/services#treasury-cash-flow" },
 ];
 const insights = [
   { image: "/images/services/hero.png", alt: "Pen, calculator and financial documents", category: "Tax Tips", title: "Canadian Tax Filing Resources", description: "Find official filing information, forms, and guidance from the CRA.", href: "https://www.canada.ca/en/revenue-agency.html", action: "Visit CRA" },
   { image: "/images/resources/planning.png", alt: "Seedlings growing from increasing stacks of coins", category: "Financial Planning", title: "Plan a Stronger Financial Future", description: "A practical worksheet to organize your goals and questions.", href: "/resources/downloads/financial-planning-worksheet.pdf", action: "View Worksheet" },
   { image: "/images/resources/insurance.png", alt: "Paper family protected by a small umbrella", category: "Insurance", title: "Understanding Insurance in Canada", description: "Explore consumer information from Canada’s life and health insurance association.", href: "https://www.clhia.ca/en-ca", action: "Explore Resources" },
-  { image: "/images/resources/training.png", alt: "Online workshop displayed on a laptop", category: "Training", title: "Workshops & Learning Opportunities", description: "Ask our team about sessions to enhance your financial knowledge.", href: "/#contact", action: "Ask About Training" },
+  { image: "/images/resources/training.png", alt: "Online workshop displayed on a laptop", category: "Training", title: "Professional Education & Mentorship", description: "Explore exam preparation, case writing, technical coaching, and one-on-one tutoring.", href: "/services#professional-education-mentorship", action: "Explore Mentorship" },
 ];
 const downloads = [
   ["Tax Preparation Checklist for Individuals", "individual-tax-checklist.pdf"],
@@ -65,7 +65,7 @@ export default function ResourcesPage() {
         </section>
       </div>
 
-      <section className="[&_h2_span]:text-[#1ca3ef] text-[#fff] [border-bottom:1px_solid_#387398] [&_h2]:text-[length:clamp(27px,_2.6vw,_38px)] app-resources-page-newsletter [background-image:linear-gradient(110deg,_#001b32,_#002444)] [&_>_.app-resources-page-container]:[display:grid] [&_>_.app-resources-page-container]:[grid-template-columns:1.6fr_1fr] [&_>_.app-resources-page-container]:[align-items:center] [&_>_.app-resources-page-container]:[gap:35px] [&_>_.app-resources-page-container]:[padding-block:30px] [&_.app-resources-page-container_>_div_>_p:last-child]:[margin:12px_0_0] [&_.app-resources-page-container_>_div_>_p:last-child]:[font-size:15px] [&_.app-resources-page-container_>_div_>_p:last-child]:[line-height:1.5] [@media(max-width:_1100px)]:[&_>_.app-resources-page-container]:[grid-template-columns:1fr] [@media(max-width:_1100px)]:[&_>_.app-resources-page-container]:[gap:22px]" aria-labelledby="resources-newsletter-heading"><div className="max-w-375 mt-auto mr-auto mb-auto ml-auto pt-7.5 pr-[clamp(24px,_4.7vw,_68px)] pb-7.5 pl-[clamp(24px,_4.7vw,_68px)] max-[480px]:pt-7 max-[480px]:pr-5 max-[480px]:pb-7 max-[480px]:pl-5 app-resources-page-container"><div><p className="mt-0 mr-0 mb-2.5 ml-0 text-[length:11px] leading-[1.5] font-bold tracking-[.24em] uppercase">Stay Informed</p><h2 id="resources-newsletter-heading">Subscribe to Our <span>Newsletter</span></h2><p>Get the latest tax tips, financial insights, event updates, and more — straight to your inbox.</p></div><div className="[&_form]:grid [&_form]:grid-cols-[1.5fr_1fr] [&_form]:[align-items:start] [&_form]:gap-y-2.5 [&_form]:gap-x-2.5 [&_input]:min-h-11.25 [&_input]:text-[length:14px] [&_button]:mt-0 [&_button]:mr-0 [&_button]:mb-0 [&_button]:ml-0 [&_button]:min-h-11.25 [&_button]:text-[length:15px] [&_form_>_p]:[grid-column:1_/_-1] [&_form_>_p]:mt-0 [&_form_>_p]:mr-0 [&_form_>_p]:mb-0 [&_form_>_p]:ml-0 [&_form_>_p]:text-[length:12px] [&_br]:hidden max-[1100px]:max-w-150 max-[480px]:[&_form]:grid-cols-1"><NewsletterForm /></div></div></section>
+      
     </main>
   );
 }

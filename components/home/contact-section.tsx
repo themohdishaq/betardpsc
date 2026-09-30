@@ -1,16 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import { serviceOfferings } from "@/lib/services";
+
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Building2, ChartNoAxesColumnIncreasing, ChevronDown, List, Mail, MessageCircle, Phone, Shield, UserRound, UsersRound } from "lucide-react";
 
 const commitments = [
-  { icon: UsersRound, first: "Trusted", second: "Expertise", description: "Decades of combined experience you can count on." },
+  { icon: UsersRound, first: "Trusted", second: "Expertise", description: "Experienced professionals with practical business expertise." },
   { icon: ChartNoAxesColumnIncreasing, first: "Real", second: "Solutions", description: "Practical strategies for today’s challenges and tomorrow’s growth." },
   { icon: Shield, first: "Lasting", second: "Impact", description: "Stronger organizations. Brighter communities. A better tomorrow." },
 ];
 
-const services = ["Accounting & Corporate Tax", "Personal Income Tax", "Professional Training", "Insurance & Segregated Funds", "Consultancy & Project Management"];
+const services = serviceOfferings.map((service) => service.title);
 
 export default function ContactSection() {
   const [submissionMessage, setSubmissionMessage] = useState("");
@@ -31,7 +33,7 @@ export default function ContactSection() {
         <div className="min-w-0">
           <p className={`flex items-center gap-y-4.5 gap-x-4.5 mt-0 mr-0 mb-10.5 ml-0 text-[#08277f] text-[length:clamp(10px,_.9vw,_15px)] leading-[1.6] tracking-[.32em] uppercase max-[1200px]:gap-y-3 max-[1200px]:gap-x-3 max-[1200px]:tracking-[.22em] max-[1000px]:mb-7 max-[1000px]:text-[length:12px] max-[540px]:text-[length:9px] max-[540px]:gap-y-2.25 max-[540px]:gap-x-2.25 components-home-contact-section-eyebrow [&::before]:[flex-shrink:0] [&::before]:[width:60px] [&::before]:[height:3px] [&::before]:[margin-right:8px] [&::before]:[border-radius:2px] [&::before]:[background:#0864f9] [&::before]:[content:""] [@media(max-width:_1200px)]:[&::before]:[width:40px] [@media(max-width:_540px)]:[&::before]:[width:28px] [@media(max-width:_540px)]:[&::before]:[margin-right:0]`}>Partner <span>·</span> Plan <span>·</span> Progress</p>
           <h2 id="contact-heading" className="mt-0 mr-0 mb-0 ml-0 text-[#060a35] font-serif text-[length:clamp(40px,_4.65vw,_78px)] font-bold leading-[1.03] tracking-[-.047em] [&_em]:text-[#0062f3] [&_em]:text-[length:1.08em] max-[1000px]:text-[length:clamp(44px,_7.8vw,_65px)] max-[540px]:text-[length:clamp(35px,_8.8vw,_47px)]">Let’s Build a Stronger<br />Financial Future<br /><em>Together.</em></h2>
-          <p className="mt-7.25 mr-0 mb-7.75 ml-0 text-[#435982] text-[length:clamp(18px,_1.62vw,_27px)] leading-[1.38] tracking-[-.018em] max-[1000px]:text-[length:22px] max-[540px]:text-[length:17px] max-[540px]:leading-[1.55] max-[540px]:mt-5.75 max-[540px]:mb-5.75">RD Prestige Services Corp. helps businesses, nonprofits, and growing enterprises with practical, scalable, and affordable financial and professional solutions.</p>
+          <p className="mt-7.25 mr-0 mb-7.75 ml-0 text-[#435982] text-[length:clamp(18px,_1.62vw,_27px)] leading-[1.38] tracking-[-.018em] max-[1000px]:text-[length:22px] max-[540px]:text-[length:17px] max-[540px]:leading-[1.55] max-[540px]:mt-5.75 max-[540px]:mb-5.75">RD Prestige Services Corp. provides tailored financial and professional solutions for businesses and individuals, whatever your budget or stage of growth.</p>
           <p className={`flex items-center gap-y-5 gap-x-5 mt-0 mr-0 mb-0 ml-0 text-[#002baf] text-[length:clamp(10px,_.86vw,_14px)] leading-[1.7] tracking-[.19em] uppercase max-[1200px]:gap-y-3.5 max-[1200px]:gap-x-3.5 max-[1000px]:text-[length:12px] max-[540px]:text-[length:10px] max-[540px]:tracking-[.12em] components-home-contact-section-tagline [&::before]:[width:62px] [&::before]:[height:3px] [&::before]:[flex-shrink:0] [&::before]:[border-radius:2px] [&::before]:[background:#0961fb] [&::before]:[content:""] [@media(max-width:_1200px)]:[&::before]:[width:40px] [@media(max-width:_540px)]:[&::before]:[width:28px]`}>Your Goals. Our Expertise. A Stronger Tomorrow.</p>
           <ul className="grid grid-cols-3 mt-11 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 list-none [&_li]:flex [&_li]:flex-col [&_li]:items-center [&_li]:[border-right:1px_solid_#caddfa] [&_li]:pt-0 [&_li]:pr-5.75 [&_li]:pb-0 [&_li]:pl-5.75 [&_li]:text-center [&_li:first-child]:pl-0 [&_li:last-child]:[border:0] [&_li:last-child]:pr-0 [&_svg]:text-[#005bfa] [&_svg]:mb-4 [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-3 [&_h3]:ml-0 [&_h3]:text-[#002398] [&_h3]:text-[length:clamp(12px,_1.06vw,_18px)] [&_h3]:leading-[1.4] [&_h3]:font-medium [&_h3]:tracking-[.19em] [&_h3]:uppercase [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#485d8c] [&_p]:text-[length:clamp(14px,_1.1vw,_18px)] [&_p]:leading-[1.35] max-[1200px]:[&_li]:pl-3.75 max-[1200px]:[&_li]:pr-3.75 max-[1000px]:mt-8 max-[1000px]:[&_h3]:text-[length:14px] max-[1000px]:[&_p]:text-[length:16px] max-[540px]:[&_li]:pl-2.25 max-[540px]:[&_li]:pr-2.25 max-[540px]:[&_svg]:w-9.25 max-[540px]:[&_svg]:h-9.25 max-[540px]:[&_svg]:mb-3 max-[540px]:[&_h3]:text-[length:10px] max-[540px]:[&_h3]:tracking-[.12em] max-[540px]:[&_p]:text-[length:12px] max-[540px]:[&_p]:leading-[1.5]">
             {commitments.map(({ icon: Icon, first, second, description }) => (

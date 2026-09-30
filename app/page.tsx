@@ -9,8 +9,8 @@ import Partnerships from "@/components/home/partnerships";
 const featuredServices = [
   { icon: ChartNoAxesColumnIncreasing, title: "Accounting & Corporate Tax", description: "Keep your business on solid ground." },
   { icon: UserRound, title: "Personal Income Tax", description: "Maximize what matters to you." },
-  { icon: GraduationCap, title: "Professional Training", description: "Invest in knowledge. Build your future." },
-  { icon: Settings, title: "Expanding Services", description: "New solutions for a stronger tomorrow." },
+  { icon: GraduationCap, title: "Education & Mentorship", description: "Supporting future finance professionals." },
+  { icon: Settings, title: "Payroll & Treasury", description: "Accurate payroll. Stronger cash flow." },
 ];
 
 export default function Home() {
@@ -40,23 +40,19 @@ export default function Home() {
           </svg>
         </div>
         <div className="relative z-[2] grid grid-cols-[1fr_1.04fr] items-center gap-y-3 gap-x-3 max-w-420 ml-auto mr-auto pt-8 pr-12 pb-8.5 pl-12 min-[1680px]:pt-9.5 min-[1680px]:pb-9.5 max-[1250px]:pt-8 max-[1250px]:pr-7 max-[1250px]:pb-8 max-[1250px]:pl-7 max-[1000px]:grid-cols-1 max-[1000px]:max-w-205 max-[1000px]:pt-10.5 max-[1000px]:pr-7 max-[1000px]:pb-7 max-[1000px]:pl-7 max-[1000px]:gap-y-6.25 max-[1000px]:gap-x-6.25 max-[540px]:pt-7.5 max-[540px]:pr-5 max-[540px]:pb-5 max-[540px]:pl-5 max-[540px]:gap-y-7 max-[540px]:gap-x-7">
-          <div className="pt-7.25 max-[1000px]:pt-0">
-            <p className="mt-0 mr-0 mb-5 ml-0 text-[#4e648b] text-[length:clamp(10px,_.87vw,_14px)] font-semibold leading-[1.6] tracking-[.27em] uppercase max-[1000px]:text-[length:11px] max-[540px]:max-w-80 max-[540px]:text-[length:10px] max-[540px]:tracking-[.19em] max-[540px]:mb-3.75">Financial &amp; professional services you can rely on</p>
+          <div className="">
+            <p className=" text-[#4e648b] text-[length:clamp(10px,_.87vw,_14px)] font-semibold leading-[1.6] tracking-[.27em] uppercase max-[1000px]:text-[length:11px] max-[540px]:max-w-80 max-[540px]:text-[length:10px] max-[540px]:tracking-[.19em] max-[540px]:mb-3.75">Practical solutions. Professional expertise. Affordable support.</p>
             <h1 id="hero-heading" className="mt-0 mr-0 mb-0 ml-0 text-[length:clamp(38px,_4.42vw,_74px)] leading-[1.06] font-extrabold tracking-[-.048em] text-[#020b20] [&_span]:text-[#0036bd] [&_span]:[background-clip:text] [&_span]:[-webkit-text-fill-color:transparent] max-[1000px]:text-[length:clamp(42px,_7.2vw,_65px)] max-[540px]:text-[length:clamp(35px,_8.9vw,_48px)] max-[540px]:leading-[1.08] app-page-heading [&_span]:[background-image:linear-gradient(115deg,_#00319e,_#0039cf_65%,_#002da5)]">
               Your Trusted Partner<br className="max-[540px]:hidden" /> for <span>Financial &amp;<br className="max-[540px]:hidden" /> Professional Services</span>
             </h1>
             <p className="max-w-177.5 mt-5 mr-0 mb-7 ml-0 text-[#5c7296] text-[length:clamp(17px,_1.34vw,_23px)] leading-[1.47] max-[1000px]:text-[length:19px] max-[540px]:text-[length:16px] max-[540px]:leading-[1.65] max-[540px]:mt-4.5 max-[540px]:mb-5.75">
-              RD Prestige Services Corp. provides customized fractional financial services for businesses, nonprofits, and growing enterprises. Our experienced professionals deliver practical, scalable, and affordable solutions tailored to your needs and budget.
+              At RD Prestige Services Corp., every business and individual deserves high-quality financial and professional services, regardless of size, stage of growth, or budget. Our flexible, scalable solutions meet you where you are today and grow with you tomorrow.
             </p>
             <div className="flex flex-wrap gap-y-5 gap-x-7.5 [&_a:focus-visible]:[outline:3px_solid_#3774f7] [&_a:focus-visible]:outline-offset-[5px] [&_svg]:shrink-0 max-[1250px]:gap-y-3 max-[1250px]:gap-x-3 max-[540px]:flex-col max-[540px]:gap-y-3 max-[540px]:gap-x-3">
               <Link href="/services" className="inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-[length:clamp(15px,_1.2vw,_20px)] font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-[white] border-[#ee0710] shadow-[0_6px_16px_#d5081010] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:text-[length:16px] max-[540px]:w-full motion-reduce:[transition:none] app-page-primaryButton [background-image:linear-gradient(#ff2028,_#df0009)]">Explore Our Services <ArrowRight size={24} aria-hidden="true" /></Link>
               <Link href="/consultation" className="inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-[length:clamp(15px,_1.2vw,_20px)] font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-[#0036d2] border-[#003eff] bg-[#ffffffa6] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:text-[length:16px] max-[540px]:w-full motion-reduce:[transition:none]"><CalendarDays size={26} aria-hidden="true" /> Request a Consultation</Link>
             </div>
-            <ul className="flex flex-wrap gap-y-3 gap-x-3 pt-0 pr-0 pb-0 pl-0 mt-7.25 mr-0 mb-0 ml-0 list-none [&_li]:flex [&_li]:items-center [&_li]:gap-y-3 [&_li]:gap-x-3 [&_li]:pt-3 [&_li]:pr-3.75 [&_li]:pb-3 [&_li]:pl-3.75 [&_li]:[border:1px_solid_#d9e7ff] [&_li]:rounded-[999px] [&_li]:text-[#0b316e] [&_li]:text-[length:clamp(12px,_.97vw,_16px)] [&_li]:whitespace-nowrap max-[1250px]:gap-y-2 max-[1250px]:gap-x-2 max-[1250px]:[&_li]:pt-2.5 max-[1250px]:[&_li]:pr-3 max-[1250px]:[&_li]:pb-2.5 max-[1250px]:[&_li]:pl-3 max-[1250px]:[&_li]:gap-y-2 max-[1250px]:[&_li]:gap-x-2 max-[1000px]:[&_li]:text-[length:13px] max-[540px]:mt-5.25 max-[540px]:[&_li]:text-[length:11px] max-[540px]:[&_li]:pt-2 max-[540px]:[&_li]:pr-2.5 max-[540px]:[&_li]:pb-2 max-[540px]:[&_li]:pl-2.5 max-[540px]:[&_li]:gap-y-1.75 max-[540px]:[&_li]:gap-x-1.75 app-page-badges [&_li]:[background-image:linear-gradient(120deg,_#f8fbff,_#eef5ff)]" aria-label="Our specialties">
-              {["Accounting & Corporate Tax", "Personal Income Tax", "Professional Training"].map((service) => (
-                <li key={service}><span className="grid place-items-center w-5 h-5 shrink-0 rounded-[50%] bg-[#003dc9] text-[white] shadow-[0_0_0_2px_white] max-[540px]:w-4 max-[540px]:h-4 max-[540px]:[&_svg]:w-2.75"><Check size={13} strokeWidth={3} aria-hidden="true" /></span>{service}</li>
-              ))}
-            </ul>
+            
           </div>
           <div className="min-w-0 [&_>_svg]:block max-[1000px]:w-full max-[1000px]:max-w-190 max-[1000px]:ml-auto max-[1000px]:mr-auto max-[540px]:w-[calc(100%_+_12px)] max-[540px]:ml-[-6px]"><ServicesGraphic /></div>
         </div>

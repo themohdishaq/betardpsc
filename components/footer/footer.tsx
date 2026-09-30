@@ -2,19 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChartNoAxesCombined, Mail, MapPin, MessageCircle, PhoneCall, ShieldCheck, UsersRound } from "lucide-react";
 import NewsletterForm from "./newsletter-form";
+import { serviceOfferings } from "@/lib/services";
+
 
 const quickLinks = [
   ["Home", "/"], ["About Us", "/about"], ["Our Services", "/services"],
   ["Our Partners", "/partnerships"], ["Who We Serve", "/who-we-serve"],
   ["Resources", "/resources"], ["Blog & Updates", "/blog"], ["Contact Us", "/contact"],
 ];
-const services = [
-  ["Accounting & Corporate Tax", "/services/accounting-corporate-tax"],
-  ["Personal Income Tax", "/services/personal-income-tax"],
-  ["Professional Training", "/professional-training"],
-  ["Insurance & Segregated Funds", "/services/insurance-segregated-funds"],
-  ["Consultancy & Project Management", "/services/consultancy-project-management"],
-];
+const services = serviceOfferings.map((service) => [service.title, `/services#${service.id}`]);
 const resources = [["Tax Tips", "/resources/tax-tips"], ["Financial Guides", "/resources/financial-guides"], ["Helpful Links", "/resources/helpful-links"], ["FAQs", "/resources/faqs"]];
 const policies = [["Privacy Policy", "/privacy-policy"], ["Terms of Service", "/terms-of-service"], ["Cookies Policy", "/cookies-policy"], ["Sitemap", "/sitemap.xml"]];
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=RD+Prestige+Services+Corp+Canada";
@@ -33,7 +29,7 @@ export default function Footer() {
           <div className="[&_h2]:mt-0 [&_h2]:mr-0 [&_h2]:mb-0 [&_h2]:ml-0 [&_h2]:font-serif [&_h2]:text-[length:clamp(40px,_3vw,_55px)] [&_h2]:leading-[1] [&_h2]:font-bold [&_h2]:tracking-[-.025em] [&_h2]:text-[#fff] [&_h2_em]:text-[#2b9dec] max-[1000px]:[grid-column:1_/_-1] max-[1000px]:max-w-155 max-[1000px]:[&_h2]:text-[length:48px] max-[540px]:[grid-column:auto] max-[540px]:[&_h2]:text-[length:46px]">
             <p className={`mt-0 mr-0 mb-3.75 ml-0 text-[#fff] text-[length:14px] leading-[1.5] tracking-[.3em] uppercase components-footer-footer-eyebrow [&::after]:[display:block] [&::after]:[width:40px] [&::after]:[height:3px] [&::after]:[margin-top:12px] [&::after]:[background:#2b9dea] [&::after]:[content:""]`}>Your Partner<br />in Progress</p>
             <h2>Building<br />Stronger<br /><em>Tomorrows</em></h2>
-            <p className="mt-5.5 mr-0 mb-6.25 ml-0 text-[length:clamp(15px,_1.06vw,_19px)] leading-[1.42] max-[540px]:text-[length:16px]">At RD Prestige Services Corp., we help individuals, businesses, and organizations make confident financial decisions through trusted expertise, practical solutions, and a client-focused approach.</p>
+            <p className="mt-5.5 mr-0 mb-6.25 ml-0 text-[length:clamp(15px,_1.06vw,_19px)] leading-[1.42] max-[540px]:text-[length:16px]">At RD Prestige Services Corp., we do more than provide services. We become a trusted partner in your financial and business success with practical expertise and affordable support.</p>
             <ul className={`grid grid-cols-3 list-none pt-0 pr-0 pb-0 pl-0 mt-0 mr-0 mb-0 ml-0 [&_li]:relative [&_li]:flex [&_li]:flex-col [&_li]:items-center [&_li]:gap-y-2.25 [&_li]:gap-x-2.25 [&_li]:text-center [&_li]:text-[length:16px] [&_li]:leading-[1.35] [&_li]:text-[#fff] [&_svg]:w-8.25 [&_svg]:h-8.25 [&_svg]:text-[#55aff2] [&_svg]:[stroke-width:2.5] max-[1000px]:max-w-97.5 components-footer-footer-values [&_li_+_li::before]:[position:absolute] [&_li_+_li::before]:[left:0] [&_li_+_li::before]:[bottom:12px] [&_li_+_li::before]:[height:37px] [&_li_+_li::before]:[width:1px] [&_li_+_li::before]:[background:#4692bd] [&_li_+_li::before]:[content:""]`}>
               <li><ShieldCheck aria-hidden="true" /><span>Trusted<br />Expertise</span></li>
               <li><UsersRound aria-hidden="true" /><span>Client<br />Focused</span></li>

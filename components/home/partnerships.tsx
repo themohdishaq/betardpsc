@@ -66,10 +66,7 @@ export default function Partnerships() {
           </div>
         </div>
 
-        <div className={`text-center [&_>_p]:flex [&_>_p]:items-center [&_>_p]:justify-center [&_>_p]:gap-y-6 [&_>_p]:gap-x-6 [&_>_p]:mt-3.75 [&_>_p]:mr-0 [&_>_p]:mb-0 [&_>_p]:ml-0 [&_>_p]:text-[#7485bc] [&_>_p]:text-[length:12px] [&_>_p]:leading-[1.5] [&_>_p]:tracking-[.3em] [&_>_p]:uppercase max-[700px]:[&_>_p]:text-[length:9px] max-[700px]:[&_>_p]:tracking-[.17em] max-[700px]:[&_>_p]:gap-y-2.5 max-[700px]:[&_>_p]:gap-x-2.5 components-home-partnerships-footer [&_>_p::before]:[width:88px] [&_>_p::before]:[height:1px] [&_>_p::before]:[background:#8c9bdb] [&_>_p::before]:[content:""] [&_>_p::after]:[width:88px] [&_>_p::after]:[height:1px] [&_>_p::after]:[background:#8c9bdb] [&_>_p::after]:[content:""] [@media(max-width:_700px)]:[&_>_p::before]:[width:23px] [@media(max-width:_700px)]:[&_>_p::after]:[width:23px]`}>
-          <Link href="/partnerships" className="inline-flex items-center justify-center gap-y-5 gap-x-5 min-h-12.75 pt-3 pr-10.5 pb-3 pl-10.5 [border:1px_solid_#0065ff] rounded-[9px] text-[#fff] text-[length:19px] font-semibold shadow-[0_7px_15px_#0051c320] [transition:box-shadow_160ms_ease,_background_160ms_ease] hover:bg-[#0044bf] hover:shadow-[0_9px_22px_#0051c330] focus-visible:[outline:3px_solid_#588bff] focus-visible:outline-offset-[5px] max-[700px]:mt-3 max-[700px]:pl-6 max-[700px]:pr-6 max-[700px]:text-[length:17px] motion-reduce:[transition:none] components-home-partnerships-button [background-image:linear-gradient(#0065f9,_#0042bb)]">View All Partnerships <ArrowRight size={22} aria-hidden="true" /></Link>
-          <p>People. Partnerships. Possibilities.</p>
-        </div>
+       
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 const title = "Contact Us | RD Prestige Services Corp.";
-const description = "Contact RD Prestige Services Corp. for financial guidance, accounting, tax, training, and consulting services across Canada and internationally.";
+const description = "Contact RD Prestige Services Corp. for accounting, tax, payroll, cash flow advisory, IT consulting, mentorship, and insurance services tailored to your needs and budget.";
 
 export const metadata: Metadata = {
   title,

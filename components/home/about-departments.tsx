@@ -3,18 +3,18 @@ import Link from "next/link";
 import { ArrowRight, ChartNoAxesColumnIncreasing, FileText, GraduationCap, Shield, Target, Trophy, UsersRound } from "lucide-react";
 
 const highlights = [
-  { icon: Trophy, title: "40+ Years", subtitle: "Combined Experience", description: "Depth of knowledge you can trust." },
-  { icon: UsersRound, title: "5 Specialized", subtitle: "Departments", description: "Comprehensive services under one roof." },
-  { icon: Target, title: "Customized", subtitle: "Fractional Services", description: "Tailored to your needs and budget." },
+  { icon: Trophy, title: "120+ Returning", subtitle: "Tax Clients", description: "Accuracy, responsiveness, and professional service." },
+  { icon: UsersRound, title: "7 Specialized", subtitle: "Service Areas", description: "Comprehensive services under one roof." },
+  { icon: Target, title: "Customized", subtitle: "Flexible Solutions", description: "Tailored to your needs and budget." },
   { icon: ChartNoAxesColumnIncreasing, title: "Businesses • Nonprofits", subtitle: "• Growing Enterprises", description: "Supporting your goals at every stage." },
 ] as const;
 
 const departments = [
-  { icon: ChartNoAxesColumnIncreasing, title: "Accounting &", subtitle: "Corporate Tax", tone: "accounting", tagline: "Accurate. Compliant. Strategic.", description: "Keep your business on solid financial ground with expert accounting and tax solutions." },
-  { icon: FileText, title: "Personal", subtitle: "Income Tax", tone: "personal", tagline: "Simple. Reliable. Maximized.", description: "Personalized tax planning and filing to help you keep more of what you earn." },
-  { icon: GraduationCap, title: "Professional", subtitle: "Training", tone: "training", tagline: "Build Skills. Create Opportunities.", description: "Invest in knowledge with practical training for individuals and organizations." },
-  { icon: Shield, title: "Insurance &", subtitle: "Segregated Funds", tone: "insurance", tagline: "Expanding Services", description: "Growing our offerings to help protect your future with tailored insurance and investment solutions." },
-  { icon: UsersRound, title: "Consultancy &", subtitle: "Project Management", tone: "consultancy", tagline: "Expanding Services", description: "Strategic guidance and project support to help you plan, execute, and achieve your goals." },
+  { icon: ChartNoAxesColumnIncreasing, title: "Accounting &", subtitle: "Corporate Tax", tone: "accounting", tagline: "Accurate. Compliant. Strategic.", description: "Your outsourced finance department, from bookkeeping and tax filing to financial controls and insight." },
+  { icon: FileText, title: "Personal", subtitle: "Income Tax", tone: "personal", tagline: "Simple. Reliable. Maximized.", description: "Personalized tax preparation and filing, with year-round support for records, deductions, and credits." },
+  { icon: GraduationCap, title: "Professional", subtitle: "Education", tone: "training", tagline: "Education & Mentorship", description: "Exam preparation, technical coaching, and personalized support for future finance professionals." },
+  { icon: Shield, title: "Risk Management", subtitle: "& Insurance", tone: "insurance", tagline: "Protect What Matters Most", description: "Risk guidance, insurance solutions, and financial education to protect your assets and reduce uncertainty." },
+  { icon: UsersRound, title: "IT Consulting &", subtitle: "Project Management", tone: "consultancy", tagline: "Technology That Delivers", description: "Accounting systems, ERP implementation, and change management that strengthen controls and support growth." },
 ] as const;
 
 export default function AboutDepartments() {
@@ -48,10 +48,10 @@ export default function AboutDepartments() {
 
       <section id="departments" className="relative isolate overflow-hidden [border-top:8px_solid_#f1f7ff] scroll-mt-27.5 components-home-about-departments-departments [background-image:linear-gradient(#fff,_#fcfeff)] [&_.components-home-about-departments-eyebrow]:[margin-bottom:17px]" aria-labelledby="departments-heading">
         <div className="relative z-[1] max-w-400 mt-auto mr-auto mb-auto ml-auto pt-8 pr-9 pb-25 pl-9 max-[1150px]:pl-5.5 max-[1150px]:pr-5.5 max-[480px]:pt-7 max-[480px]:pr-5 max-[480px]:pb-25 max-[480px]:pl-5">
-          <p className={`flex items-center gap-y-5 gap-x-5 mt-0 mr-0 mb-6 ml-0 text-[#5d73bb] text-[length:13px] leading-[1.5] font-bold tracking-[.11em] uppercase max-[480px]:text-[length:11px] max-[480px]:mb-4.25 components-home-about-departments-eyebrow [&::after]:[width:58px] [&::after]:[height:2px] [&::after]:[background:#436bff] [&::after]:[content:""]`}>Our Departments</p>
-          <h2 id="departments-heading" className="mt-0 mr-0 mb-0 ml-0 text-[#030b21] font-extrabold tracking-[-.045em] leading-[1.1] text-[length:clamp(30px,_3.8vw,_56px)] [&_span]:text-[#0038cf] max-[800px]:text-[length:37px] max-[800px]:leading-[1.15] max-[480px]:text-[length:32px]">Five Specialized Departments. <span>One Trusted Partner.</span></h2>
+          <p className={`flex items-center gap-y-5 gap-x-5 mt-0 mr-0 mb-6 ml-0 text-[#5d73bb] text-[length:13px] leading-[1.5] font-bold tracking-[.11em] uppercase max-[480px]:text-[length:11px] max-[480px]:mb-4.25 components-home-about-departments-eyebrow [&::after]:[width:58px] [&::after]:[height:2px] [&::after]:[background:#436bff] [&::after]:[content:""]`}>Featured Services</p>
+          <h2 id="departments-heading" className="mt-0 mr-0 mb-0 ml-0 text-[#030b21] font-extrabold tracking-[-.045em] leading-[1.1] text-[length:clamp(30px,_3.8vw,_56px)] [&_span]:text-[#0038cf] max-[800px]:text-[length:37px] max-[800px]:leading-[1.15] max-[480px]:text-[length:32px]">Specialized Services. <span>One Trusted Partner.</span></h2>
           <div className="relative flex items-center justify-end gap-y-6 gap-x-6 mt-4 mr-0 mb-3 ml-0 [&_>_p]:flex-1 [&_>_p]:mt-0 [&_>_p]:mr-0 [&_>_p]:mb-0 [&_>_p]:ml-0 [&_>_p]:pl-[12%] [&_>_p]:text-[#6174b1] [&_>_p]:text-center [&_>_p]:text-[length:clamp(17px,_1.7vw,_23px)] [&_>_p]:italic [&_>_p]:tracking-[.1em] max-[1000px]:[&_>_p]:pl-0 max-[1000px]:[&_>_p]:text-left max-[800px]:items-start max-[800px]:flex-col max-[800px]:gap-y-4.5 max-[800px]:gap-x-4.5 max-[800px]:mt-4.5 max-[800px]:mr-0 max-[800px]:mb-6.25 max-[800px]:ml-0 max-[800px]:[&_>_p]:text-[length:18px] max-[800px]:[&_>_p]:leading-[1.5]">
-            <p>Accessible. Practical. Scalable. Affordable.</p>
+            <p>Also explore Payroll Services and Treasury Management &amp; Cash Flow Advisory.</p>
             <Link href="/services" className="inline-flex items-center justify-center gap-y-4.5 gap-x-4.5 shrink-0 min-h-11.5 pt-3 pr-5.75 pb-3 pl-5.75 rounded-[9px] text-[#fff] text-[length:16px] font-medium no-underline shadow-[0_7px_18px_#16478312] [transition:transform_180ms_ease,_box-shadow_180ms_ease] hover:[transform:translateY(-2px)] hover:shadow-[0_10px_22px_#16478325] focus-visible:[outline:3px_solid_#608dff] focus-visible:outline-offset-[5px] motion-reduce:[transition:none] components-home-about-departments-servicesButton [background-image:linear-gradient(#064af0,_#0031be)]">Explore All Services <ArrowRight size={21} aria-hidden="true" /></Link>
           </div>
           <div className="grid grid-cols-5 gap-y-3.5 gap-x-3.5 max-[1150px]:gap-y-2.5 max-[1150px]:gap-x-2.5 max-[1000px]:grid-cols-3 max-[1000px]:gap-y-6 max-[1000px]:gap-x-4 max-[800px]:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:max-w-77.5 max-[480px]:ml-auto max-[480px]:mr-auto max-[480px]:gap-y-6.5 max-[480px]:gap-x-6.5">

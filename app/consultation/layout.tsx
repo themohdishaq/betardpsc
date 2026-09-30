@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 const title = "Request a Consultation | RD Prestige Services Corp.";
-const description = "Tell us about your financial goals and request a personalized consultation for accounting, tax, training, or business support.";
+const description = "Request a personalized consultation for accounting, tax, payroll, treasury, IT consulting, professional education, or risk management and insurance.";
 
 export const metadata: Metadata = {
   title,
