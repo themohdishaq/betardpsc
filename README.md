@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RD Prestige Services Corp.
 
-## Getting Started
+Next.js App Router website using React, TypeScript, Tailwind CSS v4, and Lucide icons.
 
-First, run the development server: on the vercel
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. On Windows PowerShell, use npm.cmd if script execution is restricted.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pages
 
-## Learn More
+The routes are /, /about, /services, /resources, /contact, and /consultation. The shared navbar and footer are rendered by app/layout.tsx.
 
-To learn more about Next.js, take a look at the following resources:
+## Layouts and metadata
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The root `app/layout.tsx` owns the homepage metadata, shared viewport settings, fonts, navbar, and footer. Each other route has its own `layout.tsx` with its title, description, Open Graph, and Twitter metadata. Update those layouts when editing page metadata; `page.tsx` files contain page content. Nested layouts inherit the shared shell and do not render a second navbar or footer.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Styling
 
-## Deploy on Vercel
+Write Tailwind utilities directly in JSX className attributes. Responsive layouts, hover/focus states, gradients, shapes, and pseudo-elements all use inline utilities and arbitrary variants. There are no page/component style maps or CSS modules. app/globals.css contains only Tailwind imports, shared theme tokens, and base styles.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Integrations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contact and consultation forms open an email draft for the visitor to send; they do not submit to a backend. The homepage inquiry and newsletter forms still require delivery integrations. Some footer destinations are placeholders for future pages. Replace partner text wordmarks with official assets when available.

@@ -1,13 +1,6 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, ChartNoAxesCombined, Check, Diamond, Eye, Globe2, Handshake, Settings, ShieldCheck, Target, UsersRound } from "lucide-react";
-import styles from "./page.module.css";
-
-export const metadata: Metadata = {
-  title: "About Us | RD Prestige Services Corp.",
-  description: "Learn about RD Prestige Services Corp., our story, mission, and commitment to practical financial services, professional training, and stronger communities.",
-};
 
 const values = ["Integrity", "Client Focus", "Excellence", "Collaboration", "Continuous Learning", "Community Impact"];
 const statistics = [
@@ -25,81 +18,81 @@ const benefits = [
 
 export default function AboutPage() {
   return (
-    <main className={styles.page}>
-      <section className={styles.hero} aria-labelledby="about-title">
-        <Image src="/images/about/hero.png" alt="Navy mug with the words Building Brighter Financial Futures in a modern office" fill sizes="100vw" preload className={styles.heroImage} />
-        <div className={styles.heroPanel} aria-hidden="true" />
-        <div className={styles.heroInner}>
-          <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">About Us</span></nav>
+    <main className="text-[#11243a] font-body [&_h1]:font-serif [&_h1]:font-bold [&_h2]:font-serif [&_h2]:font-bold [&_h2]:mt-0 [&_h2]:mr-0 [&_h2]:mb-0 [&_h2]:ml-0 [&_h2]:text-[length:clamp(28px,_2.6vw,_42px)] [&_h2]:leading-[1.12] [&_h2]:tracking-[-.025em] [&_h3]:font-serif [&_h3]:font-bold [&_a:focus-visible]:[outline:3px_solid_#3ca8ff] [&_a:focus-visible]:outline-offset-[5px]">
+      <section className="relative isolate overflow-hidden min-h-107.5 bg-[#031f37] text-[#fff] [&_h1]:mt-0 [&_h1]:mr-0 [&_h1]:mb-0 [&_h1]:ml-0 [&_h1]:text-[length:clamp(42px,_4vw,_65px)] [&_h1]:leading-[1.1] [&_h1]:tracking-[-.025em] [&_h1_span]:text-[#279ee8] max-[760px]:min-h-105 max-[420px]:[&_h1]:text-[length:42px]" aria-labelledby="about-title">
+        <Image src="/images/about/hero.png" alt="Navy mug with the words Building Brighter Financial Futures in a modern office" fill sizes="100vw" preload className="z-[-2] object-cover object-[center_58%]" />
+        <div className={`absolute top-0 right-[38%] bottom-0 left-0 z-[-1] max-[760px]:top-0 max-[760px]:right-0 max-[760px]:bottom-0 max-[760px]:left-0 app-about-page-heroPanel [background-image:linear-gradient(115deg,_#001b32fc,_#00213def)] [clip-path:polygon(0_0,_83%_0,_100%_100%,_0_100%)] [&::after]:[position:absolute] [&::after]:[right:12%] [&::after]:[top:-30%] [&::after]:[width:75px] [&::after]:[height:150%] [&::after]:[background:#75b8ed17] [&::after]:[transform:rotate(-19deg)] [&::after]:[content:""] [@media(max-width:_760px)]:[clip-path:none] [@media(max-width:_760px)]:[background-image:linear-gradient(90deg,_#001b32f5,_#001b32db_55%,_#001b3260)]`} aria-hidden="true" />
+        <div className="max-w-360 mt-auto mr-auto mb-auto ml-auto pt-13 pr-[clamp(24px,_5vw,_72px)] pb-13 pl-[clamp(24px,_5vw,_72px)] max-[760px]:pt-9.5 max-[760px]:pr-6 max-[760px]:pb-9.5 max-[760px]:pl-6">
+          <nav aria-label="Breadcrumb" className="flex gap-y-3 gap-x-3 mb-7.5 text-[#75b9e8] text-[length:14px]"><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">About Us</span></nav>
           <h1 id="about-title">About <span>RDPSC</span></h1>
-          <p className={styles.heroTagline}>People. Process. Possibilities.</p>
-          <span className={styles.redLine} aria-hidden="true" />
-          <p className={styles.heroDescription}>At RD Prestige Services Corp., we help individuals, businesses, and organizations make confident financial decisions through trusted expertise, practical solutions, and a client-focused approach.</p>
+          <p className="mt-2.5 mr-0 mb-0 ml-0 text-[length:clamp(20px,_1.9vw,_28px)] max-[420px]:text-[length:20px]">People. Process. Possibilities.</p>
+          <span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" />
+          <p className="w-[47%] mt-0 mr-0 mb-0 ml-0 text-[length:17px] leading-[1.6] max-[1050px]:w-[51%] max-[1050px]:text-[length:16px] max-[760px]:w-[80%] max-[760px]:max-w-125 max-[420px]:w-full">At RD Prestige Services Corp., we help individuals, businesses, and organizations make confident financial decisions through trusted expertise, practical solutions, and a client-focused approach.</p>
         </div>
-        <p className={styles.heroWords}>Trust<br />Expertise<br />Growth<span className={styles.redLine} /></p>
+        <p className="absolute top-12.5 right-7.5 mt-0 mr-0 mb-0 ml-0 text-[#092b48] text-right text-[length:12px] font-bold leading-[2] tracking-[.2em] uppercase max-[760px]:hidden app-about-page-heroWords [&_.app-about-page-redLine]:[width:34px] [&_.app-about-page-redLine]:[margin-left:auto]">Trust<br />Expertise<br />Growth<span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" /></p>
       </section>
 
-      <section className={`${styles.container} ${styles.story}`} aria-labelledby="story-heading">
-        <div className={styles.prose}>
-          <p className={styles.eyebrow}>Our Story</p>
+      <section className="max-w-360 ml-auto mr-auto pt-12 pr-[clamp(24px,_5vw,_72px)] pb-12 pl-[clamp(24px,_5vw,_72px)] max-[760px]:pt-9 max-[760px]:pr-6 max-[760px]:pb-9 max-[760px]:pl-6 app-about-page-container  grid grid-cols-[1fr_1.05fr] gap-y-12 gap-x-12 items-center max-[1050px]:gap-y-7.5 max-[1050px]:gap-x-7.5 max-[760px]:grid-cols-1" aria-labelledby="story-heading">
+        <div className="app-about-page-prose [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[margin:0_0_17px] [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[color:#526072] [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[font-size:clamp(16px,_1.2vw,_19px)] [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[line-height:1.55]">
+          <p className="mt-0 mr-0 mb-3.5 ml-0 text-[length:12px] leading-[1.5] font-semibold tracking-[.19em] uppercase app-about-page-eyebrow">Our Story</p>
           <h2 id="story-heading">A Journey Built on Trust<br />and Purpose</h2>
-          <span className={styles.redLine} aria-hidden="true" />
+          <span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" />
           <p>RD Prestige Services Corp. was founded with a simple belief: every individual and organization deserves access to reliable financial guidance, professional support, and opportunities to grow.</p>
           <p>What started as a vision to make financial services more accessible and understandable has grown into a multi-service firm supporting clients across Canada and internationally. Today, we proudly serve individuals, small businesses, growing enterprises, and non-profits with a commitment to integrity, professionalism, and long-term relationships.</p>
-          <Link href="/#departments" className={styles.blueButton}>Our Services <ArrowRight size={18} aria-hidden="true" /></Link>
+          <Link href="/#departments" className="inline-flex items-center justify-center gap-y-3 gap-x-3 min-h-12 pt-3.25 pr-6.75 pb-3.25 pl-6.75 [border:1px_solid_transparent] rounded-[5px] text-[#fff] text-[length:15px] leading-[1.3] [transition:background_160ms_ease] bg-[#0065c8] mt-2.5 hover:bg-[#0052a5] motion-reduce:[transition:none]">Our Services <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
-        <figure className={styles.storyPhoto}>
+        <figure className="relative overflow-hidden self-stretch min-h-107.5 mt-0 mr-0 mb-0 ml-0 rounded-[8px] bg-[#103c5c] [&_img]:object-cover [&_figcaption]:absolute [&_figcaption]:top-[12%] [&_figcaption]:left-[7%] [&_figcaption]:pt-3.75 [&_figcaption]:pr-3.75 [&_figcaption]:pb-3.75 [&_figcaption]:pl-3.75 [&_figcaption]:rounded-[4px] [&_figcaption]:bg-[#07294b45] [&_figcaption]:text-[#fff] [&_figcaption]:font-serif [&_figcaption]:text-[length:clamp(23px,_2vw,_32px)] [&_figcaption]:font-bold [&_figcaption]:leading-[1.2] max-[760px]:min-h-0 max-[760px]:aspect-[4_/_3] max-[760px]:[&_figcaption]:text-[length:26px] max-[420px]:[&_figcaption]:text-[length:21px] max-[420px]:[&_figcaption]:pt-2.5 max-[420px]:[&_figcaption]:pr-2.5 max-[420px]:[&_figcaption]:pb-2.5 max-[420px]:[&_figcaption]:pl-2.5">
           <Image src="/images/about/story.png" alt="Modern glass building with the message A Brighter Financial Tomorrow Together engraved on its facade" fill sizes="(max-width: 760px) 100vw, 50vw" />
-          <figcaption>“Empowering<br />people and<br />organizations<br />to achieve more.”<span className={styles.redLine} aria-hidden="true" /></figcaption>
+          <figcaption>“Empowering<br />people and<br />organizations<br />to achieve more.”<span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" /></figcaption>
         </figure>
       </section>
 
-      <section className={styles.softSection} aria-labelledby="mission-heading">
-        <div className={styles.container}>
-          <h2 id="mission-heading">Our Mission, Vision &amp; Values</h2><span className={styles.redLine} aria-hidden="true" />
-          <div className={styles.missionGrid}>
-            <article className={styles.card}><Target className={styles.missionIcon} aria-hidden="true" /><h3>Our Mission</h3><p>To provide reliable, professional, and personalized financial services and solutions that help our clients achieve stability, growth, and long-term success.</p></article>
-            <article className={styles.card}><Eye aria-hidden="true" /><h3>Our Vision</h3><p>To be a trusted partner recognized for excellence in financial services, professional training, and strategic consulting — creating opportunities for stronger communities and a brighter tomorrow.</p></article>
-            <article className={styles.card}><Diamond aria-hidden="true" /><h3>Our Values</h3><ul className={styles.values}>{values.map((value) => <li key={value}><span><Check size={11} strokeWidth={3} aria-hidden="true" /></span>{value}</li>)}</ul></article>
+      <section className="app-about-page-softSection [background-image:linear-gradient(120deg,_#f1f6f9,_#edf4f9)]" aria-labelledby="mission-heading">
+        <div className="max-w-360 ml-auto mr-auto pt-12 pr-[clamp(24px,_5vw,_72px)] pb-12 pl-[clamp(24px,_5vw,_72px)] max-[760px]:pt-9 max-[760px]:pr-6 max-[760px]:pb-9 max-[760px]:pl-6 app-about-page-container">
+          <h2 id="mission-heading">Our Mission, Vision &amp; Values</h2><span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" />
+          <div className="grid grid-cols-3 gap-y-6.25 gap-x-6.25 mt-7.5 max-[760px]:grid-cols-1 max-[760px]:gap-y-4.5 max-[760px]:gap-x-4.5">
+            <article className="rounded-[9px] pt-7.5 pr-7.5 pb-7.5 pl-7.5 bg-[#fff] shadow-[0_5px_15px_#203f5a07] [&_>_svg]:block [&_>_svg]:w-13 [&_>_svg]:h-13 [&_>_svg]:mt-0 [&_>_svg]:mr-auto [&_>_svg]:mb-4.5 [&_>_svg]:ml-auto [&_>_svg]:text-[#087cda] [&_>_svg]:[stroke-width:1.7] [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-5 [&_h3]:ml-0 [&_h3]:text-center [&_h3]:text-[length:23px] [&_h3]:leading-[1.15] [&_p]:text-[#5b6573] [&_p]:text-[length:17px] [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 max-[1050px]:pt-6.25 max-[1050px]:pr-5 max-[1050px]:pb-6.25 max-[1050px]:pl-5 max-[1050px]:[&_p]:text-[length:15px] max-[760px]:pt-7 max-[760px]:pr-7 max-[760px]:pb-7 max-[760px]:pl-7 max-[760px]:[&_p]:text-[length:16px] app-about-page-card [&_>_.app-about-page-missionIcon]:[color:#ff1731]"><Target className="app-about-page-missionIcon" aria-hidden="true" /><h3>Our Mission</h3><p>To provide reliable, professional, and personalized financial services and solutions that help our clients achieve stability, growth, and long-term success.</p></article>
+            <article className="rounded-[9px] pt-7.5 pr-7.5 pb-7.5 pl-7.5 bg-[#fff] shadow-[0_5px_15px_#203f5a07] [&_>_svg]:block [&_>_svg]:w-13 [&_>_svg]:h-13 [&_>_svg]:mt-0 [&_>_svg]:mr-auto [&_>_svg]:mb-4.5 [&_>_svg]:ml-auto [&_>_svg]:text-[#087cda] [&_>_svg]:[stroke-width:1.7] [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-5 [&_h3]:ml-0 [&_h3]:text-center [&_h3]:text-[length:23px] [&_h3]:leading-[1.15] [&_p]:text-[#5b6573] [&_p]:text-[length:17px] [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 max-[1050px]:pt-6.25 max-[1050px]:pr-5 max-[1050px]:pb-6.25 max-[1050px]:pl-5 max-[1050px]:[&_p]:text-[length:15px] max-[760px]:pt-7 max-[760px]:pr-7 max-[760px]:pb-7 max-[760px]:pl-7 max-[760px]:[&_p]:text-[length:16px] app-about-page-card [&_>_.app-about-page-missionIcon]:[color:#ff1731]"><Eye aria-hidden="true" /><h3>Our Vision</h3><p>To be a trusted partner recognized for excellence in financial services, professional training, and strategic consulting — creating opportunities for stronger communities and a brighter tomorrow.</p></article>
+            <article className="rounded-[9px] pt-7.5 pr-7.5 pb-7.5 pl-7.5 bg-[#fff] shadow-[0_5px_15px_#203f5a07] [&_>_svg]:block [&_>_svg]:w-13 [&_>_svg]:h-13 [&_>_svg]:mt-0 [&_>_svg]:mr-auto [&_>_svg]:mb-4.5 [&_>_svg]:ml-auto [&_>_svg]:text-[#087cda] [&_>_svg]:[stroke-width:1.7] [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-5 [&_h3]:ml-0 [&_h3]:text-center [&_h3]:text-[length:23px] [&_h3]:leading-[1.15] [&_p]:text-[#5b6573] [&_p]:text-[length:17px] [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 max-[1050px]:pt-6.25 max-[1050px]:pr-5 max-[1050px]:pb-6.25 max-[1050px]:pl-5 max-[1050px]:[&_p]:text-[length:15px] max-[760px]:pt-7 max-[760px]:pr-7 max-[760px]:pb-7 max-[760px]:pl-7 max-[760px]:[&_p]:text-[length:16px] app-about-page-card [&_>_.app-about-page-missionIcon]:[color:#ff1731]"><Diamond aria-hidden="true" /><h3>Our Values</h3><ul className="mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 list-none flex flex-col gap-y-2 gap-x-2 [&_li]:flex [&_li]:items-center [&_li]:gap-y-2.5 [&_li]:gap-x-2.5 [&_li]:text-[#5b6573] [&_li]:text-[length:17px] [&_li_>_span]:grid [&_li_>_span]:place-items-center [&_li_>_span]:shrink-0 [&_li_>_span]:w-4.5 [&_li_>_span]:h-4.5 [&_li_>_span]:rounded-[50%] [&_li_>_span]:bg-[#0774cf] [&_li_>_span]:text-[#fff] max-[1050px]:[&_li]:text-[length:15px] max-[760px]:[&_li]:text-[length:16px] max-[760px]:max-w-60 max-[760px]:mt-auto max-[760px]:mr-auto max-[760px]:mb-auto max-[760px]:ml-auto">{values.map((value) => <li key={value}><span><Check size={11} strokeWidth={3} aria-hidden="true" /></span>{value}</li>)}</ul></article>
           </div>
         </div>
       </section>
 
-      <section className={styles.stats} aria-label="RDPSC at a glance">
-        <ul className={styles.statsInner}>{statistics.map(({ icon: Icon, value, label }) => <li key={label}><Icon aria-hidden="true" /><strong>{value}</strong><span>{label}</span></li>)}</ul>
+      <section className="text-[#fff] app-about-page-stats [background-image:linear-gradient(110deg,_#001b32,_#002340,_#001c34)]" aria-label="RDPSC at a glance">
+        <ul className={`grid grid-cols-4 max-w-360 mt-auto mr-auto mb-auto ml-auto pt-9.5 pr-10 pb-9.5 pl-10 list-none [&_li]:relative [&_li]:flex [&_li]:flex-col [&_li]:items-center [&_li]:text-center [&_li]:pl-4 [&_li]:pr-4 [&_svg]:w-11.75 [&_svg]:h-11.75 [&_svg]:text-[#2dabef] [&_svg]:mb-3.5 [&_svg]:[stroke-width:1.6] [&_strong]:font-serif [&_strong]:text-[length:29px] [&_strong]:leading-[1.15] [&_span]:mt-1.5 [&_span]:text-[length:16px] [&_span]:text-[#e0eafa] max-[760px]:grid-cols-2 max-[760px]:gap-y-7.5 max-[760px]:gap-x-0 max-[760px]:pt-8 max-[760px]:pr-3.75 max-[760px]:pb-8 max-[760px]:pl-3.75 max-[760px]:[&_strong]:text-[length:26px] max-[760px]:[&_span]:text-[length:14px] app-about-page-statsInner [&_li_+_li::before]:[position:absolute] [&_li_+_li::before]:[left:0] [&_li_+_li::before]:[bottom:0] [&_li_+_li::before]:[height:70%] [&_li_+_li::before]:[width:1px] [&_li_+_li::before]:[background:#1673a4] [&_li_+_li::before]:[content:""] [@media(max-width:_760px)]:[&_li:nth-child(3)::before]:[display:none]`}>{statistics.map(({ icon: Icon, value, label }) => <li key={label}><Icon aria-hidden="true" /><strong>{value}</strong><span>{label}</span></li>)}</ul>
       </section>
 
-      <section className={`${styles.container} ${styles.leadership}`} aria-labelledby="leadership-heading">
-        <figure className={styles.leadershipPhoto}>
+      <section className="max-w-360 ml-auto mr-auto pt-12 pr-[clamp(24px,_5vw,_72px)] pb-12 pl-[clamp(24px,_5vw,_72px)] max-[760px]:pt-9 max-[760px]:pr-6 max-[760px]:pb-9 max-[760px]:pl-6 app-about-page-container  grid grid-cols-[1.05fr_1fr] gap-y-12 gap-x-12 items-center max-[1050px]:gap-y-7.5 max-[1050px]:gap-x-7.5 max-[760px]:grid-cols-1" aria-labelledby="leadership-heading">
+        <figure className="relative overflow-hidden self-stretch min-h-107.5 mt-0 mr-0 mb-0 ml-0 rounded-[8px] bg-[#103c5c] [&_img]:object-cover [&_figcaption]:absolute [&_figcaption]:top-[13%] [&_figcaption]:right-[8%] [&_figcaption]:w-[64%] [&_figcaption]:pt-6.25 [&_figcaption]:pr-6.25 [&_figcaption]:pb-6.25 [&_figcaption]:pl-6.25 [&_figcaption]:[border:1px_solid_#a8c4d6] [&_figcaption]:rounded-[7px] [&_figcaption]:bg-[#00182fa8] [&_figcaption]:text-[#fff] [&_figcaption]:font-serif [&_figcaption]:text-[length:clamp(21px,_1.8vw,_28px)] [&_figcaption]:font-bold [&_figcaption]:leading-[1.3] max-[760px]:min-h-0 max-[760px]:aspect-[4_/_3] max-[760px]:[&_figcaption]:text-[length:23px] max-[420px]:[&_figcaption]:w-[77%] max-[420px]:[&_figcaption]:right-[6%] max-[420px]:[&_figcaption]:pt-4.5 max-[420px]:[&_figcaption]:pr-4.5 max-[420px]:[&_figcaption]:pb-4.5 max-[420px]:[&_figcaption]:pl-4.5 max-[420px]:[&_figcaption]:text-[length:20px] app-about-page-leadershipPhoto [&_figcaption_.app-about-page-redLine]:[margin-bottom:0]">
           <Image src="/images/about/leadership.png" alt="Illustrative close-up of a professional writing in a notebook beside a laptop" fill sizes="(max-width: 760px) 100vw, 50vw" />
-          <figcaption>“Good financial guidance doesn’t just change numbers — it changes lives.”<span className={styles.redLine} aria-hidden="true" /></figcaption>
+          <figcaption>“Good financial guidance doesn’t just change numbers — it changes lives.”<span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" /></figcaption>
         </figure>
-        <div className={styles.prose}>
-          <h2 id="leadership-heading">A Message from<br />Our Leadership</h2><span className={styles.redLine} aria-hidden="true" />
+        <div className="app-about-page-prose [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[margin:0_0_17px] [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[color:#526072] [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[font-size:clamp(16px,_1.2vw,_19px)] [&_>_p:not(.app-about-page-eyebrow):not(.app-about-page-signature):not(.app-about-page-attribution)]:[line-height:1.55]">
+          <h2 id="leadership-heading">A Message from<br />Our Leadership</h2><span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" />
           <p>At RDPSC, our goal is not just to provide services, but to build lasting relationships based on <strong>trust, transparency, and real results.</strong></p>
           <p>We understand that every client’s journey is unique. That’s why we take the time to listen, understand your goals, and deliver solutions that make a meaningful difference.</p>
           <p>Thank you for being part of our journey. We look forward to supporting you in achieving your financial and professional aspirations.</p>
-          <p className={styles.signature}>R. D. Prestige</p>
-          <p className={styles.attribution}>Founder &amp; Principal<br />RD Prestige Services Corp.</p>
+          <p className={`mt-2.5 mr-0 mb-1 ml-0 [font-family:"Segoe_Script",_cursive] italic text-[length:33px] text-[#419cdd] app-about-page-signature `}>R. D. Prestige</p>
+          <p className="mt-0 mr-0 mb-0 ml-0 text-[length:13px] text-[#4d5d6d] leading-[1.4] app-about-page-attribution">Founder &amp; Principal<br />RD Prestige Services Corp.</p>
         </div>
       </section>
 
-      <section className={styles.softSection} aria-labelledby="why-heading">
-        <div className={styles.container}>
-          <div className={styles.whyHeader}><h2 id="why-heading">Why Choose RDPSC?</h2><p>More than services — <span>a trusted partner</span></p></div>
-          <span className={styles.redLine} aria-hidden="true" />
-          <div className={styles.benefitGrid}>{benefits.map(({ icon: Icon, title, description }) => <article className={styles.card} key={title}><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></article>)}</div>
+      <section className="app-about-page-softSection [background-image:linear-gradient(120deg,_#f1f6f9,_#edf4f9)]" aria-labelledby="why-heading">
+        <div className="max-w-360 ml-auto mr-auto pt-12 pr-[clamp(24px,_5vw,_72px)] pb-12 pl-[clamp(24px,_5vw,_72px)] max-[760px]:pt-9 max-[760px]:pr-6 max-[760px]:pb-9 max-[760px]:pl-6 app-about-page-container">
+          <div className="flex justify-between items-center gap-y-6 gap-x-6 [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#204a71] [&_p]:text-[length:11px] [&_p]:font-bold [&_p]:tracking-[.15em] [&_p]:uppercase [&_p_span]:text-[#198de0] max-[760px]:items-start max-[760px]:flex-col max-[760px]:gap-y-3 max-[760px]:gap-x-3"><h2 id="why-heading">Why Choose RDPSC?</h2><p>More than services — <span>a trusted partner</span></p></div>
+          <span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" />
+          <div className="grid grid-cols-4 gap-y-6 gap-x-6 [&_h3]:max-w-47.5 [&_h3]:ml-auto [&_h3]:mr-auto [&_h3]:text-[length:22px] [&_p]:text-[length:16px] max-[1050px]:gap-y-4 max-[1050px]:gap-x-4 max-[1050px]:[&_h3]:text-[length:20px] max-[1050px]:[&_p]:text-[length:14px] max-[760px]:grid-cols-2 max-[420px]:grid-cols-1 app-about-page-benefitGrid [&_.app-about-page-card]:[text-align:center] [&_.app-about-page-card]:[padding:26px_24px] [@media(max-width:_1050px)]:[&_.app-about-page-card]:[padding:23px_15px]">{benefits.map(({ icon: Icon, title, description }) => <article className="rounded-[9px] pt-7.5 pr-7.5 pb-7.5 pl-7.5 bg-[#fff] shadow-[0_5px_15px_#203f5a07] [&_>_svg]:block [&_>_svg]:w-13 [&_>_svg]:h-13 [&_>_svg]:mt-0 [&_>_svg]:mr-auto [&_>_svg]:mb-4.5 [&_>_svg]:ml-auto [&_>_svg]:text-[#087cda] [&_>_svg]:[stroke-width:1.7] [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-5 [&_h3]:ml-0 [&_h3]:text-center [&_h3]:text-[length:23px] [&_h3]:leading-[1.15] [&_p]:text-[#5b6573] [&_p]:text-[length:17px] [&_p]:leading-[1.55] [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 max-[1050px]:pt-6.25 max-[1050px]:pr-5 max-[1050px]:pb-6.25 max-[1050px]:pl-5 max-[1050px]:[&_p]:text-[length:15px] max-[760px]:pt-7 max-[760px]:pr-7 max-[760px]:pb-7 max-[760px]:pl-7 max-[760px]:[&_p]:text-[length:16px] app-about-page-card [&_>_.app-about-page-missionIcon]:[color:#ff1731]" key={title}><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></article>)}</div>
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="about-cta-heading">
-        <Image src="/images/about/cta.png" alt="" fill sizes="100vw" className={styles.ctaImage} />
-        <div className={styles.container}>
-          <p className={styles.eyebrow}>Let’s Work Together</p>
+      <section className={`[&_h2_span]:text-[#279ee8] relative isolate bg-[#001d37] text-[#fff] overflow-hidden [&_h2]:text-[length:clamp(32px,_3vw,_47px)] app-about-page-cta [&::after]:[position:absolute] [&::after]:[z-index:-1] [&::after]:[inset:0] [&::after]:[background-image:linear-gradient(90deg,_#001a30fa_0%,_#001a3090_42%,_transparent_70%,_#001c35ad)] [&::after]:[content:""] [&_.app-about-page-container]:[position:relative] [&_.app-about-page-container]:[padding-block:40px] [&_.app-about-page-eyebrow]:[color:#d5e1f2] [&_.app-about-page-container_>_p:not(.app-about-page-eyebrow):not(.app-about-page-ctaSignature)]:[font-size:16px] [&_.app-about-page-container_>_p:not(.app-about-page-eyebrow):not(.app-about-page-ctaSignature)]:[margin:15px_0_23px] [@media(max-width:_760px)]:[&_.app-about-page-container_>_p:not(.app-about-page-eyebrow)]:[max-width:400px]`} aria-labelledby="about-cta-heading">
+        <Image src="/images/about/cta.png" alt="" fill sizes="100vw" className="z-[-2] object-cover object-center opacity-[.65]" />
+        <div className="max-w-360 ml-auto mr-auto pt-12 pr-[clamp(24px,_5vw,_72px)] pb-12 pl-[clamp(24px,_5vw,_72px)] max-[760px]:pt-9 max-[760px]:pr-6 max-[760px]:pb-9 max-[760px]:pl-6 app-about-page-container">
+          <p className="mt-0 mr-0 mb-3.5 ml-0 text-[length:12px] leading-[1.5] font-semibold tracking-[.19em] uppercase app-about-page-eyebrow">Let’s Work Together</p>
           <h2 id="about-cta-heading">Build a Stronger<br /><span>Financial Future</span></h2>
           <p>Have questions or ready to get started? We’re here to help.</p>
-          <div className={styles.ctaActions}><Link href="/#contact" className={styles.redButton}>Get in Touch <ArrowRight size={18} aria-hidden="true" /></Link><Link href="/#departments" className={styles.outlineButton}>Our Services</Link></div>
-          <p className={styles.ctaSignature}>People<br />Process<br />Possibilities<span className={styles.redLine} aria-hidden="true" /></p>
+          <div className="flex gap-y-5 gap-x-5 max-[420px]:gap-y-3 max-[420px]:gap-x-3 max-[420px]:flex-wrap"><Link href="/#contact" className="inline-flex items-center justify-center gap-y-3 gap-x-3 min-h-12 pt-3.25 pr-6.75 pb-3.25 pl-6.75 [border:1px_solid_transparent] rounded-[5px] text-[#fff] text-[length:15px] leading-[1.3] [transition:background_160ms_ease] bg-[#f20c28] hover:bg-[#ce0520] max-[420px]:pl-5 max-[420px]:pr-5 motion-reduce:[transition:none]">Get in Touch <ArrowRight size={18} aria-hidden="true" /></Link><Link href="/#departments" className="inline-flex items-center justify-center gap-y-3 gap-x-3 min-h-12 pt-3.25 pr-6.75 pb-3.25 pl-6.75 [border:1px_solid_transparent] rounded-[5px] text-[#fff] text-[length:15px] leading-[1.3] [transition:background_160ms_ease] border-[#75899e] bg-[#00223b50] hover:bg-[#123952] max-[420px]:pl-5 max-[420px]:pr-5 motion-reduce:[transition:none]">Our Services</Link></div>
+          <p className={`absolute right-[5%] top-[23%] mt-0 mr-0 mb-0 ml-0 [font-family:"Segoe_Script",_cursive] italic text-[length:29px] leading-[1.5] [transform:rotate(-12deg)] max-[760px]:hidden app-about-page-ctaSignature [&_.app-about-page-redLine]:[margin:10px_0_0]`}>People<br />Process<br />Possibilities<span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[#ff233b] app-about-page-redLine" aria-hidden="true" /></p>
         </div>
       </section>
     </main>

@@ -2,7 +2,7 @@ import { ChartNoAxesColumnIncreasing, FileText, GraduationCap, Shield, Target, T
 
 export default function ServicesGraphic() {
   return (
-    <svg viewBox="0 0 800 640" role="img" aria-labelledby="services-graphic-title services-graphic-description" style={{ width: "100%", height: "auto", overflow: "visible" }}>
+    <svg viewBox="0 0 800 640" role="img" aria-labelledby="services-graphic-title services-graphic-description" className="h-auto w-full overflow-visible">
       <title id="services-graphic-title">Five departments. One trusted partner.</title>
       <desc id="services-graphic-description">Accounting and Corporate Tax: accurate, compliant, strategic. Personal Income Tax: simple, reliable, maximized. Professional Training: build skills, create opportunities. Insurance and Segregated Funds: protect, grow, secure tomorrow. Consultancy and Project Management: plan, execute, achieve. Over 40 years of combined professional experience. Customized fractional financial services designed around your business and your budget.</desc>
       <defs>

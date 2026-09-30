@@ -5,13 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CalendarDays, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import styles from "./navbar.module.css";
 
 const navigation = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Professional Training", href: "/professional-training" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
@@ -54,18 +52,18 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className={styles.header}
+      className="sticky top-0 z-[50] shrink-0 [border-bottom:1px_solid_#edf0f6] bg-[#fff] text-[#17233b] font-sans shadow-[0_4px_24px_rgb(22_40_78_/_4%)] [&_a:focus-visible]:[outline:3px_solid_#6997ff] [&_a:focus-visible]:outline-offset-[5px]"
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
       }}
     >
-      <div className={styles.inner}>
-        <Link href="/" className={styles.logo} aria-label="RD Prestige Services Corp. — Home" onClick={() => setOpen(false)}>
+      <div className="flex items-center justify-between gap-y-6 gap-x-6 max-w-384 min-h-24 ml-auto mr-auto pt-2.5 pr-6 pb-2.5 pl-6 max-[1200px]:flex-wrap max-[1200px]:gap-y-0 max-[1200px]:gap-x-0 max-[480px]:min-h-19.5 max-[480px]:pt-2.5 max-[480px]:pr-4 max-[480px]:pb-2.5 max-[480px]:pl-4">
+        <Link href="/" className="flex shrink-0 items-end w-82.5 gap-y-0.5 gap-x-0.5 rounded-[6px] max-[480px]:w-[min(245px,_calc(100%_-_60px))]" aria-label="RD Prestige Services Corp. — Home" onClick={() => setOpen(false)}>
           {/* Display the two parts of the supplied stacked artwork as a horizontal lockup. */}
-          <span className={styles.logoMark} aria-hidden="true">
+          <span className="relative block overflow-hidden shrink-0 w-[25%] aspect-[1.04] [&_img]:absolute [&_img]:top-0 [&_img]:left-[-51%] [&_img]:w-[204%] [&_img]:max-w-none [&_img]:h-auto" aria-hidden="true">
             <Image src="/logo/rdcsp_logo.png" alt="" width={2000} height={1302} sizes="180px" preload />
           </span>
-          <span className={styles.logoWordmark} aria-hidden="true">
+          <span className="relative block overflow-hidden shrink-0 w-[calc(75%_-_2px)] aspect-[5.55] mb-0.75 [&_img]:absolute [&_img]:bottom-0 [&_img]:w-full [&_img]:h-auto" aria-hidden="true">
             <Image src="/logo/rdcsp_logo.png" alt="" width={2000} height={1302} sizes="280px" loading="eager" />
           </span>
         </Link>
@@ -73,7 +71,7 @@ export default function Navbar() {
         <button
           ref={toggleRef}
           type="button"
-          className={styles.toggle}
+          className="hidden items-center justify-center w-11 h-11 shrink-0 [border:1px_solid_#e2e8f3] rounded-[10px] bg-[#f6f8fd] text-[#064ce5] cursor-pointer focus-visible:[outline:3px_solid_#6997ff] focus-visible:outline-offset-[5px] max-[1200px]:inline-flex"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="primary-navigation"
@@ -82,20 +80,20 @@ export default function Navbar() {
           {open ? <X size={23} aria-hidden="true" /> : <Menu size={23} aria-hidden="true" />}
         </button>
 
-        <nav id="primary-navigation" aria-label="Main navigation" className={`${styles.navigation} ${open ? styles.open : ""}`}>
-          <ul className={styles.links}>
+        <nav id="primary-navigation" aria-label="Main navigation" className={`flex items-center flex-1 justify-end gap-y-[clamp(24px,_3vw,_56px)] gap-x-[clamp(24px,_3vw,_56px)] max-[1200px]:hidden components-navbar-navbar-navigation [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[display:flex] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[flex:0_0_100%] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[flex-direction:column] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[align-items:stretch] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[gap:18px] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[max-height:calc(100dvh_-_100px)] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[overflow-y:auto] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[margin-top:12px] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[padding:14px_0_12px] [@media(max-width:_1199px)]:[&.components-navbar-navbar-open]:[border-top:1px_solid_#edf0f6] ${open ? `components-navbar-navbar-open ` : ""}`}>
+          <ul className="flex items-center gap-y-[clamp(18px,_1.8vw,_30px)] gap-x-[clamp(18px,_1.8vw,_30px)] mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 list-none max-[1200px]:flex-col max-[1200px]:items-stretch max-[1200px]:gap-y-1 max-[1200px]:gap-x-1">
             {navigation.map(({ label, href }) => {
               const active = pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
               return (
                 <li key={href}>
-                  <Link href={href} className={`${styles.link} ${active ? styles.active : ""}`} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>
+                  <Link href={href} className={`relative flex items-center min-h-12 text-[#26334b] text-[length:13px] font-medium whitespace-nowrap [transition:color_160ms_ease] hover:text-[#064ce5] max-[1200px]:pt-0 max-[1200px]:pr-3.5 max-[1200px]:pb-0 max-[1200px]:pl-3.5 max-[1200px]:rounded-[8px] max-[1200px]:text-[length:14px] max-[1200px]:hover:bg-[#eef4ff] components-navbar-navbar-link [&::after]:[position:absolute] [&::after]:[right:0] [&::after]:[bottom:5px] [&::after]:[left:0] [&::after]:[height:3px] [&::after]:[border-radius:3px] [&::after]:[background:#064ce5] [&::after]:[content:""] [&::after]:[transform:scaleX(0)] [&::after]:[transition:transform_160ms_ease] [&:hover::after]:[transform:scaleX(1)] [@media(max-width:_1199px)]:[&::after]:[display:none] [@media(prefers-reduced-motion:_reduce)]:[transition:none] [@media(prefers-reduced-motion:_reduce)]:[&::after]:[transition:none] ${active ? `text-[#064ce5]! font-bold! max-[1200px]:bg-[#eef4ff] components-navbar-navbar-active [&::after]:[transform:scaleX(1)]` : ""}`} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>
                     {label}
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <Link href="/contact" className={styles.consultation} onClick={() => setOpen(false)}>
+          <Link href="/consultation" className="inline-flex items-center justify-center shrink-0 gap-y-3 gap-x-3 min-h-12.5 pt-3 pr-5.5 pb-3 pl-5.5 [border:1px_solid_#2365f0] rounded-[9px] bg-[#064ce5] text-[#fff] text-[length:14px] font-semibold whitespace-nowrap shadow-[0_5px_14px_rgb(6_76_229_/_16%)] [transition:background_160ms_ease,_box-shadow_160ms_ease] hover:bg-[#003bc0] hover:shadow-[0_7px_18px_rgb(6_76_229_/_24%)] max-[1200px]:self-start max-[480px]:self-stretch components-navbar-navbar-consultation [@media(prefers-reduced-motion:_reduce)]:[transition:none]" aria-current={pathname === "/consultation" ? "page" : undefined} onClick={() => setOpen(false)}>
             <CalendarDays size={20} strokeWidth={1.8} aria-hidden="true" />
             Request a Consultation
           </Link>

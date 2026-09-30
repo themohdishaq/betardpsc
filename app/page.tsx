@@ -5,7 +5,6 @@ import AboutDepartments from "@/components/home/about-departments";
 import FinancialFuture from "@/components/home/financial-future";
 import ContactSection from "@/components/home/contact-section";
 import Partnerships from "@/components/home/partnerships";
-import styles from "./page.module.css";
 
 const featuredServices = [
   { icon: ChartNoAxesColumnIncreasing, title: "Accounting & Corporate Tax", description: "Keep your business on solid ground." },
@@ -16,9 +15,9 @@ const featuredServices = [
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <section className={styles.hero} aria-labelledby="hero-heading">
-        <div className={styles.skyline} aria-hidden="true">
+    <main className="flex-1 font-body text-[#061633]">
+      <section className="relative isolate overflow-hidden [border-bottom:1px_solid_#e2eaf5] app-page-hero [background-image:radial-gradient(ellipse_at_98%_9%,_#e4f1ff_0,_transparent_44%),_linear-gradient(110deg,_#fff_20%,_#fbfdff_58%,_#f0f7ff_100%)]" aria-labelledby="hero-heading">
+        <div className="absolute z-[-1] right-0 bottom-4 w-[61%] h-[72%] opacity-[.47] [&_svg]:w-full [&_svg]:h-full max-[1000px]:w-full max-[1000px]:h-[48%] app-page-skyline [mask-image:linear-gradient(to_right,_transparent,_#000_25%)]" aria-hidden="true">
           <svg viewBox="0 0 1100 420" preserveAspectRatio="xMidYMax slice">
             <defs>
               <linearGradient id="skyline-fade" x1="0" y1="0" x2="0" y2="1">
@@ -40,38 +39,38 @@ export default function Home() {
             </g>
           </svg>
         </div>
-        <div className={styles.heroInner}>
-          <div className={styles.copy}>
-            <p className={styles.eyebrow}>Financial &amp; professional services you can rely on</p>
-            <h1 id="hero-heading" className={styles.heading}>
-              Your Trusted Partner<br className={styles.desktopBreak} /> for <span>Financial &amp;<br className={styles.desktopBreak} /> Professional Services</span>
+        <div className="relative z-[2] grid grid-cols-[1fr_1.04fr] items-center gap-y-3 gap-x-3 max-w-420 ml-auto mr-auto pt-8 pr-12 pb-8.5 pl-12 min-[1680px]:pt-9.5 min-[1680px]:pb-9.5 max-[1250px]:pt-8 max-[1250px]:pr-7 max-[1250px]:pb-8 max-[1250px]:pl-7 max-[1000px]:grid-cols-1 max-[1000px]:max-w-205 max-[1000px]:pt-10.5 max-[1000px]:pr-7 max-[1000px]:pb-7 max-[1000px]:pl-7 max-[1000px]:gap-y-6.25 max-[1000px]:gap-x-6.25 max-[540px]:pt-7.5 max-[540px]:pr-5 max-[540px]:pb-5 max-[540px]:pl-5 max-[540px]:gap-y-7 max-[540px]:gap-x-7">
+          <div className="pt-7.25 max-[1000px]:pt-0">
+            <p className="mt-0 mr-0 mb-5 ml-0 text-[#4e648b] text-[length:clamp(10px,_.87vw,_14px)] font-semibold leading-[1.6] tracking-[.27em] uppercase max-[1000px]:text-[length:11px] max-[540px]:max-w-80 max-[540px]:text-[length:10px] max-[540px]:tracking-[.19em] max-[540px]:mb-3.75">Financial &amp; professional services you can rely on</p>
+            <h1 id="hero-heading" className="mt-0 mr-0 mb-0 ml-0 text-[length:clamp(38px,_4.42vw,_74px)] leading-[1.06] font-extrabold tracking-[-.048em] text-[#020b20] [&_span]:text-[#0036bd] [&_span]:[background-clip:text] [&_span]:[-webkit-text-fill-color:transparent] max-[1000px]:text-[length:clamp(42px,_7.2vw,_65px)] max-[540px]:text-[length:clamp(35px,_8.9vw,_48px)] max-[540px]:leading-[1.08] app-page-heading [&_span]:[background-image:linear-gradient(115deg,_#00319e,_#0039cf_65%,_#002da5)]">
+              Your Trusted Partner<br className="max-[540px]:hidden" /> for <span>Financial &amp;<br className="max-[540px]:hidden" /> Professional Services</span>
             </h1>
-            <p className={styles.description}>
+            <p className="max-w-177.5 mt-5 mr-0 mb-7 ml-0 text-[#5c7296] text-[length:clamp(17px,_1.34vw,_23px)] leading-[1.47] max-[1000px]:text-[length:19px] max-[540px]:text-[length:16px] max-[540px]:leading-[1.65] max-[540px]:mt-4.5 max-[540px]:mb-5.75">
               RD Prestige Services Corp. provides customized fractional financial services for businesses, nonprofits, and growing enterprises. Our experienced professionals deliver practical, scalable, and affordable solutions tailored to your needs and budget.
             </p>
-            <div className={styles.actions}>
-              <Link href="/services" className={styles.primaryButton}>Explore Our Services <ArrowRight size={24} aria-hidden="true" /></Link>
-              <Link href="/contact" className={styles.secondaryButton}><CalendarDays size={26} aria-hidden="true" /> Request a Consultation</Link>
+            <div className="flex flex-wrap gap-y-5 gap-x-7.5 [&_a:focus-visible]:[outline:3px_solid_#3774f7] [&_a:focus-visible]:outline-offset-[5px] [&_svg]:shrink-0 max-[1250px]:gap-y-3 max-[1250px]:gap-x-3 max-[540px]:flex-col max-[540px]:gap-y-3 max-[540px]:gap-x-3">
+              <Link href="/services" className="inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-[length:clamp(15px,_1.2vw,_20px)] font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-[white] border-[#ee0710] shadow-[0_6px_16px_#d5081010] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:text-[length:16px] max-[540px]:w-full motion-reduce:[transition:none] app-page-primaryButton [background-image:linear-gradient(#ff2028,_#df0009)]">Explore Our Services <ArrowRight size={24} aria-hidden="true" /></Link>
+              <Link href="/consultation" className="inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-[length:clamp(15px,_1.2vw,_20px)] font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-[#0036d2] border-[#003eff] bg-[#ffffffa6] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:text-[length:16px] max-[540px]:w-full motion-reduce:[transition:none]"><CalendarDays size={26} aria-hidden="true" /> Request a Consultation</Link>
             </div>
-            <ul className={styles.badges} aria-label="Our specialties">
+            <ul className="flex flex-wrap gap-y-3 gap-x-3 pt-0 pr-0 pb-0 pl-0 mt-7.25 mr-0 mb-0 ml-0 list-none [&_li]:flex [&_li]:items-center [&_li]:gap-y-3 [&_li]:gap-x-3 [&_li]:pt-3 [&_li]:pr-3.75 [&_li]:pb-3 [&_li]:pl-3.75 [&_li]:[border:1px_solid_#d9e7ff] [&_li]:rounded-[999px] [&_li]:text-[#0b316e] [&_li]:text-[length:clamp(12px,_.97vw,_16px)] [&_li]:whitespace-nowrap max-[1250px]:gap-y-2 max-[1250px]:gap-x-2 max-[1250px]:[&_li]:pt-2.5 max-[1250px]:[&_li]:pr-3 max-[1250px]:[&_li]:pb-2.5 max-[1250px]:[&_li]:pl-3 max-[1250px]:[&_li]:gap-y-2 max-[1250px]:[&_li]:gap-x-2 max-[1000px]:[&_li]:text-[length:13px] max-[540px]:mt-5.25 max-[540px]:[&_li]:text-[length:11px] max-[540px]:[&_li]:pt-2 max-[540px]:[&_li]:pr-2.5 max-[540px]:[&_li]:pb-2 max-[540px]:[&_li]:pl-2.5 max-[540px]:[&_li]:gap-y-1.75 max-[540px]:[&_li]:gap-x-1.75 app-page-badges [&_li]:[background-image:linear-gradient(120deg,_#f8fbff,_#eef5ff)]" aria-label="Our specialties">
               {["Accounting & Corporate Tax", "Personal Income Tax", "Professional Training"].map((service) => (
-                <li key={service}><span className={styles.check}><Check size={13} strokeWidth={3} aria-hidden="true" /></span>{service}</li>
+                <li key={service}><span className="grid place-items-center w-5 h-5 shrink-0 rounded-[50%] bg-[#003dc9] text-[white] shadow-[0_0_0_2px_white] max-[540px]:w-4 max-[540px]:h-4 max-[540px]:[&_svg]:w-2.75"><Check size={13} strokeWidth={3} aria-hidden="true" /></span>{service}</li>
               ))}
             </ul>
           </div>
-          <div className={styles.visual}><ServicesGraphic /></div>
+          <div className="min-w-0 [&_>_svg]:block max-[1000px]:w-full max-[1000px]:max-w-190 max-[1000px]:ml-auto max-[1000px]:mr-auto max-[540px]:w-[calc(100%_+_12px)] max-[540px]:ml-[-6px]"><ServicesGraphic /></div>
         </div>
-        <svg className={styles.wave} viewBox="0 0 1600 100" preserveAspectRatio="none" aria-hidden="true">
+        <svg className="absolute z-[1] bottom-0 w-full h-22.5 pointer-events-none" viewBox="0 0 1600 100" preserveAspectRatio="none" aria-hidden="true">
           <path d="M700 100C1020 5 1310 115 1600 20V100Z" fill="#e0edfc" />
           <path d="M750 100C1060 20 1350 125 1600 38V100Z" fill="#fff" fillOpacity=".9" />
           <path d="M920 100C1180 55 1410 114 1600 60V100Z" fill="#f0f6ff" />
         </svg>
       </section>
-      <section className={styles.services} aria-label="Services at a glance">
-        <div className={styles.servicesInner}>
+      <section className="bg-[#fff] shadow-[0_-2px_8px_#305c9a04]" aria-label="Services at a glance">
+        <div className="grid grid-cols-4 max-w-420 mt-auto mr-auto mb-auto ml-auto pt-7.25 pr-12 pb-8.25 pl-12 max-[1250px]:pl-7 max-[1250px]:pr-7 max-[1000px]:grid-cols-2 max-[1000px]:gap-y-7 max-[1000px]:gap-x-0 max-[540px]:pt-6 max-[540px]:pr-5 max-[540px]:pb-6 max-[540px]:pl-5 max-[540px]:gap-y-5.75 max-[540px]:gap-x-0">
           {featuredServices.map(({ icon: Icon, title, description }) => (
-            <div className={styles.service} key={title}>
-              <Icon className={styles.serviceIcon} size={44} strokeWidth={2.6} aria-hidden="true" />
+            <div className="flex items-center gap-y-6 gap-x-6 pt-0 pr-6.5 pb-0 pl-6.5 [border-right:1px_solid_#d7e0ef] [&:first-child]:pl-3 [&:last-child]:[border-right:0] [&:last-child]:pr-0 [&_h2]:mt-0 [&_h2]:mr-0 [&_h2]:mb-1.25 [&_h2]:ml-0 [&_h2]:text-[#031e56] [&_h2]:text-[length:clamp(14px,_1.08vw,_18px)] [&_h2]:leading-[1.25] [&_h2]:font-bold [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#465f89] [&_p]:text-[length:clamp(12px,_.92vw,_15px)] [&_p]:leading-[1.5] max-[1250px]:pl-4.5 max-[1250px]:pr-4.5 max-[1250px]:gap-y-3.5 max-[1250px]:gap-x-3.5 max-[1000px]:[&:nth-child(2)]:[border-right:0] max-[1000px]:[&:nth-child(3)]:pl-3 max-[540px]:items-start max-[540px]:flex-col max-[540px]:gap-y-2.5 max-[540px]:gap-x-2.5 max-[540px]:pl-4 max-[540px]:pr-4 max-[540px]:[&:first-child]:pl-0 max-[540px]:[&:nth-child(3)]:pl-0 max-[540px]:[&_h2]:text-[length:14px] max-[540px]:[&_p]:text-[length:12px]" key={title}>
+              <Icon className="shrink-0 text-[#003dc3] max-[1250px]:w-8.75 max-[540px]:w-7.5 max-[540px]:h-7.5" size={44} strokeWidth={2.6} aria-hidden="true" />
               <div><h2>{title}</h2><p>{description}</p></div>
             </div>
           ))}
