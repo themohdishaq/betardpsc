@@ -10,7 +10,7 @@ const quickLinks = [
   ["Our Partners", "/partnerships"], ["Who We Serve", "/who-we-serve"],
   ["Resources", "/resources"], ["Blog & Updates", "/blog"], ["Contact Us", "/contact"],
 ];
-const services = serviceOfferings.map((service) => [service.title, `/services#${service.id}`]);
+const services = serviceOfferings.map((service) => [service.title, `/services/${service.id}`]);
 const resources = [["Tax Tips", "/resources/tax-tips"], ["Financial Guides", "/resources/financial-guides"], ["Helpful Links", "/resources/helpful-links"], ["FAQs", "/resources/faqs"]];
 const policies = [["Privacy Policy", "/privacy-policy"], ["Terms of Service", "/terms-of-service"], ["Cookies Policy", "/cookies-policy"], ["Sitemap", "/sitemap.xml"]];
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=RD+Prestige+Services+Corp+Canada";
