@@ -1,7 +1,9 @@
+import { company } from "@/lib/company";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, PhoneCall } from "lucide-react";
 import ContactForm from "@/components/contact/contact-form";
+import ContactLinks from "@/components/contact/contact-links";
 
 export default function ContactPage() {
   return (
@@ -24,13 +26,18 @@ export default function ContactPage() {
             <h2>Our Office</h2><span className="block w-12 h-0.75 mt-5.75 mr-0 mb-5.75 ml-0 bg-[#ff1837] app-contact-page-redLine" aria-hidden="true" />
             <address className="flex flex-col gap-y-7 gap-x-7 pt-7 pr-7 pb-7 pl-7 rounded-[9px] bg-[#fff] shadow-[0_6px_20px_#21497607] not-italic [&_>_div]:flex [&_>_div]:items-start [&_>_div]:gap-y-5.5 [&_>_div]:gap-x-5.5 [&_svg]:shrink-0 [&_svg]:w-7.5 [&_svg]:h-7.5 [&_svg]:text-[#0071e8] [&_svg]:[stroke-width:2.1] [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-body [&_strong]:font-semibold [&_a]:font-semibold [&_a]:[overflow-wrap:anywhere] [&_p_>_span]:block [&_p_>_span]:mt-1.5 [&_p_>_span]:text-[#5b6b86] [&_p_>_span]:text-body max-[1050px]:pt-5.75 max-[1050px]:pr-5.75 max-[1050px]:pb-5.75 max-[1050px]:pl-5.75 max-[1050px]:[&_>_div]:gap-y-4 max-[1050px]:[&_>_div]:gap-x-4 max-[540px]:pt-5.75 max-[540px]:pr-5 max-[540px]:pb-5.75 max-[540px]:pl-5">
               <div><MapPin aria-hidden="true" /><p><strong>Canada (Head Office)</strong><span>Serving clients across Canada<br />and internationally</span></p></div>
-              <div><PhoneCall aria-hidden="true" /><p><a href="tel:+14372148299">+1 (437) 214-8299</a><span>Mon – Fri: 9:00 AM – 6:00 PM EST</span></p></div>
-              <div><Mail aria-hidden="true" /><p><a href="mailto:info@rdpsc.ca">info@rdpsc.ca</a></p></div>
+              <div><PhoneCall aria-hidden="true" /><p>{company.phones.map(({ href, label }) => <a key={href} href={href} className="block w-fit min-h-11 content-center hover:underline focus-visible:outline-2 focus-visible:outline-offset-4">{label}</a>)}<span>Mon – Fri: 9:00 AM – 6:00 PM EST</span></p></div>
+              <div><Mail aria-hidden="true" /><p><a href={company.emailHref}>{company.email}</a></p></div>
             </address>
             <div className="overflow-hidden [border:1px_solid_#e3edf5] rounded-[9px] mt-6.25 bg-[#eaf1f5] shadow-[0_4px_15px_#21497606] [&_iframe]:block [&_iframe]:w-full [&_iframe]:h-52.5 [&_iframe]:[border:0] max-[800px]:[&_iframe]:h-65 max-[540px]:[&_iframe]:h-55">
-              <iframe title="Google map of Ontario, Canada — regional location" src="https://maps.google.com/maps?q=Ontario%2C%20Canada&z=5&output=embed" width="600" height="300" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
-              <a href="https://www.google.com/maps/search/?api=1&query=Ontario%2C+Canada" target="_blank" rel="noopener noreferrer" className="flex items-center gap-y-2.25 gap-x-2.25 pt-3 pr-3.5 pb-3 pl-3.5 bg-[#fff] text-[#135594] text-small [&_svg]:shrink-0 [&_svg:last-child]:ml-auto"><MapPin size={18} aria-hidden="true" /><span>Ontario, Canada · Open Google Maps</span><ArrowUpRight size={17} aria-hidden="true" /></a>
+              <div className="flex min-h-48 flex-col items-start justify-center gap-3 bg-gradient-to-br from-[#eaf2fb] to-[#f6f9fe] p-6 text-[#112744]">
+                <MapPin size={32} className="text-[#2E357E]" aria-hidden="true" />
+                <h3 className="text-card-heading">Find RD Prestidge Services Corp.</h3>
+                <p className="text-body text-[#52617f]">View our company location and get directions on Google Maps.</p>
+              </div>
+              <a href={company.maps} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center gap-2 rounded-b-lg bg-[#fff] px-4 py-3 text-small font-semibold text-[#135594] hover:bg-[#f5f9ff] focus-visible:outline-2 focus-visible:outline-offset-4"><MapPin size={18} aria-hidden="true" /><span>Open company location in Google Maps</span><ArrowUpRight size={17} className="ml-auto shrink-0" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>
             </div>
+            <ContactLinks />
           </div>
           <div className="flex flex-col">
             <h2 id="message-heading">Send Us a Message</h2><span className="block w-12 h-0.75 mt-5.75 mr-0 mb-5.75 ml-0 bg-[#ff1837] app-contact-page-redLine" aria-hidden="true" />

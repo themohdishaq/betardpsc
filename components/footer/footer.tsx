@@ -1,5 +1,7 @@
+import { company } from "@/lib/company";
 import Image from "next/image";
 import Link from "next/link";
+import ContactLinks from "@/components/contact/contact-links";
 import { ChartNoAxesCombined, Mail, MapPin, PhoneCall, ShieldCheck, UsersRound } from "lucide-react";
 
 
@@ -8,7 +10,7 @@ const quickLinks = [
   ["Our Partners", "/partnerships"], ["Who We Serve", "/who-we-serve"],
   ["Resources", "/resources"], ["Blog & Updates", "/blog"], ["Contact Us", "/contact"],
 ];
-const policies = [["Privacy Policy", "/privacy-policy"], ["Terms of Service", "/terms-of-service"], ["Cookies Policy", "/cookies-policy"], ["Sitemap", "/sitemap.xml"]];
+const policies = [["Privacy Policy", "/privacy-policy"], ["Terms of Use", "/terms-of-service"], ["Cookies Policy", "/cookies-policy"], ["Sitemap", "/sitemap.xml"]];
 
 function FooterLinks({ links }: { links: string[][] }) {
   return <ul className="list-none mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 flex flex-col gap-y-3.75 gap-x-3.75 [&_a]:text-body max-[540px]:gap-y-3.25 max-[540px]:gap-x-3.25 max-[540px]:[&_a]:inline-block max-[540px]:[&_a]:pt-0.75 max-[540px]:[&_a]:pb-0.75">{links.map(([label, href]) => <li key={label}><Link href={href}>{label}</Link></li>)}</ul>;
@@ -34,13 +36,14 @@ export default function Footer() {
 
           <nav aria-labelledby="footer-quick-links"><h2 id="footer-quick-links" className={`mt-0 mr-0 mb-6 ml-0 text-[#fff] font-heading text-card-heading max-[540px]:mb-5.5 components-footer-footer-title [&::after]:[display:block] [&::after]:[width:40px] [&::after]:[height:3px] [&::after]:[margin-top:12px] [&::after]:[background:#2b9dea] [&::after]:[content:""]`}>Quick Links</h2><FooterLinks links={quickLinks} /></nav>
 
-          <div className="max-[1000px]:col-span-2">
+          <div className="max-[1000px]:col-span-2 max-[540px]:col-span-1">
             <h2 className={`mt-0 mr-0 mb-6 ml-0 text-[#fff] font-heading text-card-heading max-[540px]:mb-5.5 components-footer-footer-title [&::after]:[display:block] [&::after]:[width:40px] [&::after]:[height:3px] [&::after]:[margin-top:12px] [&::after]:[background:#2b9dea] [&::after]:[content:""]`}>Contact Information</h2>
             <address className="flex flex-col gap-y-6 gap-x-6 not-italic [&_>_div]:flex [&_>_div]:items-start [&_>_div]:gap-y-4.75 [&_>_div]:gap-x-4.75 [&_svg]:w-7 [&_svg]:h-7 [&_svg]:shrink-0 [&_svg]:text-[#2da4f2] [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-body [&_strong]:font-medium [&_strong]:text-[#fff] [&_p_>_span]:block [&_p_>_span]:text-body [&_p_>_span]:mt-0.75 [&_a]:[overflow-wrap:anywhere]">
               <div><MapPin aria-hidden="true" /><p><strong>Canada (Head Office)</strong></p></div>
-              <div><PhoneCall aria-hidden="true" /><p><a href="tel:+14372148299">+1 (437) 214-8299</a><span>Mon – Fri: 9:00 AM – 6:00 PM EST</span></p></div>
-              <div><Mail aria-hidden="true" /><p><a href="mailto:info@rdpsc.ca">info@rdpsc.ca</a></p></div>
+              <div><PhoneCall aria-hidden="true" /><p>{company.phones.map(({ href, label }) => <a key={href} href={href} className="block w-fit min-h-11 content-center hover:underline focus-visible:outline-2 focus-visible:outline-offset-4">{label}</a>)}<span>Mon – Fri: 9:00 AM – 6:00 PM EST</span></p></div>
+              <div><Mail aria-hidden="true" /><p><a href={company.emailHref}>{company.email}</a></p></div>
             </address>
+            <ContactLinks />
           </div>
 
           

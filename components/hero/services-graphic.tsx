@@ -1,10 +1,33 @@
+"use client";
+
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef, type ReactNode } from "react";
 import { ChartNoAxesColumnIncreasing, FileText, GraduationCap, Shield, Target, Trophy, UsersRound } from "lucide-react";
 
-export default function ServicesGraphic() {
+function FloatingBadge({ children, active, delay = 0 }: { children: ReactNode; active: boolean; delay?: number }) {
   return (
-    <svg viewBox="0 0 800 640" role="img" aria-labelledby="services-graphic-title services-graphic-description" className="h-auto w-full overflow-visible">
+    <motion.g
+      data-floating-badge=""
+      initial={false}
+      animate={active ? { y: [0, -4, 0] } : { y: 0 }}
+      transition={{ duration: active ? 5.5 : 0, repeat: active ? Infinity : 0, ease: "easeInOut", delay: active ? delay : 0 }}
+      whileHover={active ? { scale: 1.025, transition: { type: "spring", stiffness: 230, damping: 20 } } : undefined}
+      style={{ transformBox: "fill-box", transformOrigin: "center" }}
+    >
+      {children}
+    </motion.g>
+  );
+}
+
+export default function ServicesGraphic() {
+  const ref = useRef<SVGSVGElement>(null);
+  const inView = useInView(ref, { amount: 0.1 });
+  const reduceMotion = useReducedMotion();
+  const floating = inView && reduceMotion === false;
+  return (
+    <svg ref={ref} viewBox="0 0 800 640" role="img" aria-labelledby="services-graphic-title services-graphic-description" className="h-auto w-full overflow-visible">
       <title id="services-graphic-title">Specialized services. One trusted partner.</title>
-      <desc id="services-graphic-description">Featured services: accounting and corporate tax, personal income tax, professional education and mentorship, risk management and insurance, and IT consulting and project management. RDPSC also offers payroll and treasury management and cash flow advisory. Over 120 satisfied returning tax clients. Flexible, scalable support tailored to your budget.</desc>
+      <desc id="services-graphic-description">Featured services: accounting and corporate tax, personal income tax, professional education and mentorship, risk management and insurance, and IT consulting and project management. RDPSC also offers payroll and treasury management and cash flow advisory. Hundreds of returning clients. Hundreds of satisfied customers served. Flexible, scalable support tailored to your budget.</desc>
       <defs>
         <linearGradient id="department-blue" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#0860ed" /><stop offset="1" stopColor="#0025a1" /></linearGradient>
         <linearGradient id="department-cyan" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#2aaeea" /><stop offset="1" stopColor="#0075c8" /></linearGradient>
@@ -15,11 +38,16 @@ export default function ServicesGraphic() {
         <filter id="card-shadow" x="-30%" y="-40%" width="170%" height="200%"><feDropShadow dx="0" dy="10" stdDeviation="15" floodColor="#446c9e" floodOpacity=".12" /></filter>
       </defs>
       <g aria-hidden="true" fontFamily="var(--font-body)">
-        <g filter="url(#card-shadow)"><rect x="3" y="15" width="248" height="102" rx="14" fill="white" /><rect x="552" y="6" width="237" height="117" rx="14" fill="white" /></g>
+        <FloatingBadge active={floating}>
+        <g filter="url(#card-shadow)"><rect x="3" y="15" width="248" height="102" rx="14" fill="white" /></g>
         <UsersRound x="22" y="45" width="42" height="42" color="#0037b7" fill="#0037b7" strokeWidth="1.5" />
-        <g fill="#06245c"><text x="85" y="52" fontSize="20" fontWeight="700">7 Service Areas</text><text x="85" y="77" fontSize="14" fill="#4e6387">Comprehensive services</text><text x="85" y="96" fontSize="14" fill="#4e6387">under one roof</text></g>
+        <g fill="#06245c"><text x="85" y="52" fontSize="20" fontWeight="700">5 Featured Areas</text><text x="85" y="77" fontSize="14" fill="#4e6387">Plus payroll &amp; treasury</text><text x="85" y="96" fontSize="14" fill="#4e6387">Explore all 7 services</text></g>
+        </FloatingBadge>
+        <FloatingBadge active={floating} delay={0.7}>
+        <g filter="url(#card-shadow)"><rect x="552" y="6" width="237" height="117" rx="14" fill="white" /></g>
         <Trophy x="573" y="31" width="43" height="43" color="#0037b7" fill="#0037b7" strokeWidth="1.6" />
-        <g fill="#06245c"><text x="641" y="41" fontSize="20" fontWeight="700">120+</text><text x="641" y="65" fontSize="20" fontWeight="700">Tax Clients</text><text x="641" y="88" fontSize="13" fill="#4e6387">Satisfied returning</text><text x="641" y="107" fontSize="13" fill="#4e6387">clients.</text></g>
+        <g fill="#06245c"><text x="641" y="43" fontSize="20" fontWeight="700">Hundreds</text><text x="641" y="68" fontSize="16" fill="#4e6387">of returning</text><text x="641" y="92" fontSize="16" fill="#4e6387">clients</text></g>
+        </FloatingBadge>
         <g transform="translate(-5 22)">
           <path d="M350 7Q360 7 371 16L620 197Q634 207 629 223L532 529Q526 547 510 547H192Q175 547 170 530L73 223Q68 207 82 197L332 16Q343 7 350 7Z" fill="#e5eef9" stroke="#e5eef9" strokeWidth="15" />
           <g stroke="#fff" strokeWidth="8" strokeLinejoin="round">
@@ -53,10 +81,12 @@ export default function ServicesGraphic() {
         <ellipse cx="727" cy="289" rx="105" ry="103" fill="#deecff" opacity=".35" />
         <text x="649" y="271" fill="#0b306b" fontSize="17"><tspan x="649">Businesses.</tspan><tspan x="649" dy="24">Individuals.</tspan><tspan x="649" dy="24">Growing Enterprises.</tspan></text>
         <path d="M650 338H688" stroke="#0052ef" strokeWidth="3" strokeLinecap="round" />
+        <FloatingBadge active={floating} delay={1.2}>
         <rect x="581" y="398" width="221" height="131" rx="13" fill="white" filter="url(#card-shadow)" />
         <Target x="597" y="420" width="37" height="37" color="#003bc1" strokeWidth="2.4" />
         <text x="652" y="431" fill="#05235b" fontSize="14" fontWeight="700"><tspan x="652">Customized</tspan><tspan x="652" dy="18">Financial &amp;</tspan><tspan x="652" dy="18">Professional Services</tspan></text>
         <text x="652" y="490" fill="#4e6387" fontSize="12"><tspan x="652">Designed around your</tspan><tspan x="652" dy="18">business and your budget.</tspan></text>
+        </FloatingBadge>
         <text x="414" y="620" textAnchor="middle" fontSize="20" fontStyle="italic" letterSpacing="2" fill="#5976a4">Accessible. Practical. Scalable. Affordable.</text>
       </g>
     </svg>

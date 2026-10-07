@@ -2,56 +2,36 @@
 
 import Image from "next/image";
 import { serviceOfferings } from "@/lib/services";
+import { company } from "@/lib/company";
+import ContactLinks from "@/components/contact/contact-links";
 
 import { useState, type FormEvent } from "react";
 import {
   ArrowRight,
   Building2,
-  ChartNoAxesColumnIncreasing,
   ChevronDown,
   List,
   Mail,
   MessageCircle,
   Phone,
-  Shield,
   UserRound,
-  UsersRound,
 } from "lucide-react";
-
-const commitments = [
-  {
-    icon: UsersRound,
-    first: "Trusted",
-    second: "Expertise",
-    description: "Experienced professionals with practical business expertise.",
-  },
-  {
-    icon: ChartNoAxesColumnIncreasing,
-    first: "Real",
-    second: "Solutions",
-    description:
-      "Practical strategies for today’s challenges and tomorrow’s growth.",
-  },
-  {
-    icon: Shield,
-    first: "Lasting",
-    second: "Impact",
-    description:
-      "Stronger organizations. Brighter communities. A better tomorrow.",
-  },
-];
 
 const services = serviceOfferings.map((service) => service.title);
 
 export default function ContactSection() {
   const [submissionMessage, setSubmissionMessage] = useState("");
+  const [draftUrl, setDraftUrl] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // Keep inquiry data in the form until a delivery service is configured.
-    setSubmissionMessage(
-      "Online inquiries are not available yet. Your message has not been sent.",
-    );
+    const data = new FormData(event.currentTarget);
+    const value = (key: string) => String(data.get(key) ?? "").trim();
+    const body = [`Name: ${value("fullName")}`, `Email: ${value("email")}`, `Phone: ${value("phone")}`, `Organization: ${value("company")}`, `Service: ${value("service")}`, "", value("message")].join("\n");
+    const href = `mailto:${company.email}?subject=${encodeURIComponent(`Website inquiry: ${value("service")}`)}&body=${encodeURIComponent(body)}`;
+    setDraftUrl(href);
+    setSubmissionMessage("Your inquiry is ready as an email draft. Review and send it in your email app; it has not been sent yet.");
+    window.location.href = href;
   }
 
   return (
@@ -119,7 +99,11 @@ export default function ContactSection() {
             professional solutions for businesses and individuals, whatever your
             budget or stage of growth.
           </p>
-         
+          <address className="flex flex-col gap-2 not-italic text-body text-[#2E357E]">
+            {company.phones.map(({ href, label }) => <a key={href} href={href} className="flex min-h-11 w-fit items-center gap-3 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4"><Phone size={20} aria-hidden="true" />{label}</a>)}
+            <a href={company.emailHref} className="flex min-h-11 w-fit items-center gap-3 break-all hover:underline focus-visible:outline-2 focus-visible:outline-offset-4"><Mail size={20} className="shrink-0" aria-hidden="true" />{company.email}</a>
+          </address>
+          <ContactLinks />
         </div>
         <div className="min-w-0 pt-7.5 pr-7 pb-5.75 pl-7 [border:1px_solid_#c3e1ff] rounded-[14px] bg-[#ffffffed] shadow-[0_5px_25px_#0086e61a] max-[1200px]:pt-6.5 max-[1200px]:pr-5.5 max-[1200px]:pb-5.5 max-[1200px]:pl-5.5 max-[1000px]:pt-7 max-[1000px]:pr-7 max-[1000px]:pb-7 max-[1000px]:pl-7 max-[540px]:pt-6 max-[540px]:pr-4.5 max-[540px]:pb-5 max-[540px]:pl-4.5">
           <h3
@@ -132,6 +116,7 @@ export default function ContactSection() {
             Tell us about your needs and we’ll get back to you shortly.
           </p>
           <form
+            onChange={() => { setDraftUrl(""); setSubmissionMessage(""); }}
             aria-labelledby="inquiry-heading"
             onSubmit={handleSubmit}
             className="grid grid-cols-2 gap-y-5.5 gap-x-5 max-[1200px]:gap-y-5 max-[1200px]:gap-x-3.5 max-[540px]:grid-cols-1 max-[540px]:gap-y-4.5 max-[540px]:gap-x-4.5"
@@ -252,10 +237,10 @@ export default function ContactSection() {
                 className="flex items-center justify-center gap-y-4.5 gap-x-4.5 w-full min-h-16.5 pt-3.75 pr-5.5 pb-3.75 pl-5.5 [border:1px_solid_#0059dc] rounded-[8px] text-[#fff] text-body font-medium cursor-pointer shadow-[0_7px_18px_#0555c514] [transition:background_160ms_ease,_box-shadow_160ms_ease] hover:shadow-[0_9px_22px_#0555c526] focus-visible:[outline:3px_solid_#3979ed] focus-visible:outline-offset-[4px] max-[540px]:min-h-14.25 motion-reduce:[transition:none] components-home-contact-section-submit [background-image:linear-gradient(#0564ef,_#0043ba)] [&:hover]:[background-image:linear-gradient(#0057db,_#060a35)]"
                 type="submit"
               >
-                Send Inquiry <ArrowRight size={27} aria-hidden="true" />
+                Prepare Inquiry <ArrowRight size={27} aria-hidden="true" />
               </button>
               <p className="mt-2.5 mr-0 mb-0 ml-0 text-[#4c659b] text-center text-body">
-                We typically respond within 1 business day.
+                Opens an email draft for you to review and send.
               </p>
               <p
                 className="mt-3 mr-0 mb-0 ml-0 pt-3 pr-3 pb-3 pl-3 [border:1px_solid_#eed59a] rounded-[6px] bg-[#fffbef] text-[#735216] text-body [&:empty]:hidden"
@@ -263,6 +248,7 @@ export default function ContactSection() {
                 aria-live="polite"
               >
                 {submissionMessage}
+                {draftUrl && <> <a href={draftUrl} className="underline">Open the draft again</a> or email <a href={company.emailHref} className="underline">{company.email}</a>.</>}
               </p>
             </div>
           </form>

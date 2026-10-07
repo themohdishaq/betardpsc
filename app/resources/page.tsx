@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, BriefcaseBusiness, ChartNoAxesCombined, Download, FileText, Globe2, GraduationCap, Lightbulb, Link2, MessagesSquare, ShieldCheck, UsersRound } from "lucide-react";
-import NewsletterForm from "@/components/footer/newsletter-form";
 
 const topics = [
   { icon: FileText, title: "Tax Resources", description: "Guides, deadlines, and filing tips", href: "https://www.canada.ca/en/revenue-agency.html" },

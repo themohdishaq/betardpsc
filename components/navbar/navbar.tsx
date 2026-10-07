@@ -58,14 +58,21 @@ export default function Navbar() {
       }}
     >
       <div className="flex items-center justify-between gap-y-6 gap-x-6 max-w-384 min-h-24 ml-auto mr-auto pt-2.5 pr-6 pb-2.5 pl-6 max-[1200px]:flex-wrap max-[1200px]:gap-y-0 max-[1200px]:gap-x-0 max-[480px]:min-h-19.5 max-[480px]:pt-2.5 max-[480px]:pr-4 max-[480px]:pb-2.5 max-[480px]:pl-4">
-        <Link href="/" className="flex shrink-0 items-end w-82.5 gap-y-0.5 gap-x-0.5 rounded-[6px] max-[480px]:w-[min(245px,_calc(100%_-_60px))]" aria-label="RD Prestige Services Corp. — Home" onClick={() => setOpen(false)}>
-          {/* Display the two parts of the supplied stacked artwork as a horizontal lockup. */}
-          <span className="relative block overflow-hidden shrink-0 w-[25%] aspect-[1.04] [&_img]:absolute [&_img]:top-0 [&_img]:left-[-51%] [&_img]:w-[204%] [&_img]:max-w-none [&_img]:h-auto" aria-hidden="true">
-            <Image src="/logo/rdcsp_logo.png" alt="" width={2000} height={1302} sizes="180px" preload />
-          </span>
-          <span className="relative block overflow-hidden shrink-0 w-[calc(75%_-_2px)] aspect-[5.55] mb-0.75 [&_img]:absolute [&_img]:bottom-0 [&_img]:w-full [&_img]:h-auto" aria-hidden="true">
-            <Image src="/logo/rdcsp_logo.png" alt="" width={2000} height={1302} sizes="280px" loading="eager" />
-          </span>
+        <Link
+          href="/"
+          className="inline-flex shrink-0 items-center rounded-md"
+          aria-label="RD Prestige Services Corp. — Home"
+          onClick={() => setOpen(false)}
+        >
+          <Image
+            src="/logo/rdcsp_logo.png"
+            alt=""
+            width={2000}
+            height={1302}
+            sizes="(max-width: 480px) 90px, 117px"
+            preload
+            className="h-19 w-auto object-contain max-[480px]:h-14.5"
+          />
         </Link>
 
         <button

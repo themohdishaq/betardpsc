@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, ChartNoAxesColumnIncreasing, Check, GraduationCap, Settings, UserRound } from "lucide-react";
+import Reveal from "@/components/motion/reveal";
+import { ArrowRight, CalendarDays, ChartNoAxesColumnIncreasing, GraduationCap, Settings, UserRound } from "lucide-react";
 import ServicesGraphic from "@/components/hero/services-graphic";
 import AboutDepartments from "@/components/home/about-departments";
-import FinancialFuture from "@/components/home/financial-future";
+import WhyChoose from "@/components/home/why-choose";
 import ContactSection from "@/components/home/contact-section";
 import Partnerships from "@/components/home/partnerships";
 
@@ -40,7 +41,7 @@ export default function Home() {
           </svg>
         </div>
         <div className="relative z-[2] grid grid-cols-[1fr_1.04fr] items-center gap-y-3 gap-x-3 max-w-420 ml-auto mr-auto pt-8 pr-12 pb-8.5 pl-12 min-[1680px]:pt-9.5 min-[1680px]:pb-9.5 max-[1250px]:pt-8 max-[1250px]:pr-7 max-[1250px]:pb-8 max-[1250px]:pl-7 max-[1000px]:grid-cols-1 max-[1000px]:max-w-205 max-[1000px]:pt-10.5 max-[1000px]:pr-7 max-[1000px]:pb-7 max-[1000px]:pl-7 max-[1000px]:gap-y-6.25 max-[1000px]:gap-x-6.25 max-[540px]:pt-7.5 max-[540px]:pr-5 max-[540px]:pb-5 max-[540px]:pl-5 max-[540px]:gap-y-7 max-[540px]:gap-x-7">
-          <div className="">
+          <Reveal>
             <p className="text-[#2E357E] text-caption font-semibold tracking-[.14em] uppercase max-[540px]:max-w-80 max-[540px]:tracking-[.14em] max-[540px]:mb-3.75">Practical solutions. Professional expertise. Affordable support.</p>
             <h1 id="hero-heading" className="mt-0 mr-0 mb-0 ml-0 text-title text-[#020b20] [&_span]:text-[#2E357E] [&_span]:[background-clip:text] [&_span]:[-webkit-text-fill-color:transparent] app-page-heading [&_span]:[background-image:linear-gradient(115deg,_#2E357E,_#2E357E_65%,_#2E357E)]">
               Your Trusted Partner<br className="max-[540px]:hidden" /> for <span>Financial &amp;<br className="max-[540px]:hidden" /> Professional Services</span>
@@ -53,8 +54,8 @@ export default function Home() {
               <Link href="/consultation" className="inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-body font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-[#2E357E] border-[#2E357E] bg-[#ffffffa6] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:w-full motion-reduce:[transition:none]"><CalendarDays size={26} aria-hidden="true" /> Request a Consultation</Link>
             </div>
             
-          </div>
-          <div className="min-w-0 [&_>_svg]:block max-[1000px]:w-full max-[1000px]:max-w-190 max-[1000px]:ml-auto max-[1000px]:mr-auto max-[540px]:w-[calc(100%_+_12px)] max-[540px]:ml-[-6px]"><ServicesGraphic /></div>
+          </Reveal>
+          <Reveal delay={0.12} className="min-w-0 [&_>_svg]:block max-[1000px]:w-full max-[1000px]:max-w-190 max-[1000px]:ml-auto max-[1000px]:mr-auto max-[540px]:w-[calc(100%_+_12px)] max-[540px]:ml-[-6px]"><ServicesGraphic /></Reveal>
         </div>
         <svg className="absolute z-[1] bottom-0 w-full h-22.5 pointer-events-none" viewBox="0 0 1600 100" preserveAspectRatio="none" aria-hidden="true">
           <path d="M700 100C1020 5 1310 115 1600 20V100Z" fill="#e0edfc" />
@@ -64,16 +65,16 @@ export default function Home() {
       </section>
       <section className="bg-[#fff] shadow-[0_-2px_8px_#305c9a04]" aria-label="Services at a glance">
         <div className="grid grid-cols-4 max-w-420 mt-auto mr-auto mb-auto ml-auto pt-7.25 pr-12 pb-8.25 pl-12 max-[1250px]:pl-7 max-[1250px]:pr-7 max-[1000px]:grid-cols-2 max-[1000px]:gap-y-7 max-[1000px]:gap-x-0 max-[540px]:pt-6 max-[540px]:pr-5 max-[540px]:pb-6 max-[540px]:pl-5 max-[540px]:gap-y-5.75 max-[540px]:gap-x-0">
-          {featuredServices.map(({ icon: Icon, title, description }) => (
-            <div className="flex items-center gap-y-6 gap-x-6 pt-0 pr-6.5 pb-0 pl-6.5 [border-right:1px_solid_#d7e0ef] [&:first-child]:pl-3 [&:last-child]:[border-right:0] [&:last-child]:pr-0 [&_h2]:mt-0 [&_h2]:mr-0 [&_h2]:mb-1.25 [&_h2]:ml-0 [&_h2]:text-[#031e56] [&_h2]:text-card-heading [&_h2]:font-bold [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#465f89] [&_p]:text-body max-[1250px]:pl-4.5 max-[1250px]:pr-4.5 max-[1250px]:gap-y-3.5 max-[1250px]:gap-x-3.5 max-[1000px]:[&:nth-child(2)]:[border-right:0] max-[1000px]:[&:nth-child(3)]:pl-3 max-[540px]:items-start max-[540px]:flex-col max-[540px]:gap-y-2.5 max-[540px]:gap-x-2.5 max-[540px]:pl-4 max-[540px]:pr-4 max-[540px]:[&:first-child]:pl-0 max-[540px]:[&:nth-child(3)]:pl-0" key={title}>
+          {featuredServices.map(({ icon: Icon, title, description }, index) => (
+            <Reveal delay={index * 0.06} className="flex items-center gap-y-6 gap-x-6 pt-0 pr-6.5 pb-0 pl-6.5 [border-right:1px_solid_#d7e0ef] [&:first-child]:pl-3 [&:last-child]:[border-right:0] [&:last-child]:pr-0 [&_h2]:mt-0 [&_h2]:mr-0 [&_h2]:mb-1.25 [&_h2]:ml-0 [&_h2]:text-[#031e56] [&_h2]:text-card-heading [&_h2]:font-bold [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#465f89] [&_p]:text-body max-[1250px]:pl-4.5 max-[1250px]:pr-4.5 max-[1250px]:gap-y-3.5 max-[1250px]:gap-x-3.5 max-[1000px]:[&:nth-child(2)]:[border-right:0] max-[1000px]:[&:nth-child(3)]:pl-3 max-[540px]:items-start max-[540px]:flex-col max-[540px]:gap-y-2.5 max-[540px]:gap-x-2.5 max-[540px]:pl-4 max-[540px]:pr-4 max-[540px]:[&:first-child]:pl-0 max-[540px]:[&:nth-child(3)]:pl-0" key={title}>
               <Icon className="shrink-0 text-[#2E357E] max-[1250px]:w-8.75 max-[540px]:w-7.5 max-[540px]:h-7.5" size={44} strokeWidth={2.6} aria-hidden="true" />
               <div><h2>{title}</h2><p>{description}</p></div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
       <AboutDepartments />
-      {/* <FinancialFuture /> */}
+      <WhyChoose />
       <ContactSection />
       <Partnerships />
     </main>

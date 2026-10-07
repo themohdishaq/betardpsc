@@ -1,21 +1,26 @@
 import Image from "next/image";
+import Reveal from "@/components/motion/reveal";
 import Link from "next/link";
-import { ArrowRight, ChartNoAxesColumnIncreasing, FileText, GraduationCap, Shield, Target, Trophy, UsersRound } from "lucide-react";
+import { serviceOfferings } from "@/lib/services";
+import styles from "./service-cards.module.css";
+import { ArrowRight, Banknote, ChartNoAxesColumnIncreasing, FileText, GraduationCap, MonitorCog, Shield, Target, Trophy, UsersRound, WalletCards, type LucideIcon } from "lucide-react";
 
 const highlights = [
-  { icon: Trophy, title: "120+ Returning", subtitle: "Tax Clients", description: "Accuracy, responsiveness, and professional service." },
-  { icon: UsersRound, title: "7 Specialized", subtitle: "Service Areas", description: "Comprehensive services under one roof." },
+  { icon: Trophy, title: "Hundreds of", subtitle: "Returning Clients", description: "Accuracy, responsiveness, and professional service." },
+  { icon: UsersRound, title: "7 Total", subtitle: "Service Areas", description: "Comprehensive services under one roof." },
   { icon: Target, title: "Customized", subtitle: "Flexible Solutions", description: "Tailored to your needs and budget." },
   { icon: ChartNoAxesColumnIncreasing, title: "Businesses • Nonprofits", subtitle: "• Growing Enterprises", description: "Supporting your goals at every stage." },
 ] as const;
 
-const departments = [
-  { icon: ChartNoAxesColumnIncreasing, title: "Accounting &", subtitle: "Corporate Tax", tone: "accounting", tagline: "Accurate. Compliant. Strategic.", description: "Your outsourced finance department, from bookkeeping and tax filing to financial controls and insight." },
-  { icon: FileText, title: "Personal", subtitle: "Income Tax", tone: "personal", tagline: "Simple. Reliable. Maximized.", description: "Personalized tax preparation and filing, with year-round support for records, deductions, and credits." },
-  { icon: GraduationCap, title: "Professional", subtitle: "Education", tone: "training", tagline: "Education & Mentorship", description: "Exam preparation, technical coaching, and personalized support for future finance professionals." },
-  { icon: Shield, title: "Risk Management", subtitle: "& Insurance", tone: "insurance", tagline: "Protect What Matters Most", description: "Risk guidance, insurance solutions, and financial education to protect your assets and reduce uncertainty." },
-  { icon: UsersRound, title: "IT Consulting &", subtitle: "Project Management", tone: "consultancy", tagline: "Technology That Delivers", description: "Accounting systems, ERP implementation, and change management that strengthen controls and support growth." },
-] as const;
+const servicePresentation: Record<string, { icon: LucideIcon; title: string }> = {
+  "accounting-corporate-tax": { icon: ChartNoAxesColumnIncreasing, title: "Accounting & Corporate Tax" },
+  "personal-income-tax": { icon: FileText, title: "Personal Income Tax" },
+  payroll: { icon: WalletCards, title: "Payroll Services" },
+  "treasury-cash-flow": { icon: Banknote, title: "Treasury & Cash Flow" },
+  "it-consulting-project-management": { icon: MonitorCog, title: "IT Consulting & Projects" },
+  "professional-education-mentorship": { icon: GraduationCap, title: "Education & Mentorship" },
+  "risk-management-insurance": { icon: Shield, title: "Risk Management & Insurance" },
+};
 
 export default function AboutDepartments() {
   return (
@@ -31,11 +36,11 @@ export default function AboutDepartments() {
             <h2 id="about-heading" className="mt-0 mr-0 mb-0 ml-0 text-[#030b21] text-section [&_span]:text-[#2E357E]">Financial Expertise<br /><span>Built Around Your Business</span></h2>
             <p className="mt-4.5 mr-0 mb-6.5 ml-0 text-[#2E357E] text-body">RD Prestige Services Corp. provides customized fractional financial services for businesses, nonprofits, and growing enterprises — with practical, affordable support tailored to your unique needs.</p>
             <div className="grid grid-cols-2 gap-y-4 gap-x-4 max-[480px]:gap-y-3 max-[480px]:gap-x-3">
-              {highlights.map(({ icon: Icon, title, subtitle, description }) => (
-                <div className="flex items-start gap-y-4.5 gap-x-4.5 pt-5.5 pr-4.75 pb-5.5 pl-4.75 bg-[#fff] rounded-[12px] shadow-[0_7px_28px_#436fba0b] [&_>_svg]:shrink-0 [&_>_svg]:text-[#2E357E] [&_>_svg]:w-[clamp(32px,_3.8vw,_50px)] [&_>_svg]:mt-0.25 [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-1.25 [&_h3]:ml-0 [&_h3]:text-[#001c78] [&_h3]:text-card-heading [&_h3]:font-bold [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#6175ad] [&_p]:text-body max-[1150px]:pt-4.5 max-[1150px]:pr-3.75 max-[1150px]:pb-4.5 max-[1150px]:pl-3.75 max-[1150px]:gap-y-3.25 max-[1150px]:gap-x-3.25 max-[1000px]:flex-col max-[1000px]:gap-y-2 max-[1000px]:gap-x-2 max-[1000px]:[&_>_svg]:h-8.25 max-[800px]:flex-row max-[800px]:pt-5 max-[800px]:pr-4 max-[800px]:pb-5 max-[800px]:pl-4 max-[800px]:[&_>_svg]:w-9.75 max-[800px]:[&_>_svg]:h-10.5 max-[480px]:flex-col max-[480px]:gap-y-2.5 max-[480px]:gap-x-2.5 max-[480px]:pt-4 max-[480px]:pr-4 max-[480px]:pb-4 max-[480px]:pl-4" key={title}>
+              {highlights.map(({ icon: Icon, title, subtitle }, index) => (
+                <Reveal delay={index * 0.06} className="flex items-start gap-y-4.5 gap-x-4.5 pt-5.5 pr-4.75 pb-5.5 pl-4.75 bg-[#fff] rounded-[12px] shadow-[0_7px_28px_#436fba0b] [&_>_svg]:shrink-0 [&_>_svg]:text-[#2E357E] [&_>_svg]:w-[clamp(32px,_3.8vw,_50px)] [&_>_svg]:mt-0.25 [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-1.25 [&_h3]:ml-0 [&_h3]:text-[#001c78] [&_h3]:text-card-heading [&_h3]:font-bold [&_p]:mt-0 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#6175ad] [&_p]:text-body max-[1150px]:pt-4.5 max-[1150px]:pr-3.75 max-[1150px]:pb-4.5 max-[1150px]:pl-3.75 max-[1150px]:gap-y-3.25 max-[1150px]:gap-x-3.25 max-[1000px]:flex-col max-[1000px]:gap-y-2 max-[1000px]:gap-x-2 max-[1000px]:[&_>_svg]:h-8.25 max-[800px]:flex-row max-[800px]:pt-5 max-[800px]:pr-4 max-[800px]:pb-5 max-[800px]:pl-4 max-[800px]:[&_>_svg]:w-9.75 max-[800px]:[&_>_svg]:h-10.5 max-[480px]:flex-col max-[480px]:gap-y-2.5 max-[480px]:gap-x-2.5 max-[480px]:pt-4 max-[480px]:pr-4 max-[480px]:pb-4 max-[480px]:pl-4" key={title}>
                   <Icon size={48} strokeWidth={2.5} aria-hidden="true" />
                   <div><h3>{title}<br />{subtitle}</h3></div>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div className="flex items-center gap-y-8 gap-x-8 mt-9.5 [&_blockquote]:mt-0 [&_blockquote]:mr-0 [&_blockquote]:mb-0 [&_blockquote]:ml-0 [&_blockquote]:pl-5.5 [&_blockquote]:[border-left:2px_solid_#9daadd] [&_blockquote]:text-[#6579b3] [&_blockquote]:text-body [&_blockquote]:italic max-[1150px]:gap-y-5.5 max-[1150px]:gap-x-5.5 max-[1150px]:[&_blockquote]:pl-4.5 max-[1000px]:flex-wrap max-[1000px]:gap-y-5 max-[1000px]:gap-x-5 max-[800px]:flex-nowrap max-[800px]:mt-7 max-[480px]:flex-col max-[480px]:items-stretch">
@@ -46,32 +51,35 @@ export default function AboutDepartments() {
         </div>
       </section>
 
-      <section id="departments" className="relative isolate overflow-hidden [border-top:8px_solid_#f1f7ff] scroll-mt-27.5 components-home-about-departments-departments [background-image:linear-gradient(#fff,_#fcfeff)] [&_.components-home-about-departments-eyebrow]:[margin-bottom:17px]" aria-labelledby="departments-heading">
-        <div className="relative z-[1] max-w-400 mt-auto mr-auto mb-auto ml-auto pt-8 pr-9 pb-25 pl-9 max-[1150px]:pl-5.5 max-[1150px]:pr-5.5 max-[480px]:pt-7 max-[480px]:pr-5 max-[480px]:pb-25 max-[480px]:pl-5">
-          <p className={`flex items-center gap-y-5 gap-x-5 mt-0 mr-0 mb-6 ml-0 text-[#2E357E] text-caption font-bold tracking-[.14em] uppercase max-[480px]:mb-4.25 components-home-about-departments-eyebrow [&::after]:[width:58px] [&::after]:[height:2px] [&::after]:[background:#436bff] [&::after]:[content:""]`}>Featured Services</p>
-          <h2 id="departments-heading" className="mt-0 mr-0 mb-0 ml-0 text-[#030b21] text-section [&_span]:text-[#2E357E]">Specialized Services. <span>One Trusted Partner.</span></h2>
-          <div className="relative flex items-center justify-end gap-y-6 gap-x-6 mt-4 mr-0 mb-3 ml-0 [&_>_p]:flex-1 [&_>_p]:mt-0 [&_>_p]:mr-0 [&_>_p]:mb-0 [&_>_p]:ml-0 [&_>_p]:pl-[12%] [&_>_p]:text-[#2E357E] [&_>_p]:text-center [&_>_p]:text-body [&_>_p]:italic [&_>_p]:tracking-[.1em] max-[1000px]:[&_>_p]:pl-0 max-[1000px]:[&_>_p]:text-left max-[800px]:items-start max-[800px]:flex-col max-[800px]:gap-y-4.5 max-[800px]:gap-x-4.5 max-[800px]:mt-4.5 max-[800px]:mr-0 max-[800px]:mb-6.25 max-[800px]:ml-0">
-            <p>Also explore Payroll Services and Treasury Management &amp; Cash Flow Advisory.</p>
-            <Link href="/services" className="inline-flex items-center justify-center gap-y-4.5 gap-x-4.5 shrink-0 min-h-11.5 pt-3 pr-5.75 pb-3 pl-5.75 rounded-[9px] text-[#fff] text-body font-medium no-underline shadow-[0_7px_18px_#16478312] [transition:transform_180ms_ease,_box-shadow_180ms_ease] hover:[transform:translateY(-2px)] hover:shadow-[0_10px_22px_#16478325] focus-visible:[outline:3px_solid_#608dff] focus-visible:outline-offset-[5px] motion-reduce:[transition:none] components-home-about-departments-servicesButton [background-image:linear-gradient(#064af0,_#2E357E)]">Explore All Services <ArrowRight size={21} aria-hidden="true" /></Link>
+      <section id="departments" className="relative isolate overflow-hidden scroll-mt-27.5 border-t border-[#e6edf6] bg-[#f5f8fd]" aria-labelledby="departments-heading">
+        <div className="relative z-10 mx-auto max-w-360 px-5 pb-24 pt-12 sm:px-7 sm:pt-16 lg:px-[clamp(24px,5vw,72px)]">
+          <div className="mb-9 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+            <div className="max-w-170">
+              <p className="mb-3 flex items-center gap-3 text-caption font-semibold uppercase tracking-[.14em] text-[#2E357E]"><span aria-hidden="true" className="h-0.5 w-8 bg-[#299ee8]" />Our Services</p>
+              <h2 id="departments-heading" className="text-section text-[#112744]">Specialized Services.<br className="sm:hidden" /> <span className="text-[#2E357E]">One Trusted Partner.</span></h2>
+              <p className="mt-4 max-w-145 text-body text-[#52617f]">Seven areas of expertise, with practical support built around your business, your people, and your goals.</p>
+            </div>
+            <Link href="/services" className="inline-flex min-h-11 w-fit shrink-0 items-center gap-3 rounded-lg border border-[#cad8ed] bg-white px-5 py-3 text-small font-semibold text-[#2E357E] transition-colors hover:border-[#2E357E] hover:bg-[#edf3ff] focus-visible:outline-2 focus-visible:outline-[#299ee8] focus-visible:outline-offset-4 motion-reduce:transition-none">Explore all services <ArrowRight size={18} aria-hidden="true" /></Link>
           </div>
-          <div className="grid grid-cols-5 gap-y-3.5 gap-x-3.5 max-[1150px]:gap-y-2.5 max-[1150px]:gap-x-2.5 max-[1000px]:grid-cols-3 max-[1000px]:gap-y-6 max-[1000px]:gap-x-4 max-[800px]:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:max-w-77.5 max-[480px]:ml-auto max-[480px]:mr-auto max-[480px]:gap-y-6.5 max-[480px]:gap-x-6.5">
-            {departments.map(({ icon: Icon, title, subtitle, tone, tagline, description }) => (
-              <article key={tone} className={`relative flex flex-col min-w-0 rounded-[12px] components-home-about-departments-departmentCard [--department-color:#0039c6] [--department-dark:#001956] [filter:drop-shadow(0_8px_9px_#2a72c40b)] ${(tone === "accounting" ? `components-home-about-departments-accounting [--department-color:#0037b8] [--department-dark:#001454]` : tone === "personal" ? `components-home-about-departments-personal [--department-color:#00b4f4] [--department-dark:#0088d3] [&_.components-home-about-departments-tagline]:[color:#008ac4]` : tone === "training" ? `components-home-about-departments-training [--department-color:#064ff1] [--department-dark:#0027b5]` : tone === "insurance" ? `components-home-about-departments-insurance [--department-color:#ff121e] [--department-dark:#d9000a]` : tone === "consultancy" ? `components-home-about-departments-consultancy [--department-color:#666] [--department-dark:#333] [&_.components-home-about-departments-pentagon_h3]:[font-size:clamp(14px,_1.45vw,_21px)] [@media(max-width:_1000px)]:[&_.components-home-about-departments-pentagon_h3]:[font-size:20px] [@media(max-width:_800px)]:[&_.components-home-about-departments-pentagon_h3]:[font-size:clamp(18px,_3vw,_22px)] [@media(max-width:_480px)]:[&_.components-home-about-departments-pentagon_h3]:[font-size:24px]` : "")} `}>
-                <div className="aspect-[1.2] pt-2.5 pr-2.25 pb-0 pl-2.25 bg-[#eef5ff] components-home-about-departments-pentagonBorder [clip-path:polygon(50%_0,_100%_40%,_88%_100%,_12%_100%,_0_40%)]">
-                  <div className="h-full flex flex-col items-center justify-end gap-y-2.75 gap-x-2.75 pt-7.5 pr-1.75 pb-5.75 pl-1.75 text-[#fff] text-center [&_>_svg]:shrink-0 [&_>_svg]:w-[clamp(36px,_4.2vw,_63px)] [&_>_svg]:h-[clamp(36px,_4.2vw,_63px)] [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-0 [&_h3]:ml-0 [&_h3]:text-card-heading [&_h3]:font-bold max-[1150px]:pb-5 max-[1150px]:gap-y-2.5 max-[1150px]:gap-x-2.5 max-[1000px]:[&_>_svg]:w-13 max-[1000px]:[&_>_svg]:h-13 max-[1000px]:pb-6 max-[800px]:pb-5 max-[800px]:gap-y-2.5 max-[800px]:gap-x-2.5 max-[800px]:[&_>_svg]:w-[clamp(40px,_7vw,_58px)] max-[800px]:[&_>_svg]:h-[clamp(40px,_7vw,_58px)] max-[480px]:gap-y-3.5 max-[480px]:gap-x-3.5 max-[480px]:pb-6.75 max-[480px]:[&_>_svg]:w-15 max-[480px]:[&_>_svg]:h-15 components-home-about-departments-pentagon [clip-path:polygon(50%_0,_100%_40%,_88%_100%,_12%_100%,_0_40%)] [background-image:linear-gradient(130deg,_var(--department-color),_var(--department-dark))] [@media(max-width:_1000px)]:[&_h3]:[font-size:20px] [@media(max-width:_800px)]:[&_h3]:[font-size:clamp(18px,_3vw,_22px)] [@media(max-width:_480px)]:[&_h3]:[font-size:24px]">
-                    <Icon size={52} strokeWidth={2.5} aria-hidden="true" />
-                    <h3>{title}<br />{subtitle}</h3>
-                  </div>
-                </div>
-                <div className="flex flex-1 flex-col items-center pt-3.5 pr-5.5 pb-6 pl-5.5 rounded-[0_0_12px_12px] text-center max-[1150px]:pl-4 max-[1150px]:pr-4 max-[480px]:pt-3.75 max-[480px]:pr-6.25 max-[480px]:pb-6.25 max-[480px]:pl-6.25 components-home-about-departments-cardBody [background-image:linear-gradient(#fff,_#f8fbff)]">
-                  <p className="flex items-center justify-center min-h-9 mt-0 mr-0 mb-0 ml-0 text-[var(--department-color)] text-caption font-bold tracking-[.14em] uppercase components-home-about-departments-tagline">{tagline}</p>
-                  <span className="w-8 h-[1.5px] shrink-0 mt-4.5 mr-0 mb-4.5 ml-0 bg-[#98a5cc]" aria-hidden="true" />
-                  <p className="mt-0 mr-0 mb-0 ml-0 text-[#6275ac] text-body">{description}</p>
-                </div>
-              </article>
-            ))}
+          <div className={styles.grid}>
+            {serviceOfferings.map(({ id, title, summary }, index) => {
+              const { icon: Icon, title: displayTitle } = servicePresentation[id] ?? { icon: ChartNoAxesColumnIncreasing, title };
+              return (
+                <Reveal as="article" delay={index * 0.055} key={id} className="min-w-0">
+                  <Link href={`/services/${id}`} className={styles.card} aria-labelledby={`home-service-${id}`}>
+                    <div className="mb-6 flex items-center justify-between gap-3">
+                      <span className={styles.icon}><Icon size={27} strokeWidth={1.8} aria-hidden="true" /></span>
+                      <span aria-hidden="true" className="text-caption font-medium tabular-nums tracking-[.08em] text-[#8292ab]">{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    <h3 id={`home-service-${id}`} className={`${styles.heading} mb-3 text-card-heading font-semibold text-[#112744]`}>{displayTitle}</h3>
+                    <p className="mb-7 text-body text-[#52617f]">{summary}</p>
+                    <span className="mt-auto flex items-center justify-between gap-3 border-t border-[#e5ecf5] pt-4 text-small font-semibold text-[#2E357E]">Explore service <ArrowRight size={19} className={styles.arrow} aria-hidden="true" /></span>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
-          <p className={`mt-10 mr-0 mb-0 ml-0 text-[#2E357E] text-center text-body italic tracking-[.045em] max-[480px]:mt-7.5 components-home-about-departments-closingLine [&::after]:[display:block] [&::after]:[width:64px] [&::after]:[height:3px] [&::after]:[margin:12px_auto_0] [&::after]:[background:#0041db] [&::after]:[content:""]`}>Your Goals. Our Expertise. A Stronger Tomorrow.</p>
+          <p className="mx-auto mt-9 flex items-center justify-center gap-3 text-center text-small text-[#52617f]"><span aria-hidden="true" className="hidden h-px w-10 bg-[#b7c8df] sm:block" />Your goals. Our expertise. A stronger tomorrow.<span aria-hidden="true" className="hidden h-px w-10 bg-[#b7c8df] sm:block" /></p>
         </div>
         <svg className="absolute z-[0] left-0 bottom-0 w-full h-32.5 opacity-[.6] pointer-events-none" viewBox="0 0 1400 140" preserveAspectRatio="none" aria-hidden="true">
           <defs><linearGradient id="departments-skyline" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#b7d0ed" /><stop offset="1" stopColor="#edf5ff" /></linearGradient></defs>

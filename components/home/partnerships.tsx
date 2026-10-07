@@ -1,72 +1,37 @@
-import Link from "next/link";
-import { ArrowRight, Handshake, UsersRound } from "lucide-react";
+import { Handshake, UsersRound } from "lucide-react";
+import CompanyLogoRow from "@/components/home/company-logo-row";
+import { customerCategories, strategicPartners } from "@/lib/relationships";
+import Reveal from "@/components/motion/reveal";
 
-// Replace these text wordmarks with official logo assets when supplied.
-const partners: { name: string; style: "wfg" | "ivari" | "ia" | "manulife" | "quickbooks" | "zoho" | "ufile" | "astranti" | "hecares" | "esther" | "guacamole" | "zadesta" | "maple" | "restar" | "concept" | "buildesigners"; mark: string; detail?: string }[] = [
-  { name: "World Financial Group", style: "wfg", mark: "WFG", detail: "WORLD FINANCIAL GROUP" },
-  { name: "ivari", style: "ivari", mark: "ivari" },
-  { name: "iA Financial Group", style: "ia", mark: "iA", detail: "Financial Group" },
-  { name: "Manulife", style: "manulife", mark: "Manulife" },
-  { name: "Intuit QuickBooks", style: "quickbooks", mark: "quickbooks", detail: "intuit" },
-  { name: "Zoho", style: "zoho", mark: "ZOHO" },
-  { name: "UFile", style: "ufile", mark: "UFile" },
-  { name: "Astranti", style: "astranti", mark: "Astranti" },
-] as const;
-
-const organizations = [
-  { name: "Overcomers Chapel", style: "overcomers" },
-  { name: "He Cares We Care", style: "hecares" },
-  { name: "Feast of Esther", style: "esther" },
-  { name: "Holy Guacamole Canada", style: "guacamole" },
-  { name: "Zadesta", style: "zadesta" },
-  { name: "Maple Logistics Trading", style: "maple" },
-  { name: "Restar Framos Technologies", style: "restar" },
-  { name: "Concept24group", style: "concept" },
-  { name: "Buildesigners Inc.", style: "buildesigners" },
-] as const;
-
-export default function Partnerships() {
+export default function PartnershipsSection() {
   return (
-    <section className={`relative isolate overflow-hidden text-[#081345] components-home-partnerships-section [background-image:linear-gradient(135deg,_transparent_7%,_#deedfc65_7%,_#deedfc65_13%,_transparent_13%,_transparent_85%,_#d8eaff80_85%,_#d8eaff80_90%,_transparent_90%),_linear-gradient(45deg,_transparent_14%,_#dfedfc66_14%,_#dfedfc66_19%,_transparent_19%,_transparent_81%,_#e0effd70_81%,_#e0effd70_87%,_transparent_87%),_radial-gradient(ellipse_at_center,_#fff_35%,_#f1f8ff)] [&::before]:[position:absolute] [&::before]:[z-index:-1] [&::before]:[width:400px] [&::before]:[height:400px] [&::before]:[border:60px_solid_#d6e9fc66] [&::before]:[transform:rotate(45deg)] [&::before]:[content:""] [&::before]:[pointer-events:none] [&::after]:[position:absolute] [&::after]:[z-index:-1] [&::after]:[width:400px] [&::after]:[height:400px] [&::after]:[border:60px_solid_#d6e9fc66] [&::after]:[transform:rotate(45deg)] [&::after]:[content:""] [&::after]:[pointer-events:none] [&::before]:[top:-310px] [&::before]:[right:-70px] [&::after]:[bottom:-320px] [&::after]:[right:60px]`} aria-labelledby="partnerships-heading">
-      <div className="max-w-420 mt-auto mr-auto mb-auto ml-auto pt-15.5 pr-[clamp(22px,_3.4vw,_58px)] pb-7 pl-[clamp(22px,_3.4vw,_58px)] max-[700px]:pt-10.5 max-[700px]:pr-5 max-[700px]:pb-7 max-[700px]:pl-5">
-        <header className="text-center mb-6 [&_h2]:mt-0 [&_h2]:mr-0 [&_h2]:mb-0 [&_h2]:ml-0 [&_h2]:text-[#071047] [&_h2]:font-heading [&_h2]:text-section [&_h2]:font-bold [&_h2_em]:text-[#060a35]">
-          <p className={`flex justify-center items-center gap-y-7.5 gap-x-7.5 mt-0 mr-0 mb-3.5 ml-0 text-[#060a35] text-caption font-semibold tracking-[.14em] uppercase max-[700px]:tracking-[.14em] max-[700px]:gap-y-3.75 max-[700px]:gap-x-3.75 components-home-partnerships-eyebrow [&::before]:[width:88px] [&::before]:[height:1px] [&::before]:[background:#647ad3] [&::before]:[content:""] [&::after]:[width:88px] [&::after]:[height:1px] [&::after]:[background:#647ad3] [&::after]:[content:""] [@media(max-width:_700px)]:[&::before]:[width:35px] [@media(max-width:_700px)]:[&::after]:[width:35px]`}>Partners &amp; Clients</p>
-          <h2 id="partnerships-heading">Trusted Partnerships. <em>Proven Relationships.</em></h2>
-          <p className="mt-2.5 mr-0 mb-0 ml-0 text-[#52617f] text-body max-[700px]:mt-3.75">RD Prestige Services Corp. collaborates with respected financial, insurance, accounting, and training<br className="max-[1000px]:hidden" /> organizations while supporting a wide range of businesses, nonprofits, and individuals.</p>
-        </header>
-
-        <div className="mt-4 pt-0 pr-4.5 pb-4.5 pl-4.5 [border:1px_solid_#ffffffc9] rounded-[15px] bg-[#ffffffd9] shadow-[0_8px_28px_#2065ad0c] max-[700px]:pt-3 max-[700px]:pr-3 max-[700px]:pb-3 max-[700px]:pl-3">
-          <div className={`flex justify-between items-center gap-y-5.5 gap-x-5.5 min-h-17 pl-3.75 pr-3.75 [&_h3]:flex [&_h3]:items-center [&_h3]:gap-y-6 [&_h3]:gap-x-6 [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-0 [&_h3]:ml-0 [&_h3]:font-heading [&_h3]:text-subheading [&_>_p]:flex [&_>_p]:items-center [&_>_p]:gap-y-4.5 [&_>_p]:gap-x-4.5 [&_>_p]:mt-0 [&_>_p]:mr-0 [&_>_p]:mb-0 [&_>_p]:ml-0 [&_>_p]:text-[#2945a6] [&_>_p]:text-caption [&_>_p]:font-semibold [&_>_p]:tracking-[.27em] [&_>_p]:uppercase max-[1200px]:[&_>_p]:max-w-[44%] max-[1200px]:[&_>_p]:tracking-[.18em] max-[1200px]:[&_h3]:gap-y-3.75 max-[1200px]:[&_h3]:gap-x-3.75 max-[700px]:items-start max-[700px]:flex-col max-[700px]:gap-y-3 max-[700px]:gap-x-3 max-[700px]:pt-0 max-[700px]:pr-0 max-[700px]:pb-4 max-[700px]:pl-0 max-[700px]:[&_h3]:gap-y-3 max-[700px]:[&_h3]:gap-x-3 max-[700px]:[&_>_p]:max-w-none components-home-partnerships-panelHeader [&_>_p::before]:[width:85px] [&_>_p::before]:[height:1px] [&_>_p::before]:[flex-shrink:0] [&_>_p::before]:[background:#6279cc] [&_>_p::before]:[content:""] [@media(max-width:_1200px)]:[&_>_p::before]:[width:35px]`}>
-            <h3><span className="inline-flex justify-center items-center w-15.5 h-15.5 shrink-0 rounded-[50%] text-[#fff] max-[700px]:w-11.75 max-[700px]:h-11.75 components-home-partnerships-partnerIcon [background-image:linear-gradient(140deg,_#006aff,_#003a99)]"><Handshake size={31} aria-hidden="true" /></span>Strategic Partners</h3>
-            <p>Stronger together for a brighter tomorrow</p>
-          </div>
-          <ul className="grid mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 list-none gap-y-2 gap-x-2 grid-cols-8 max-[1000px]:grid-cols-4 max-[700px]:grid-cols-2" aria-label="Strategic partners">
-            {partners.map(({ name, style, mark, detail }) => (
-              <li key={name} className={`flex items-center justify-center min-w-0 [border:1px_solid_#edf4fc] rounded-[12px] shadow-[0_4px_15px_#1f65b109] text-center min-h-26.25 flex-col pt-3 pr-2 pb-3 pl-2 max-[700px]:min-h-23.75 components-home-partnerships-logoCard [background-image:linear-gradient(135deg,_#fff,_#fbfdff)] ${(style === "wfg" ? `text-[#55616e] components-home-partnerships-wfg [&_.components-home-partnerships-wordmark]:[font-family:Georgia,_serif] [&_.components-home-partnerships-wordmark]:[font-weight:400] [&_.components-home-partnerships-detail]:[max-width:110px] [&_.components-home-partnerships-detail]:[margin-top:4px] [&_.components-home-partnerships-detail]:[font-size:10px] [&_.components-home-partnerships-detail]:[letter-spacing:.06em]` : style === "ivari" ? `text-[#0086b9] components-home-partnerships-ivari [&_.components-home-partnerships-wordmark]:[font-size:clamp(26px,_3vw,_48px)] [&_.components-home-partnerships-wordmark]:[font-weight:500]` : style === "ia" ? `text-[#064abb] components-home-partnerships-ia [&_.components-home-partnerships-wordmark]:[font-size:46px] [&_.components-home-partnerships-wordmark]:[font-style:italic] [&_.components-home-partnerships-detail]:[font-weight:700]` : style === "manulife" ? `text-[#101b14] components-home-partnerships-manulife [&_.components-home-partnerships-wordmark]:[border-left:6px_solid_#00af61] [&_.components-home-partnerships-wordmark]:[padding-left:8px] [&_.components-home-partnerships-wordmark]:[font-size:clamp(17px,_1.6vw,_26px)] [@media(max-width:_1000px)]:[&_.components-home-partnerships-wordmark]:[font-size:24px]` : style === "quickbooks" ? `text-[#162c1a] flex-col-reverse components-home-partnerships-quickbooks [&_.components-home-partnerships-wordmark]:[font-size:clamp(16px,_1.55vw,_25px)] [&_.components-home-partnerships-detail]:[align-self:flex-start] [&_.components-home-partnerships-detail]:[margin-left:8px] [&_.components-home-partnerships-detail]:[color:#279a35] [@media(max-width:_1000px)]:[&_.components-home-partnerships-wordmark]:[font-size:24px]` : style === "zoho" ? `text-[#172040] components-home-partnerships-zoho [&_.components-home-partnerships-wordmark]:[letter-spacing:.12em] [&_.components-home-partnerships-wordmark]:[text-decoration:underline] [&_.components-home-partnerships-wordmark]:[text-decoration-color:#edb313] [&_.components-home-partnerships-wordmark]:[text-underline-offset:6px]` : style === "ufile" ? `text-[#111] components-home-partnerships-ufile [&_.components-home-partnerships-wordmark::first-letter]:[color:#e10018]` : style === "astranti" ? "text-[#001b60]" : style === "hecares" ? "font-heading text-[length:clamp(20px,_1.8vw,_28px)] italic text-[#072870]" : style === "esther" ? "font-heading text-[length:clamp(20px,_1.8vw,_28px)] italic text-[#5d24a2]" : style === "guacamole" ? "text-[#138239] font-extrabold" : style === "zadesta" ? "text-[#52217c] font-semibold" : style === "maple" ? "[border-top:3px_solid_#ed2531]" : style === "restar" ? "text-[#004296]" : style === "concept" ? "font-bold" : style === "buildesigners" ? "[grid-column:span_2] text-[#3e3023] font-heading underline [text-underline-offset:6px] max-[1000px]:[grid-column:auto] max-[700px]:[grid-column:1_/_-1]" : "")} `} aria-label={name}>
-                <span className="text-[length:clamp(20px,_2vw,_33px)] font-bold leading-[1.1] tracking-[-.045em] max-[1000px]:text-[length:28px] components-home-partnerships-wordmark" aria-hidden="true">{mark}</span>
-                {detail && <span className="text-[length:12px] leading-[1.25] components-home-partnerships-detail" aria-hidden="true">{detail}</span>}
-              </li>
-            ))}
-          </ul>
+    <section aria-labelledby="partnerships-heading" className="relative isolate overflow-hidden bg-[#f5f8fd] font-body text-[#112744]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,#e5effc,transparent_60%)]" />
+      <div className="mx-auto max-w-360 px-5 py-12 sm:px-7 sm:py-16 lg:px-[clamp(24px,5vw,72px)]">
+        <Reveal className="mx-auto mb-10 max-w-175 text-center">
+          <p className="mb-3 text-caption font-semibold uppercase tracking-[.14em] text-[#2E357E]">Partners & Customers</p>
+          <h2 id="partnerships-heading" className="text-section text-[#112744]">Trusted Partnerships.<br /><span className="text-[#2E357E]">Proven Relationships.</span></h2>
+          <span aria-hidden="true" className="mx-auto my-5 block h-0.75 w-13 bg-[#ff233b]" />
+          <p className="text-body text-[#52617f]">Collaborating with respected organizations and supporting businesses, nonprofits, and growing enterprises.</p>
+        </Reveal>
+        <div className="space-y-8">
+          <section aria-labelledby="strategic-partners-heading" className="min-w-0 rounded-2xl border border-[#dce6f2] bg-[#ffffff] p-5 shadow-[0_6px_24px_#183b6b05] sm:p-7">
+            <div className="mb-5 flex items-center gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-xl border border-[#d7e4f6] bg-[#edf4ff] text-[#2E357E]"><Handshake size={25} strokeWidth={1.8} aria-hidden="true" /></span>
+              <div className="min-w-0"><h3 id="strategic-partners-heading" className="text-subheading font-semibold text-[#112744]">Strategic Partners</h3><p className="mt-1 text-body text-[#40536f]">Financial, insurance, accounting, and technology organizations</p></div>
+            </div>
+            <CompanyLogoRow id="strategic-partner-logos" title="Strategic Partners" companies={strategicPartners} showTitle={false} />
+          </section>
+          <section aria-labelledby="customers-heading" className="min-w-0 rounded-2xl border border-[#dce6f2] bg-[#ffffff] p-5 shadow-[0_6px_24px_#183b6b05] sm:p-7">
+            <div className="mb-7 flex items-center gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-xl border border-[#d7e4f6] bg-[#edf4ff] text-[#2E357E]"><UsersRound size={25} strokeWidth={1.8} aria-hidden="true" /></span>
+              <div className="min-w-0"><h3 id="customers-heading" className="text-subheading font-semibold text-[#112744]">Customers & Organizations We Serve</h3><p className="mt-1 text-body text-[#40536f]">Relationships across industries and communities</p></div>
+            </div>
+            <div className="space-y-7">
+              {customerCategories.map(({ id, title, companies }, index) => <div key={id} className={index ? "border-t border-[#dce6f2] pt-7" : undefined}><CompanyLogoRow id={"customer-logos-" + id} title={title} companies={companies} /></div>)}
+            </div>
+          </section>
         </div>
-
-        <div className="mt-4 pt-0 pr-4.5 pb-4.5 pl-4.5 [border:1px_solid_#ffffffc9] rounded-[15px] bg-[#ffffffd9] shadow-[0_8px_28px_#2065ad0c] max-[700px]:pt-3 max-[700px]:pr-3 max-[700px]:pb-3 max-[700px]:pl-3">
-          <div className={`flex justify-between items-center gap-y-5.5 gap-x-5.5 min-h-17 pl-3.75 pr-3.75 [&_h3]:flex [&_h3]:items-center [&_h3]:gap-y-6 [&_h3]:gap-x-6 [&_h3]:mt-0 [&_h3]:mr-0 [&_h3]:mb-0 [&_h3]:ml-0 [&_h3]:font-heading [&_h3]:text-subheading [&_>_p]:flex [&_>_p]:items-center [&_>_p]:gap-y-4.5 [&_>_p]:gap-x-4.5 [&_>_p]:mt-0 [&_>_p]:mr-0 [&_>_p]:mb-0 [&_>_p]:ml-0 [&_>_p]:text-[#2945a6] [&_>_p]:text-caption [&_>_p]:font-semibold [&_>_p]:tracking-[.27em] [&_>_p]:uppercase max-[1200px]:[&_>_p]:max-w-[44%] max-[1200px]:[&_>_p]:tracking-[.18em] max-[1200px]:[&_h3]:gap-y-3.75 max-[1200px]:[&_h3]:gap-x-3.75 max-[700px]:items-start max-[700px]:flex-col max-[700px]:gap-y-3 max-[700px]:gap-x-3 max-[700px]:pt-0 max-[700px]:pr-0 max-[700px]:pb-4 max-[700px]:pl-0 max-[700px]:[&_h3]:gap-y-3 max-[700px]:[&_h3]:gap-x-3 max-[700px]:[&_>_p]:max-w-none components-home-partnerships-panelHeader [&_>_p::before]:[width:85px] [&_>_p::before]:[height:1px] [&_>_p::before]:[flex-shrink:0] [&_>_p::before]:[background:#6279cc] [&_>_p::before]:[content:""] [@media(max-width:_1200px)]:[&_>_p::before]:[width:35px]`}>
-            <h3><span className="inline-flex justify-center items-center w-15.5 h-15.5 shrink-0 rounded-[50%] text-[#fff] max-[700px]:w-11.75 max-[700px]:h-11.75 components-home-partnerships-communityIcon [background-image:linear-gradient(140deg,_#ff3039,_#db0009)]"><UsersRound size={32} aria-hidden="true" /></span>Organizations We Support</h3>
-            <p>Supporting communities. Building brighter futures.</p>
-          </div>
-          <div className="grid grid-cols-[minmax(0,_1fr)_290px] gap-y-3 gap-x-3 max-[1200px]:grid-cols-[minmax(0,_1fr)_230px] max-[1000px]:grid-cols-1">
-            <ul className="grid mt-0 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 list-none gap-y-2 gap-x-2 grid-cols-5 max-[1000px]:grid-cols-3 max-[700px]:grid-cols-2" aria-label="Organizations we support">
-              {organizations.map(({ name, style }) => <li key={name} className={`flex items-center justify-center min-w-0 [border:1px_solid_#edf4fc] rounded-[12px] shadow-[0_4px_15px_#1f65b109] text-center min-h-20.75 pt-3.5 pr-3.5 pb-3.5 pl-3.5 text-[#0b2568] text-body tracking-[-.035em] max-[1200px]:pt-2.5 max-[1200px]:pr-2.5 max-[1200px]:pb-2.5 max-[1200px]:pl-2.5 components-home-partnerships-organizationCard [background-image:linear-gradient(135deg,_#fff,_#fbfdff)] ${style === "overcomers" ? "" : (style === "hecares" ? "font-heading text-stat italic text-[#072870]" : style === "esther" ? "font-heading text-stat italic text-[#5d24a2]" : style === "guacamole" ? "text-[#138239] font-extrabold" : style === "zadesta" ? "text-[#52217c] font-semibold" : style === "maple" ? "[border-top:3px_solid_#ed2531]" : style === "restar" ? "text-[#004296]" : style === "concept" ? "font-bold" : style === "buildesigners" ? "[grid-column:span_2] text-[#3e3023] font-heading underline [text-underline-offset:6px] max-[1000px]:[grid-column:auto] max-[700px]:[grid-column:1_/_-1]" : "")} `}>{name}</li>)}
-            </ul>
-            <aside className="flex items-center justify-center gap-y-4 gap-x-4 pt-5.5 pr-4.5 pb-5.5 pl-4.5 rounded-[12px] [&_>_svg]:shrink-0 [&_>_svg]:text-[#0062ec] [&_strong]:text-[#005ff2] [&_strong]:font-heading [&_strong]:text-stat [&_strong]:tracking-[-.035em] [&_p]:mt-0.75 [&_p]:mr-0 [&_p]:mb-0 [&_p]:ml-0 [&_p]:text-[#455776] [&_p]:text-body [&_div_>_span]:block [&_div_>_span]:w-10 [&_div_>_span]:h-1 [&_div_>_span]:mt-3.25 [&_div_>_span]:bg-[#0066ff] [&_div_>_span]:rounded-[3px] max-[1200px]:gap-y-2.5 max-[1200px]:gap-x-2.5 max-[1200px]:pl-3 max-[1200px]:pr-3 max-[1200px]:[&_>_svg]:w-12 max-[1000px]:justify-center max-[1000px]:pt-5 max-[1000px]:pr-5 max-[1000px]:pb-5 max-[1000px]:pl-5 components-home-partnerships-individuals [background-image:linear-gradient(135deg,_#eaf4ff,_#dfedff)]" aria-label="Private individuals served">
-              <UsersRound size={68} strokeWidth={2} aria-hidden="true" />
-              <div><strong>Hundreds</strong><p>of private individuals<br />served</p><span aria-hidden="true" /></div>
-            </aside>
-          </div>
-        </div>
-
-       
       </div>
     </section>
   );

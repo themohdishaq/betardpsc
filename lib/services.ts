@@ -37,7 +37,7 @@ export const serviceOfferings = [
       "Tax regulations can be complex and constantly changing. Our goal is to simplify the process while ensuring you receive every credit, deduction, and benefit available to you.",
       "Whether you are an employee, self-employed professional, freelancer, contractor, investor, or retiree, RDPSC provides personalized tax preparation and filing services designed to give you confidence that your taxes are completed accurately and efficiently.",
       "Our team works with clients throughout the year, helping them organize and reconcile financial information so tax season becomes a straightforward process rather than a stressful event.",
-      "With over 120 satisfied returning clients, we have built our reputation on accuracy, responsiveness, and professional service."
+      "With hundreds of satisfied customers served, we have built our reputation on accuracy, responsiveness, and professional service."
     ],
     "items": [
       "Personal income tax return preparation and filing",
