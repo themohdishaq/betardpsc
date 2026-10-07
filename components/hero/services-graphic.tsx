@@ -14,7 +14,7 @@ export default function ServicesGraphic() {
         <radialGradient id="logo-disc"><stop offset=".75" stopColor="#fff" /><stop offset="1" stopColor="#edf1f5" /></radialGradient>
         <filter id="card-shadow" x="-30%" y="-40%" width="170%" height="200%"><feDropShadow dx="0" dy="10" stdDeviation="15" floodColor="#446c9e" floodOpacity=".12" /></filter>
       </defs>
-      <g aria-hidden="true" fontFamily="Arial, sans-serif">
+      <g aria-hidden="true" fontFamily="var(--font-body)">
         <g filter="url(#card-shadow)"><rect x="3" y="15" width="248" height="102" rx="14" fill="white" /><rect x="552" y="6" width="237" height="117" rx="14" fill="white" /></g>
         <UsersRound x="22" y="45" width="42" height="42" color="#0037b7" fill="#0037b7" strokeWidth="1.5" />
         <g fill="#06245c"><text x="85" y="52" fontSize="20" fontWeight="700">7 Service Areas</text><text x="85" y="77" fontSize="14" fill="#4e6387">Comprehensive services</text><text x="85" y="96" fontSize="14" fill="#4e6387">under one roof</text></g>
