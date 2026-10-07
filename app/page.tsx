@@ -1,18 +1,16 @@
 import Link from "next/link";
 import Reveal from "@/components/motion/reveal";
-import { ArrowRight, CalendarDays, ChartNoAxesColumnIncreasing, GraduationCap, Settings, UserRound } from "lucide-react";
+import { ArrowRight, CalendarDays, Banknote, ChartNoAxesColumnIncreasing, UserRound, WalletCards } from "lucide-react";
 import ServicesGraphic from "@/components/hero/services-graphic";
 import AboutDepartments from "@/components/home/about-departments";
 import WhyChoose from "@/components/home/why-choose";
 import ContactSection from "@/components/home/contact-section";
 import Partnerships from "@/components/home/partnerships";
+import ProfessionalExpertise from "@/components/home/professional-expertise";
+import { serviceOfferings } from "@/lib/services";
 
-const featuredServices = [
-  { icon: ChartNoAxesColumnIncreasing, title: "Accounting & Corporate Tax", description: "Keep your business on solid ground." },
-  { icon: UserRound, title: "Personal Income Tax", description: "Maximize what matters to you." },
-  { icon: GraduationCap, title: "Education & Mentorship", description: "Supporting future finance professionals." },
-  { icon: Settings, title: "Payroll & Treasury", description: "Accurate payroll. Stronger cash flow." },
-];
+const featuredIcons = [ChartNoAxesColumnIncreasing, UserRound, WalletCards, Banknote];
+const featuredServices = serviceOfferings.slice(0, 4).map((service, index) => ({ icon: featuredIcons[index], title: service.title, description: service.summary }));
 
 export default function Home() {
   return (
@@ -42,16 +40,15 @@ export default function Home() {
         </div>
         <div className="relative z-[2] grid grid-cols-[1fr_1.04fr] items-center gap-y-3 gap-x-3 max-w-420 ml-auto mr-auto pt-8 pr-12 pb-8.5 pl-12 min-[1680px]:pt-9.5 min-[1680px]:pb-9.5 max-[1250px]:pt-8 max-[1250px]:pr-7 max-[1250px]:pb-8 max-[1250px]:pl-7 max-[1000px]:grid-cols-1 max-[1000px]:max-w-205 max-[1000px]:pt-10.5 max-[1000px]:pr-7 max-[1000px]:pb-7 max-[1000px]:pl-7 max-[1000px]:gap-y-6.25 max-[1000px]:gap-x-6.25 max-[540px]:pt-7.5 max-[540px]:pr-5 max-[540px]:pb-5 max-[540px]:pl-5 max-[540px]:gap-y-7 max-[540px]:gap-x-7">
           <Reveal>
-            <p className="text-brand text-caption font-semibold tracking-[.14em] uppercase max-[540px]:max-w-80 max-[540px]:tracking-[.14em] max-[540px]:mb-3.75">Practical solutions. Professional expertise. Affordable support.</p>
             <h1 id="hero-heading" className="mt-0 mr-0 mb-0 ml-0 text-title text-ink [&_span]:text-brand [&_span]:[background-clip:text] [&_span]:[-webkit-text-fill-color:transparent] app-page-heading [&_span]:[background-image:linear-gradient(115deg,_#2E357E,_#2E357E_65%,_#2E357E)]">
-              Your Trusted Partner<br className="max-[540px]:hidden" /> for <span>Financial &amp;<br className="max-[540px]:hidden" /> Professional Services</span>
+              Accounting, tax, and payroll <span>support that fits your budget</span>
             </h1>
             <p className="max-w-177.5 mt-5 mr-0 mb-7 ml-0 text-copy text-body max-[540px]:mt-4.5 max-[540px]:mb-5.75">
-              At RD Prestidge Services Corp., every business and individual deserves high-quality financial and professional services, regardless of size, stage of growth, or budget. Our flexible, scalable solutions meet you where you are today and grow with you tomorrow.
+              RD Prestige Services Corp. gives small and growing businesses access to experienced finance professionals without the cost of a full-time finance department. Get accounting, payroll, and cash flow support tailored to your needs and budget.
             </p>
             <div className="flex flex-wrap gap-y-5 gap-x-7.5 [&_a:focus-visible]:[outline:3px_solid_#2E357E] [&_a:focus-visible]:outline-offset-[5px] [&_svg]:shrink-0 max-[1250px]:gap-y-3 max-[1250px]:gap-x-3 max-[540px]:flex-col max-[540px]:gap-y-3 max-[540px]:gap-x-3">
-              <Link href="/services" className="typography-inverse inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-body font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-white border-[#ee0710] shadow-[0_6px_16px_#d5081010] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:w-full motion-reduce:[transition:none] app-page-primaryButton [background-image:linear-gradient(#ff2028,_#df0009)]">Explore Our Services <ArrowRight size={24} aria-hidden="true" /></Link>
-              <Link href="/consultation" className="typography-surface inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-body font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-brand border-[#2E357E] bg-[#ffffffa6] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:w-full motion-reduce:[transition:none]"><CalendarDays size={26} aria-hidden="true" /> Request a Consultation</Link>
+              <Link href="/consultation" className="typography-inverse inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-body font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-white border-[#ee0710] shadow-[0_6px_16px_#d5081010] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:w-full motion-reduce:[transition:none] app-page-primaryButton [background-image:linear-gradient(#ff2028,_#df0009)]">Book a consultation <CalendarDays size={24} aria-hidden="true" /></Link>
+              <Link href="/services" className="typography-surface inline-flex items-center justify-center gap-y-3.75 gap-x-3.75 min-h-15.25 pt-3.5 pr-7 pb-3.5 pl-7 [border:1.5px_solid] rounded-[11px] text-body font-bold no-underline [transition:box-shadow_180ms_ease,_transform_180ms_ease] text-brand border-[#2E357E] bg-[#ffffffa6] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#153c8c20] max-[1250px]:pt-3.25 max-[1250px]:pr-4.5 max-[1250px]:pb-3.25 max-[1250px]:pl-4.5 max-[1250px]:min-h-13.5 max-[1250px]:gap-y-2.5 max-[1250px]:gap-x-2.5 max-[540px]:w-full motion-reduce:[transition:none]">See our services <ArrowRight size={26} aria-hidden="true" /></Link>
             </div>
             
           </Reveal>
@@ -74,9 +71,10 @@ export default function Home() {
         </div>
       </section>
       <AboutDepartments />
+      <ProfessionalExpertise />
       <WhyChoose />
-      <ContactSection />
       <Partnerships />
+      <ContactSection />
     </main>
   );
 }

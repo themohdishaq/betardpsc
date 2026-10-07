@@ -5,7 +5,7 @@ import { serviceOfferings } from "@/lib/services";
 import { company } from "@/lib/company";
 import ContactLinks from "@/components/contact/contact-links";
 
-import { useState, type FormEvent } from "react";
+import { useInquiry } from "@/lib/use-inquiry";
 import {
   ArrowRight,
   Building2,
@@ -20,19 +20,8 @@ import {
 const services = serviceOfferings.map((service) => service.title);
 
 export default function ContactSection() {
-  const [submissionMessage, setSubmissionMessage] = useState("");
-  const [draftUrl, setDraftUrl] = useState("");
+  const { handleSubmit, status: submissionMessage, pending } = useInquiry();
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const value = (key: string) => String(data.get(key) ?? "").trim();
-    const body = [`Name: ${value("fullName")}`, `Email: ${value("email")}`, `Phone: ${value("phone")}`, `Organization: ${value("company")}`, `Service: ${value("service")}`, "", value("message")].join("\n");
-    const href = `mailto:${company.email}?subject=${encodeURIComponent(`Website inquiry: ${value("service")}`)}&body=${encodeURIComponent(body)}`;
-    setDraftUrl(href);
-    setSubmissionMessage("Your inquiry is ready as an email draft. Review and send it in your email app; it has not been sent yet.");
-    window.location.href = href;
-  }
 
   return (
     <section
@@ -113,10 +102,10 @@ export default function ContactSection() {
             Get in Touch
           </h3>
           <p className="mt-2.5 mr-0 mb-7.5 ml-0 text-copy text-body max-[540px]:mb-6">
-            Tell us about your needs and we’ll get back to you shortly.
+            Tell us about your needs. Our team will contact you to discuss the next steps.
           </p>
           <form
-            onChange={() => { setDraftUrl(""); setSubmissionMessage(""); }}
+            
             aria-labelledby="inquiry-heading"
             onSubmit={handleSubmit}
             className="grid grid-cols-2 gap-y-5.5 gap-x-5 max-[1200px]:gap-y-5 max-[1200px]:gap-x-3.5 max-[540px]:grid-cols-1 max-[540px]:gap-y-4.5 max-[540px]:gap-x-4.5"
@@ -202,7 +191,7 @@ export default function ContactSection() {
                   defaultValue=""
                 >
                   <option value="" disabled>
-                    Select a service
+                    Choose a service
                   </option>
                   {services.map((service) => (
                     <option key={service} value={service}>
@@ -235,20 +224,17 @@ export default function ContactSection() {
             <div className="[grid-column:1_/_-1]">
               <button
                 className="typography-inverse flex items-center justify-center gap-y-4.5 gap-x-4.5 w-full min-h-16.5 pt-3.75 pr-5.5 pb-3.75 pl-5.5 [border:1px_solid_#0059dc] rounded-[8px] text-white text-body font-medium cursor-pointer shadow-[0_7px_18px_#0555c514] [transition:background_160ms_ease,_box-shadow_160ms_ease] hover:shadow-[0_9px_22px_#0555c526] focus-visible:[outline:3px_solid_#3979ed] focus-visible:outline-offset-[4px] max-[540px]:min-h-14.25 motion-reduce:[transition:none] components-home-contact-section-submit [background-image:linear-gradient(#0564ef,_#0043ba)] [&:hover]:[background-image:linear-gradient(#0057db,_#060a35)]"
-                type="submit"
+                type="submit" disabled={pending} aria-busy={pending}
               >
-                Prepare Inquiry <ArrowRight size={27} aria-hidden="true" />
+                {pending ? "Sending..." : "Send message"} <ArrowRight size={27} aria-hidden="true" />
               </button>
-              <p className="mt-2.5 mr-0 mb-0 ml-0 text-copy text-center text-body">
-                Opens an email draft for you to review and send.
-              </p>
+
               <p
                 className="mt-3 mr-0 mb-0 ml-0 pt-3 pr-3 pb-3 pl-3 [border:1px_solid_#eed59a] rounded-[6px] bg-[#fffbef] text-[#735216] text-body [&:empty]:hidden"
                 role="status"
                 aria-live="polite"
               >
                 {submissionMessage}
-                {draftUrl && <> <a href={draftUrl} className="underline">Open the draft again</a> or email <a href={company.emailHref} className="underline">{company.email}</a>.</>}
               </p>
             </div>
           </form>

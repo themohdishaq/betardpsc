@@ -102,7 +102,7 @@ export default function Navbar() {
           </ul>
           <Link href="/consultation" className="typography-inverse inline-flex items-center justify-center shrink-0 gap-y-3 gap-x-3 min-h-12.5 pt-3 pr-5.5 pb-3 pl-5.5 [border:1px_solid_#2E357E] rounded-[9px] bg-[#2E357E] text-white text-body font-semibold whitespace-nowrap shadow-[0_5px_14px_rgb(46_53_126_/_16%)] [transition:background_160ms_ease,_box-shadow_160ms_ease] hover:bg-[#252d6b] hover:shadow-[0_7px_18px_rgb(46_53_126_/_24%)] max-[1200px]:self-start max-[480px]:self-stretch components-navbar-navbar-consultation [@media(prefers-reduced-motion:_reduce)]:[transition:none]" aria-current={pathname === "/consultation" ? "page" : undefined} onClick={() => setOpen(false)}>
             <CalendarDays size={20} strokeWidth={1.8} aria-hidden="true" />
-            Request a Consultation
+            Book a consultation
           </Link>
         </nav>
       </div>

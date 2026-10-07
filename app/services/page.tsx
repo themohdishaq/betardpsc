@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChartNoAxesCombined, Check, Files, GraduationCap, ShieldCheck, UserRound, UsersRound, Wallet, Banknote } from "lucide-react";
 
-import { serviceOfferings, serviceBenefits } from "@/lib/services";
+import { serviceOfferings, serviceBenefits, serviceLinkLabels } from "@/lib/services";
 import FAQSection from "@/components/services/faq-section";
 import ProcessSection from "@/components/services/process-section";
 
@@ -42,7 +42,7 @@ export default function ServicesPage() {
             {services.map(({ id, icon: Icon, title, summary }) => (
               <article id={id} className="typography-surface flex flex-col items-center min-h-85 pt-6 pr-6 pb-5.5 pl-6 rounded-[9px] bg-[#fff] shadow-[0_5px_16px_#153c6a09] text-center scroll-mt-28.75 [&_h3]:max-w-57.5 [&_h3]:min-h-13 [&_h3]:mt-4.5 [&_h3]:mr-0 [&_h3]:mb-3.25 [&_h3]:ml-0 [&_h3]:text-card-heading [&_>_p]:text-copy [&_>_p]:mt-0 [&_>_p]:mr-0 [&_>_p]:mb-5 [&_>_p]:ml-0 [&_>_p]:text-body max-[1100px]:pl-4 max-[1100px]:pr-4 max-[1100px]:min-h-87.5 max-[800px]:min-h-82.5 max-[540px]:min-h-0 max-[540px]:pt-6.25 max-[540px]:pr-6.25 max-[540px]:pb-6.25 max-[540px]:pl-6.25 max-[540px]:[&_h3]:min-h-0 max-[540px]:[&_h3]:max-w-62.5" key={id}>
                 <span className="grid place-items-center w-20.75 h-20.75 shrink-0 rounded-[50%] bg-[#eef5ff] text-heading-accent [&_svg]:w-11.5 [&_svg]:h-11.5 [&_svg]:[stroke-width:1.65]"><Icon aria-hidden="true" /></span><h3><Link href={`/services/${id}`} className="hover:text-heading-accent">{title}</Link></h3><p>{summary}</p>
-                <Link href={`/services/${id}`} aria-label={`Learn more about ${title}`} className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 font-semibold text-heading-accent hover:underline">Learn More <ArrowRight size={16} aria-hidden="true" /></Link>
+                <Link href={`/services/${id}`} aria-label={serviceLinkLabels[id]} className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 font-semibold text-heading-accent hover:underline">{serviceLinkLabels[id]} <ArrowRight size={16} aria-hidden="true" /></Link>
               </article>
             ))}
             <aside className="relative isolate self-stretch overflow-hidden rounded-[9px] min-h-85 bg-[#dfedfa] [&_>_img]:z-[-1] [&_>_img]:object-cover [&_>_img]:object-[80%] [&_>_img]:opacity-[.45] [&_>_div]:pt-10 [&_>_div]:pr-6.25 [&_>_div]:pb-6 [&_>_div]:pl-6.25 [&_h3]:[border-left:4px_solid_#ff193b] [&_h3]:pl-5 [&_h3]:mt-5 [&_h3]:mr-0 [&_h3]:mb-5 [&_h3]:ml-0 [&_h3]:text-subheading max-[1100px]:[&_>_div]:pl-4.5 max-[1100px]:[&_>_div]:pr-4.5 max-[1100px]:[&_h3]:pl-3 max-[540px]:min-h-75 max-[540px]:[&_>_div]:pt-7.5 max-[540px]:[&_>_div]:pr-7.5 max-[540px]:[&_>_div]:pb-7.5 max-[540px]:[&_>_div]:pl-7.5 app-services-page-partnerCard [&_.app-services-page-eyebrow]:text-caption">

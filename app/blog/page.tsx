@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/page-hero";
 import HelpCta from "@/components/help-cta";
 
-export const metadata: Metadata = { title: "Blog & Updates | RD Prestidge Services Corp.", description: "Explore RDPSC preparation checklists, planning worksheets, and professional learning resources." };
+export const metadata: Metadata = { title: "Blog & Updates | RD Prestige Services Corp.", description: "Explore RDPSC preparation checklists, planning worksheets, and professional learning resources." };
 const guides = [
   { title: "Prepare for Your Consultation", category: "Getting Started", image: "/images/about-consultation.png", text: "Share your goals, select a service, and prepare your questions for a conversation with our team.", href: "/consultation", action: "Plan your conversation" },
   { title: "Organize Your Tax Records", category: "Preparation Checklist", image: "/images/services/hero.png", text: "Use our individual tax preparation checklist to organize the information you want to discuss with your tax preparer.", href: "/resources/downloads/individual-tax-checklist.pdf", action: "View checklist" },

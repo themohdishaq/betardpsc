@@ -183,3 +183,13 @@ export const serviceBenefits = [
   "Technology-driven and future-focused approach",
   "Commitment to helping businesses and individuals succeed"
 ] as const;
+
+export const serviceLinkLabels: Record<(typeof serviceOfferings)[number]["id"], string> = {
+  "accounting-corporate-tax": "See accounting services",
+  "personal-income-tax": "See personal tax services",
+  payroll: "See payroll services",
+  "treasury-cash-flow": "See treasury & cash flow services",
+  "it-consulting-project-management": "See IT consulting services",
+  "professional-education-mentorship": "See education & mentorship services",
+  "risk-management-insurance": "See risk & insurance services",
+};

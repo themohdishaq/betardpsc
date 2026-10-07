@@ -3,12 +3,12 @@ import { ArrowRight, BadgeCheck, ChartNoAxesCombined, Cpu, Handshake, HeartHands
 import Reveal from "@/components/motion/reveal";
 
 const reasons = [
-  { icon: WalletCards, title: "Affordable Support", description: "Affordable solutions tailored to your budget" },
-  { icon: Handshake, title: "Personalized Service", description: "Personalized service and long-term relationships" },
-  { icon: BadgeCheck, title: "Practical Expertise", description: "Experienced professionals with practical business expertise" },
-  { icon: ChartNoAxesCombined, title: "Room to Grow", description: "Scalable solutions that grow with your needs" },
-  { icon: Cpu, title: "Looking Ahead", description: "Technology-driven and future-focused approach" },
-  { icon: HeartHandshake, title: "Your Success Matters", description: "Commitment to helping businesses and individuals succeed" },
+  { icon: WalletCards, title: "Fees scaled to your size", description: "Fractional finance support without the cost of maintaining a full-time finance department." },
+  { icon: Handshake, title: "Solutions built around your operations", description: "We review your current processes, challenges, and plans before designing your financial support." },
+  { icon: BadgeCheck, title: "40+ years of collective experience", description: "Our professionals have supported start-ups, nonprofits, government entities, and public companies." },
+  { icon: ChartNoAxesCombined, title: "Support that scales with you", description: "Choose bookkeeping support or a complete finance function as your organization grows." },
+  { icon: Cpu, title: "Accounting systems & ERP support", description: "Our team helps select and implement systems, with project and change management support." },
+  { icon: HeartHandshake, title: "Risk planning & insurance", description: "Licensed insurance brokerage services help you identify business risks and protect your assets." },
 ] as const;
 
 export default function WhyChoose() {
@@ -41,7 +41,7 @@ export default function WhyChoose() {
             <Quote size={120} strokeWidth={1} aria-hidden="true" className="pointer-events-none absolute -right-2 -top-4 -z-10 text-white/10" />
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
               <p className="max-w-[65ch] text-subheading font-medium">At RDPSC, we do more than provide services. We become a trusted partner in your financial and business success.</p>
-              <Link href="/consultation" className="inline-flex min-h-12 w-fit shrink-0 items-center justify-center gap-3 rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-small font-semibold transition-colors hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 motion-reduce:transition-none">Let’s work together <ArrowRight size={18} aria-hidden="true" /></Link>
+              <Link href="/consultation" className="inline-flex min-h-12 w-fit shrink-0 items-center justify-center gap-3 rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-small font-semibold transition-colors hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 motion-reduce:transition-none">Book a consultation <ArrowRight size={18} aria-hidden="true" /></Link>
             </div>
           </div>
         </Reveal>

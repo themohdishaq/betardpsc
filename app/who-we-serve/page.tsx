@@ -4,7 +4,7 @@ import { ArrowRight, Building2, UsersRound, UserRound, GraduationCap, Settings, 
 import PageHero from "@/components/page-hero";
 import HelpCta from "@/components/help-cta";
 
-export const metadata: Metadata = { title: "Who We Serve | RD Prestidge Services Corp.", description: "Flexible financial and professional support for businesses, nonprofits, individuals, and aspiring finance professionals." };
+export const metadata: Metadata = { title: "Who We Serve | RD Prestige Services Corp.", description: "Flexible financial and professional support for businesses, nonprofits, individuals, and aspiring finance professionals." };
 const audiences = [
   { icon: Building2, title: "Small & Medium Businesses", text: "Accounting, corporate tax, payroll, and cash flow support tailored to your organization’s needs and budget.", href: "/services/accounting-corporate-tax" },
   { icon: ChartNoAxesCombined, title: "Growing Enterprises", text: "Scalable finance services and treasury support as your operations and priorities develop.", href: "/services/treasury-cash-flow" },

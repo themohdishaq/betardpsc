@@ -2,8 +2,19 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import { serviceOfferings } from "@/lib/services";
 import { ChartNoAxesColumnIncreasing, FileText, GraduationCap, Shield, Target, Trophy, UsersRound } from "lucide-react";
 
+function ServiceLabel({ id, x, y }: { id: string; x: number; y: number }) {
+  const title = serviceOfferings.find(service => service.id === id)?.title ?? "";
+  const lines: string[] = [];
+  for (const word of title.split(" ")) {
+    const last = lines.length - 1;
+    if (last < 0 || (lines[last] + " " + word).length > 21) lines.push(word);
+    else lines[last] += " " + word;
+  }
+  return <text x={x} y={y} fontSize="16" fontWeight="700">{lines.map((line, index) => <tspan key={index} x={x} dy={index ? 20 : 0}>{line}</tspan>)}</text>;
+}
 function FloatingBadge({ children, active, delay = 0 }: { children: ReactNode; active: boolean; delay?: number }) {
   return (
     <motion.g
@@ -27,7 +38,7 @@ export default function ServicesGraphic() {
   return (
     <svg ref={ref} viewBox="0 0 800 640" role="img" aria-labelledby="services-graphic-title services-graphic-description" className="h-auto w-full overflow-visible">
       <title id="services-graphic-title">Specialized services. One trusted partner.</title>
-      <desc id="services-graphic-description">Featured services: accounting and corporate tax, personal income tax, professional education and mentorship, risk management and insurance, and IT consulting and project management. RDPSC also offers payroll and treasury management and cash flow advisory. Hundreds of returning clients. Hundreds of satisfied customers served. Flexible, scalable support tailored to your budget.</desc>
+      <desc id="services-graphic-description">{`RDPSC services: ${serviceOfferings.map(service => service.title).join("; ")}. More than 40 years of collective professional experience. Flexible support tailored to your budget.`}</desc>
       <defs>
         <linearGradient id="department-blue" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#0860ed" /><stop offset="1" stopColor="#0025a1" /></linearGradient>
         <linearGradient id="department-cyan" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#2aaeea" /><stop offset="1" stopColor="#0075c8" /></linearGradient>
@@ -46,7 +57,7 @@ export default function ServicesGraphic() {
         <FloatingBadge active={floating} delay={0.7}>
         <g filter="url(#card-shadow)"><rect x="552" y="6" width="237" height="117" rx="14" fill="white" /></g>
         <Trophy x="573" y="31" width="43" height="43" color="#0037b7" fill="#0037b7" strokeWidth="1.6" />
-        <g fill="#06245c"><text x="641" y="43" fontSize="20" fontWeight="700">Hundreds</text><text x="641" y="68" fontSize="16" fill="#4e6387">of returning</text><text x="641" y="92" fontSize="16" fill="#4e6387">clients</text></g>
+        <g fill="#06245c"><text x="641" y="43" fontSize="18" fontWeight="700">40+ years</text><text x="641" y="68" fontSize="16" fill="#4e6387">of collective</text><text x="641" y="92" fontSize="16" fill="#4e6387">experience</text></g>
         </FloatingBadge>
         <g transform="translate(-5 22)">
           <path d="M350 7Q360 7 371 16L620 197Q634 207 629 223L532 529Q526 547 510 547H192Q175 547 170 530L73 223Q68 207 82 197L332 16Q343 7 350 7Z" fill="#e5eef9" stroke="#e5eef9" strokeWidth="15" />
@@ -58,21 +69,21 @@ export default function ServicesGraphic() {
             <path d="M350 310L133 361Q119 365 115 352L74 222Q69 206 82 196L195 113Q204 107 210 116Z" fill="url(#department-gray)" />
           </g>
           <g fill="#fff" color="#fff" textAnchor="middle">
-            <ChartNoAxesColumnIncreasing x="325" y="47" width="50" height="50" strokeWidth="4" />
-            <text x="350" y="121" fontSize="20" fontWeight="700"><tspan x="350">Accounting &amp;</tspan><tspan x="350" dy="23">Corporate Tax</tspan></text>
+            <ChartNoAxesColumnIncreasing x="325" y="35" width="50" height="50" strokeWidth="4" />
+            <ServiceLabel id="accounting-corporate-tax" x={350} y={106} />
             <text x="350" y="171" fontSize="14" fill="#e0eaff"><tspan x="350">Accurate. Compliant.</tspan><tspan x="350" dy="19">Strategic.</tspan></text>
-            <FileText x="493" y="176" width="49" height="49" strokeWidth="2.3" />
-            <text x="518" y="255" fontSize="20" fontWeight="700"><tspan x="518">Personal</tspan><tspan x="518" dy="23">Income Tax</tspan></text>
+            <FileText x="493" y="166" width="49" height="49" strokeWidth="2.3" />
+            <ServiceLabel id="personal-income-tax" x={518} y={240} />
             <text x="518" y="305" fontSize="14" fill="#e0f4ff"><tspan x="518">Simple. Reliable.</tspan><tspan x="518" dy="19">Maximized.</tspan></text>
-            <GraduationCap x="433" y="379" width="60" height="49" strokeWidth="2" />
-            <text x="463" y="451" fontSize="20" fontWeight="700"><tspan x="463">Professional</tspan><tspan x="463" dy="23">Education</tspan></text>
+            <GraduationCap x="433" y="369" width="60" height="49" strokeWidth="2" />
+            <ServiceLabel id="professional-education-mentorship" x={463} y={442} />
             <text x="463" y="501" fontSize="14" fill="#e0eaff"><tspan x="463">Build Skills.</tspan><tspan x="463" dy="19">Create Opportunities.</tspan></text>
-            <Shield x="216" y="380" width="49" height="49" fill="#fff" strokeWidth="1.5" />
+            <Shield x="216" y="365" width="49" height="49" fill="#fff" strokeWidth="1.5" />
             <path d="M240 393V415" stroke="#e20c16" strokeWidth="4" />
-            <text x="240" y="451" fontSize="19" fontWeight="700"><tspan x="240">Risk Management</tspan><tspan x="240" dy="23">&amp; Insurance</tspan></text>
+            <ServiceLabel id="risk-management-insurance" x={240} y={438} />
             <text x="240" y="501" fontSize="14" fill="#fff0f0"><tspan x="240">Protect. Grow.</tspan><tspan x="240" dy="19">Secure Tomorrow.</tspan></text>
             <UsersRound x="150" y="178" width="56" height="48" fill="#fff" strokeWidth="1.5" />
-            <text x="178" y="246" fontSize="18" fontWeight="700"><tspan x="178">IT Consulting &amp;</tspan><tspan x="178" dy="23">Project Management</tspan></text>
+            <ServiceLabel id="it-consulting-project-management" x={178} y={246} />
             <text x="178" y="296" fontSize="14" fill="#edf1f7"><tspan x="178">Plan. Execute.</tspan><tspan x="178" dy="19">Achieve.</tspan></text>
           </g>
           <circle cx="350" cy="310" r="88" fill="url(#logo-disc)" stroke="#fff" strokeWidth="5" />

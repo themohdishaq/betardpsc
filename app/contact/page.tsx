@@ -32,7 +32,7 @@ export default function ContactPage() {
             <div className="overflow-hidden [border:1px_solid_#e3edf5] rounded-[9px] mt-6.25 bg-[#eaf1f5] shadow-[0_4px_15px_#21497606] [&_iframe]:block [&_iframe]:w-full [&_iframe]:h-52.5 [&_iframe]:[border:0] max-[800px]:[&_iframe]:h-65 max-[540px]:[&_iframe]:h-55">
               <div className="flex min-h-48 flex-col items-start justify-center gap-3 bg-gradient-to-br from-[#eaf2fb] to-[#f6f9fe] p-6 text-ink">
                 <MapPin size={32} className="text-brand" aria-hidden="true" />
-                <h3 className="text-card-heading">Find RD Prestidge Services Corp.</h3>
+                <h3 className="text-card-heading">Find RD Prestige Services Corp.</h3>
                 <p className="text-body text-copy">View our company location and get directions on Google Maps.</p>
               </div>
               <a href={company.maps} target="_blank" rel="noopener noreferrer" className="typography-surface flex min-h-12 items-center gap-2 rounded-b-lg bg-[#fff] px-4 py-3 text-small font-semibold text-ink hover:bg-[#f5f9ff] focus-visible:outline-2 focus-visible:outline-offset-4"><MapPin size={18} aria-hidden="true" /><span>Open company location in Google Maps</span><ArrowUpRight size={17} className="ml-auto shrink-0" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>

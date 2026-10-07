@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/motion/reveal";
 import Link from "next/link";
-import { serviceOfferings } from "@/lib/services";
+import { serviceOfferings, serviceLinkLabels } from "@/lib/services";
 import styles from "./service-cards.module.css";
 import { ArrowRight, Banknote, ChartNoAxesColumnIncreasing, FileText, GraduationCap, MonitorCog, Shield, Target, Trophy, UsersRound, WalletCards, type LucideIcon } from "lucide-react";
 
@@ -12,14 +12,14 @@ const highlights = [
   { icon: ChartNoAxesColumnIncreasing, title: "Businesses • Nonprofits", subtitle: "• Growing Enterprises", description: "Supporting your goals at every stage." },
 ] as const;
 
-const servicePresentation: Record<string, { icon: LucideIcon; title: string }> = {
-  "accounting-corporate-tax": { icon: ChartNoAxesColumnIncreasing, title: "Accounting & Corporate Tax" },
-  "personal-income-tax": { icon: FileText, title: "Personal Income Tax" },
-  payroll: { icon: WalletCards, title: "Payroll Services" },
-  "treasury-cash-flow": { icon: Banknote, title: "Treasury & Cash Flow" },
-  "it-consulting-project-management": { icon: MonitorCog, title: "IT Consulting & Projects" },
-  "professional-education-mentorship": { icon: GraduationCap, title: "Education & Mentorship" },
-  "risk-management-insurance": { icon: Shield, title: "Risk Management & Insurance" },
+const servicePresentation: Record<string, { icon: LucideIcon }> = {
+  "accounting-corporate-tax": { icon: ChartNoAxesColumnIncreasing },
+  "personal-income-tax": { icon: FileText },
+  payroll: { icon: WalletCards },
+  "treasury-cash-flow": { icon: Banknote },
+  "it-consulting-project-management": { icon: MonitorCog },
+  "professional-education-mentorship": { icon: GraduationCap },
+  "risk-management-insurance": { icon: Shield },
 };
 
 export default function AboutDepartments() {
@@ -44,7 +44,7 @@ export default function AboutDepartments() {
               ))}
             </div>
             <div className="flex items-center gap-y-8 gap-x-8 mt-9.5 [&_blockquote]:mt-0 [&_blockquote]:mr-0 [&_blockquote]:mb-0 [&_blockquote]:ml-0 [&_blockquote]:pl-5.5 [&_blockquote]:[border-left:2px_solid_#9daadd] [&_blockquote]:text-copy [&_blockquote]:text-body [&_blockquote]:italic max-[1150px]:gap-y-5.5 max-[1150px]:gap-x-5.5 max-[1150px]:[&_blockquote]:pl-4.5 max-[1000px]:flex-wrap max-[1000px]:gap-y-5 max-[1000px]:gap-x-5 max-[800px]:flex-nowrap max-[800px]:mt-7 max-[480px]:flex-col max-[480px]:items-stretch">
-              <Link href="/about" className="typography-inverse inline-flex items-center justify-center gap-y-4.5 gap-x-4.5 shrink-0 min-h-13 pt-3.5 pr-6.5 pb-3.5 pl-6.5 rounded-[9px] text-white text-body font-medium no-underline shadow-[0_7px_18px_#16478312] [transition:transform_180ms_ease,_box-shadow_180ms_ease] [border:1px_solid_#eb0009] hover:[transform:translateY(-2px)] hover:shadow-[0_10px_22px_#16478325] focus-visible:[outline:3px_solid_#608dff] focus-visible:outline-offset-[5px] max-[1150px]:pl-5.75 max-[1150px]:pr-5.75 motion-reduce:[transition:none] components-home-about-departments-aboutButton [background-image:linear-gradient(#ff2026,_#df0008)]">More About Us <ArrowRight size={21} aria-hidden="true" /></Link>
+              <Link href="/about" className="typography-inverse inline-flex items-center justify-center gap-y-4.5 gap-x-4.5 shrink-0 min-h-13 pt-3.5 pr-6.5 pb-3.5 pl-6.5 rounded-[9px] text-white text-body font-medium no-underline shadow-[0_7px_18px_#16478312] [transition:transform_180ms_ease,_box-shadow_180ms_ease] [border:1px_solid_#eb0009] hover:[transform:translateY(-2px)] hover:shadow-[0_10px_22px_#16478325] focus-visible:[outline:3px_solid_#608dff] focus-visible:outline-offset-[5px] max-[1150px]:pl-5.75 max-[1150px]:pr-5.75 motion-reduce:[transition:none] components-home-about-departments-aboutButton [background-image:linear-gradient(#ff2026,_#df0008)]">Meet RDPSC <ArrowRight size={21} aria-hidden="true" /></Link>
               
             </div>
           </div>
@@ -59,11 +59,12 @@ export default function AboutDepartments() {
               <h2 id="departments-heading" className="text-section text-ink">Specialized Services.<br className="sm:hidden" /> <span className="text-brand">One Trusted Partner.</span></h2>
               <p className="mt-4 max-w-145 text-body text-copy">Seven areas of expertise, with practical support built around your business, your people, and your goals.</p>
             </div>
-            <Link href="/services" className="typography-surface inline-flex min-h-11 w-fit shrink-0 items-center gap-3 rounded-lg border border-[#cad8ed] bg-white px-5 py-3 text-small font-semibold text-brand transition-colors hover:border-[#2E357E] hover:bg-[#edf3ff] focus-visible:outline-2 focus-visible:outline-[#299ee8] focus-visible:outline-offset-4 motion-reduce:transition-none">Explore all services <ArrowRight size={18} aria-hidden="true" /></Link>
+            <Link href="/services" className="typography-surface inline-flex min-h-11 w-fit shrink-0 items-center gap-3 rounded-lg border border-[#cad8ed] bg-white px-5 py-3 text-small font-semibold text-brand transition-colors hover:border-[#2E357E] hover:bg-[#edf3ff] focus-visible:outline-2 focus-visible:outline-[#299ee8] focus-visible:outline-offset-4 motion-reduce:transition-none">See all services <ArrowRight size={18} aria-hidden="true" /></Link>
           </div>
           <div className={styles.grid}>
             {serviceOfferings.map(({ id, title, summary }, index) => {
-              const { icon: Icon, title: displayTitle } = servicePresentation[id] ?? { icon: ChartNoAxesColumnIncreasing, title };
+              const { icon: Icon } = servicePresentation[id] ?? { icon: ChartNoAxesColumnIncreasing };
+              const displayTitle = title;
               return (
                 <Reveal as="article" delay={index * 0.055} key={id} className="min-w-0">
                   <Link href={`/services/${id}`} className={styles.card} aria-labelledby={`home-service-${id}`}>
@@ -73,7 +74,7 @@ export default function AboutDepartments() {
                     </div>
                     <h3 id={`home-service-${id}`} className={`${styles.heading} mb-3 text-card-heading font-semibold text-ink`}>{displayTitle}</h3>
                     <p className="mb-7 text-body text-copy">{summary}</p>
-                    <span className="mt-auto flex items-center justify-between gap-3 border-t border-[#e5ecf5] pt-4 text-small font-semibold text-brand">Explore service <ArrowRight size={19} className={styles.arrow} aria-hidden="true" /></span>
+                    <span className="mt-auto flex items-center justify-between gap-3 border-t border-[#e5ecf5] pt-4 text-small font-semibold text-brand">{serviceLinkLabels[id]} <ArrowRight size={19} className={`${styles.arrow} shrink-0`} aria-hidden="true" /></span>
                   </Link>
                 </Reveal>
               );
