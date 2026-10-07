@@ -48,7 +48,7 @@ export default function ServicesGraphic() {
             <text x="178" y="296" fontSize="14" fill="#edf1f7"><tspan x="178">Plan. Execute.</tspan><tspan x="178" dy="19">Achieve.</tspan></text>
           </g>
           <circle cx="350" cy="310" r="88" fill="url(#logo-disc)" stroke="#fff" strokeWidth="5" />
-          <svg x="278" y="237" width="144" height="143" viewBox="495 0 1000 950" preserveAspectRatio="xMidYMid meet"><image href="/logo/rdcsp_logo.png" width="2000" height="1302" /></svg>
+          <svg x="278" y="237" width="144" height="143" viewBox="495 0 1000 950" preserveAspectRatio="xMidYMid meet"><image href="/logo/rdcsp_logo.png" width="2000" height="1400" /></svg>
         </g>
         <ellipse cx="727" cy="289" rx="105" ry="103" fill="#deecff" opacity=".35" />
         <text x="649" y="271" fill="#0b306b" fontSize="17"><tspan x="649">Businesses.</tspan><tspan x="649" dy="24">Individuals.</tspan><tspan x="649" dy="24">Growing Enterprises.</tspan></text>
