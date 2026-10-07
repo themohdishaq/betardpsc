@@ -31,10 +31,10 @@ export default function CompanyStory() {
     <section aria-labelledby="story-heading" className="mx-auto max-w-360 px-6 py-10 sm:py-12 lg:px-[clamp(24px,5vw,72px)]">
       <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <div className="min-w-0">
-          <p className="mb-3 text-caption font-semibold uppercase tracking-[.14em] text-[#2E357E]">Our Story</p>
-          <h2 id="story-heading">Financial Expertise<br /><span className="text-[#2E357E]">Within Reach</span></h2>
+          <p className="mb-3 text-caption font-semibold uppercase tracking-[.14em] text-brand">Our Story</p>
+          <h2 id="story-heading">Financial Expertise<br /><span className="text-brand">Within Reach</span></h2>
           <span aria-hidden="true" className="my-5 block h-0.75 w-13 bg-[#ff233b]" />
-          <div className="space-y-5 text-body text-[#526072]">
+          <div className="space-y-5 text-body text-copy">
             <p>Too often, businesses, nonprofits, and growing enterprises face a difficult choice: either stretch limited resources to afford quality financial leadership or settle for inadequate services that fail to provide the insight and strategic guidance needed for sustainable growth. We saw this gap in the marketplace and came together to change it.</p>
             <p>RDPSC is a network of experienced finance professionals dedicated to delivering customized fractional financial services that align with each client&apos;s unique needs, goals, and budget. We believe that every organization, regardless of size, deserves access to high-quality financial expertise without the cost of maintaining a full-time finance department.</p>
           </div>
@@ -49,10 +49,10 @@ export default function CompanyStory() {
           <section key={section.id} aria-labelledby={section.id} className="grid gap-5 border-t border-[#dce6f2] py-8 sm:py-10 lg:grid-cols-[.45fr_1fr] lg:gap-12">
             <div>
               <span aria-hidden="true" className="mb-4 block h-0.75 w-9 bg-[#299ee8]" />
-              <h3 id={section.id} className="max-w-75 text-subheading text-[#2E357E]">{section.title}</h3>
+              <h3 id={section.id} className="max-w-75 text-card-heading text-brand">{section.title}</h3>
             </div>
-            <div className="max-w-[76ch] space-y-5 text-body text-[#526072]">
-              {"statement" in section && <p className="rounded-xl border-l-4 border-[#299ee8] bg-[#f3f7fc] px-5 py-4 font-medium text-[#11243a]">{section.statement}</p>}
+            <div className="max-w-[76ch] space-y-5 text-body text-copy">
+              {"statement" in section && <p className="rounded-xl border-l-4 border-[#299ee8] bg-[#f3f7fc] px-5 py-4 font-medium text-ink">{section.statement}</p>}
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
           </section>
@@ -60,9 +60,9 @@ export default function CompanyStory() {
       </div>
 
       <div className="rounded-2xl border border-[#dce6f2] bg-[#f3f7fc] p-6 sm:p-8">
-        <p className="max-w-[76ch] text-body font-semibold text-[#2E357E]">Our mission is simple: to provide world-class financial expertise that is accessible, practical, scalable, and affordable.</p>
-        <p className="mt-5 max-w-[76ch] text-body text-[#526072]">We handle the complexities of finance so you can focus on what matters most: growing your business, serving your customers, and achieving your vision. Every service we deliver is designed specifically for your organization because we know that successful businesses are built on solutions tailored to their unique needs, not on one-size-fits-all approaches.</p>
-        <p className="mt-6 max-w-[76ch] border-t border-[#dce6f2] pt-5 text-body font-semibold text-[#11243a]">RDPSC: Professional Financial Solutions Designed Around Your Business and Your Budget.</p>
+        <p className="max-w-[76ch] text-body font-semibold text-brand">Our mission is simple: to provide world-class financial expertise that is accessible, practical, scalable, and affordable.</p>
+        <p className="mt-5 max-w-[76ch] text-body text-copy">We handle the complexities of finance so you can focus on what matters most: growing your business, serving your customers, and achieving your vision. Every service we deliver is designed specifically for your organization because we know that successful businesses are built on solutions tailored to their unique needs, not on one-size-fits-all approaches.</p>
+        <p className="mt-6 max-w-[76ch] border-t border-[#dce6f2] pt-5 text-body font-semibold text-ink">RDPSC: Professional Financial Solutions Designed Around Your Business and Your Budget.</p>
       </div>
     </section>
   );

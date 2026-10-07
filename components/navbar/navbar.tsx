@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-[50] shrink-0 [border-bottom:1px_solid_#edf0f6] bg-[#fff] text-[#17233b] font-sans shadow-[0_4px_24px_rgb(22_40_78_/_4%)] [&_a:focus-visible]:[outline:3px_solid_#2E357E] [&_a:focus-visible]:outline-offset-[5px]"
+      className="typography-surface sticky top-0 z-[50] shrink-0 [border-bottom:1px_solid_#edf0f6] bg-[#fff] text-ink font-sans shadow-[0_4px_24px_rgb(22_40_78_/_4%)] [&_a:focus-visible]:[outline:3px_solid_#2E357E] [&_a:focus-visible]:outline-offset-[5px]"
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
       }}
@@ -78,7 +78,7 @@ export default function Navbar() {
         <button
           ref={toggleRef}
           type="button"
-          className="hidden items-center justify-center w-11 h-11 shrink-0 [border:1px_solid_#e2e8f3] rounded-[10px] bg-[#f6f8fd] text-[#2E357E] cursor-pointer focus-visible:[outline:3px_solid_#2E357E] focus-visible:outline-offset-[5px] max-[1200px]:inline-flex"
+          className="hidden items-center justify-center w-11 h-11 shrink-0 [border:1px_solid_#e2e8f3] rounded-[10px] bg-[#f6f8fd] text-brand cursor-pointer focus-visible:[outline:3px_solid_#2E357E] focus-visible:outline-offset-[5px] max-[1200px]:inline-flex"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="primary-navigation"
@@ -93,14 +93,14 @@ export default function Navbar() {
               const active = pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
               return (
                 <li key={href}>
-                  <Link href={href} className={`relative flex items-center min-h-12 text-[#26334b] text-small font-medium whitespace-nowrap [transition:color_160ms_ease] hover:text-[#2E357E] max-[1200px]:pt-0 max-[1200px]:pr-3.5 max-[1200px]:pb-0 max-[1200px]:pl-3.5 max-[1200px]:rounded-[8px] max-[1200px]:hover:bg-[#eef4ff] components-navbar-navbar-link [&::after]:[position:absolute] [&::after]:[right:0] [&::after]:[bottom:5px] [&::after]:[left:0] [&::after]:[height:3px] [&::after]:[border-radius:3px] [&::after]:[background:#2E357E] [&::after]:[content:""] [&::after]:[transform:scaleX(0)] [&::after]:[transition:transform_160ms_ease] [&:hover::after]:[transform:scaleX(1)] [@media(max-width:_1199px)]:[&::after]:[display:none] [@media(prefers-reduced-motion:_reduce)]:[transition:none] [@media(prefers-reduced-motion:_reduce)]:[&::after]:[transition:none] ${active ? `text-[#2E357E]! font-bold! max-[1200px]:bg-[#eef4ff] components-navbar-navbar-active [&::after]:[transform:scaleX(1)]` : ""} `} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>
+                  <Link href={href} className={`relative flex items-center min-h-12 text-ink text-small font-medium whitespace-nowrap [transition:color_160ms_ease] hover:text-brand max-[1200px]:pt-0 max-[1200px]:pr-3.5 max-[1200px]:pb-0 max-[1200px]:pl-3.5 max-[1200px]:rounded-[8px] max-[1200px]:hover:bg-[#eef4ff] components-navbar-navbar-link [&::after]:[position:absolute] [&::after]:[right:0] [&::after]:[bottom:5px] [&::after]:[left:0] [&::after]:[height:3px] [&::after]:[border-radius:3px] [&::after]:[background:#2E357E] [&::after]:[content:""] [&::after]:[transform:scaleX(0)] [&::after]:[transition:transform_160ms_ease] [&:hover::after]:[transform:scaleX(1)] [@media(max-width:_1199px)]:[&::after]:[display:none] [@media(prefers-reduced-motion:_reduce)]:[transition:none] [@media(prefers-reduced-motion:_reduce)]:[&::after]:[transition:none] ${active ? `text-brand! font-bold! max-[1200px]:bg-[#eef4ff] components-navbar-navbar-active [&::after]:[transform:scaleX(1)]` : ""} `} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>
                     {label}
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <Link href="/consultation" className="inline-flex items-center justify-center shrink-0 gap-y-3 gap-x-3 min-h-12.5 pt-3 pr-5.5 pb-3 pl-5.5 [border:1px_solid_#2E357E] rounded-[9px] bg-[#2E357E] text-[#fff] text-body font-semibold whitespace-nowrap shadow-[0_5px_14px_rgb(46_53_126_/_16%)] [transition:background_160ms_ease,_box-shadow_160ms_ease] hover:bg-[#252d6b] hover:shadow-[0_7px_18px_rgb(46_53_126_/_24%)] max-[1200px]:self-start max-[480px]:self-stretch components-navbar-navbar-consultation [@media(prefers-reduced-motion:_reduce)]:[transition:none]" aria-current={pathname === "/consultation" ? "page" : undefined} onClick={() => setOpen(false)}>
+          <Link href="/consultation" className="typography-inverse inline-flex items-center justify-center shrink-0 gap-y-3 gap-x-3 min-h-12.5 pt-3 pr-5.5 pb-3 pl-5.5 [border:1px_solid_#2E357E] rounded-[9px] bg-[#2E357E] text-white text-body font-semibold whitespace-nowrap shadow-[0_5px_14px_rgb(46_53_126_/_16%)] [transition:background_160ms_ease,_box-shadow_160ms_ease] hover:bg-[#252d6b] hover:shadow-[0_7px_18px_rgb(46_53_126_/_24%)] max-[1200px]:self-start max-[480px]:self-stretch components-navbar-navbar-consultation [@media(prefers-reduced-motion:_reduce)]:[transition:none]" aria-current={pathname === "/consultation" ? "page" : undefined} onClick={() => setOpen(false)}>
             <CalendarDays size={20} strokeWidth={1.8} aria-hidden="true" />
             Request a Consultation
           </Link>

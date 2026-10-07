@@ -12,11 +12,17 @@
   --font-serif: var(--font-body);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-body);
+  --color-ink: var(--type-heading-color, #112744);
+  --color-copy: var(--type-copy-color, #52617f);
+  --color-brand: #2e357e;
+  --color-heading-accent: var(--type-heading-accent, #2e357e);
+  --color-inverse-copy: #e1ebf5;
+  --color-inverse-accent: #8ccbec;
   /* One responsive type scale for every page. Sizes respect browser zoom. */
-  --text-title: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+  --text-title: clamp(1.875rem, 1.4rem + 2vw, 2.5rem);
   --text-title--line-height: 1.18;
   --text-title--letter-spacing: -0.03em;
-  --text-section: clamp(1.5rem, 1.2rem + 1.25vw, 2rem);
+  --text-section: clamp(1.5rem, 1.2rem + 1.25vw, 1.875rem);
   --text-section--line-height: 1.25;
   --text-section--letter-spacing: -0.025em;
   --text-subheading: clamp(1.25rem, 1.1rem + 0.65vw, 1.5rem);
@@ -29,7 +35,7 @@
   --text-body--line-height: 1.7;
   --text-small: 0.875rem;
   --text-small--line-height: 1.6;
-  --text-caption: 0.75rem;
+  --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
   --text-stat: clamp(1.5rem, 1rem + 2vw, 2.25rem);
   --text-stat--line-height: 1.2;
@@ -145,7 +151,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-body text-body;
+    @apply bg-background text-copy font-body text-body;
   }
   html {
     @apply font-sans;
@@ -160,13 +166,28 @@
     @apply font-heading text-card-heading font-semibold;
   }
   h1, h2, h3, h4, h5, h6 {
+    color: var(--type-heading-color, #112744);
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
   p {
+    color: var(--type-copy-color, #52617f);
     text-wrap: pretty;
   }
   input, select, textarea, button {
     font-family: inherit;
   }
+}
+
+/* Dark banners use the same type hierarchy with a readable inverse palette. */
+.typography-inverse {
+  --type-heading-color: #fff;
+  --type-copy-color: #e1ebf5;
+  --type-heading-accent: #8ccbec;
+}
+
+.typography-surface {
+  --type-heading-color: #112744;
+  --type-copy-color: #52617f;
+  --type-heading-accent: #2e357e;
 }

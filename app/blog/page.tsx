@@ -15,19 +15,19 @@ const guides = [
 
 export default function BlogPage() {
   return (
-    <main className="flex-1 bg-[#f3f7fc] font-body text-[#112744]">
+    <main className="flex-1 bg-[#f3f7fc] font-body text-ink">
       <PageHero title="Blog & Updates" description="Practical resources to prepare for a conversation, organize your priorities, and explore professional support." />
       <section aria-labelledby="guides-title" className="mx-auto max-w-360 px-5 py-10 sm:px-7 sm:py-12 lg:px-[clamp(24px,5vw,72px)]">
         <h2 id="guides-title" className="text-section">Guides and resources</h2><span aria-hidden="true" className="mb-7 mt-4 block h-0.75 w-13 bg-[#ff233b]" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {guides.map(({ title, category, image, text, href, action }) => (
-            <article key={title} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-[#dce6f2] bg-white shadow-sm">
+            <article key={title} className="typography-surface flex min-w-0 flex-col overflow-hidden rounded-xl border border-[#dce6f2] bg-white shadow-sm">
               <div className="relative aspect-[1.8]"><Image src={image} alt="" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" /></div>
-              <div className="flex flex-1 flex-col p-5"><p className="mb-3 text-caption font-semibold uppercase tracking-[.1em] text-[#2E357E]">{category}</p><h3 className="text-card-heading">{title}</h3><p className="mb-5 mt-3 text-body text-[#52617f]">{text}</p><Link href={href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-small font-semibold text-[#2E357E] hover:underline">{action}<ArrowRight size={18} aria-hidden="true" /></Link></div>
+              <div className="flex flex-1 flex-col p-5"><p className="mb-3 text-caption font-semibold uppercase tracking-[.1em] text-brand">{category}</p><h3 className="text-card-heading">{title}</h3><p className="mb-5 mt-3 text-body text-copy">{text}</p><Link href={href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-small font-semibold text-brand hover:underline">{action}<ArrowRight size={18} aria-hidden="true" /></Link></div>
             </article>
           ))}
         </div>
-        <Link href="/resources" className="mt-8 inline-flex min-h-11 items-center gap-2 font-semibold text-[#2E357E] hover:underline">Browse all resources <ArrowRight size={18} aria-hidden="true" /></Link>
+        <Link href="/resources" className="mt-8 inline-flex min-h-11 items-center gap-2 font-semibold text-brand hover:underline">Browse all resources <ArrowRight size={18} aria-hidden="true" /></Link>
       </section>
       <HelpCta />
     </main>

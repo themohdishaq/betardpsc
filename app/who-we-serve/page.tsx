@@ -16,17 +16,17 @@ const audiences = [
 
 export default function WhoWeServePage() {
   return (
-    <main className="flex-1 bg-[#f3f7fc] font-body text-[#112744]">
+    <main className="flex-1 bg-[#f3f7fc] font-body text-ink">
       <PageHero title="Who We Serve" description="Support for businesses, nonprofits, growing enterprises, and individuals across Canada and internationally." />
       <section aria-labelledby="audiences-title" className="mx-auto max-w-360 px-5 py-10 sm:px-7 sm:py-12 lg:px-[clamp(24px,5vw,72px)]">
         <h2 id="audiences-title" className="text-section">Expertise built around your needs</h2>
         <span aria-hidden="true" className="mb-7 mt-4 block h-0.75 w-13 bg-[#ff233b]" />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {audiences.map(({ icon: Icon, title, text, href }) => (
-            <article key={title} className="flex min-w-0 flex-col rounded-xl border border-[#dce6f2] bg-white p-6 shadow-sm">
-              <Icon size={32} className="mb-5 text-[#2E357E]" aria-hidden="true" />
-              <h3 className="text-card-heading">{title}</h3><p className="mb-5 mt-3 text-body text-[#52617f]">{text}</p>
-              <Link href={href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-small font-semibold text-[#2E357E] hover:underline">Explore support <ArrowRight size={18} aria-hidden="true" /></Link>
+            <article key={title} className="typography-surface flex min-w-0 flex-col rounded-xl border border-[#dce6f2] bg-white p-6 shadow-sm">
+              <Icon size={32} className="mb-5 text-brand" aria-hidden="true" />
+              <h3 className="text-card-heading">{title}</h3><p className="mb-5 mt-3 text-body text-copy">{text}</p>
+              <Link href={href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-small font-semibold text-brand hover:underline">Explore support <ArrowRight size={18} aria-hidden="true" /></Link>
             </article>
           ))}
         </div>

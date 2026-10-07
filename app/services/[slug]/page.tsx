@@ -32,10 +32,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const service = getService((await params).slug);
 
   return (
-    <main className="font-body text-[#0a213b] [&_h1]:font-heading [&_h2]:font-heading [&_a:focus-visible]:outline-3 [&_a:focus-visible]:outline-[#2c99ef] [&_a:focus-visible]:outline-offset-4">
-      <section className="bg-[#021e39] px-5 py-12 text-white sm:px-8 sm:py-16" aria-labelledby="service-title">
+    <main className="font-body text-ink [&_h1]:font-heading [&_h2]:font-heading [&_a:focus-visible]:outline-3 [&_a:focus-visible]:outline-[#2c99ef] [&_a:focus-visible]:outline-offset-4">
+      <section className="typography-inverse bg-[#021e39] px-5 py-12 text-white sm:px-8 sm:py-16" aria-labelledby="service-title">
         <div className="mx-auto max-w-6xl">
-          <nav aria-label="Breadcrumb" className="mb-8 text-body text-[#50b8f2]">
+          <nav aria-label="Breadcrumb" className="mb-8 text-body text-heading-accent">
             <ol className="flex flex-wrap items-center gap-3">
               <li><Link href="/" className="hover:underline">Home</Link></li>
               <li aria-hidden="true">/</li>
@@ -44,10 +44,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <li aria-current="page" className="text-white">{service.title}</li>
             </ol>
           </nav>
-          <p className="mb-4 text-caption font-semibold uppercase tracking-widest text-[#50b8f2]">RD Prestige Services Corp.</p>
+          <p className="mb-4 text-caption font-semibold uppercase tracking-widest text-heading-accent">RD Prestige Services Corp.</p>
           <h1 id="service-title" className="max-w-4xl text-title">{service.title}</h1>
           <div className="my-6 h-1 w-12 bg-[#ff1534]" aria-hidden="true" />
-          <p className="max-w-3xl text-body text-[#e9f0fa]">{service.tagline}</p>
+          <p className="max-w-3xl text-body text-inverse-copy">{service.tagline}</p>
           <Link href="/consultation" className="mt-8 inline-flex min-h-12 items-center gap-3 rounded-md bg-[#006bcf] px-6 py-3 font-semibold hover:bg-[#0058ad]">
             Discuss your needs <ArrowRight size={18} aria-hidden="true" />
           </Link>
@@ -59,17 +59,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="min-w-0 space-y-10">
             <section aria-labelledby="overview-title">
               <h2 id="overview-title" className="mb-5 text-section">How we can help</h2>
-              <div className="space-y-4 leading-relaxed text-[#505e72]">
+              <div className="space-y-4 text-body text-copy">
                 {service.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
             </section>
 
-            <section className="rounded-xl bg-white p-6 shadow-sm sm:p-8" aria-labelledby="included-title">
+            <section className="typography-surface rounded-xl bg-white p-6 shadow-sm sm:p-8" aria-labelledby="included-title">
               <h2 id="included-title" className="mb-6 text-section">Our services include</h2>
               <ul className="grid gap-4 sm:grid-cols-2">
                 {service.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 leading-relaxed text-[#505e72]">
-                    <Check size={20} className="mt-1 shrink-0 text-[#006bcf]" aria-hidden="true" />
+                  <li key={item} className="flex items-start gap-3 text-body text-copy">
+                    <Check size={20} className="mt-1 shrink-0 text-heading-accent" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -78,20 +78,20 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             <section className="border-l-4 border-[#ff1534] pl-6" aria-labelledby="outcome-title">
               <h2 id="outcome-title" className="mb-4 text-section">{service.outcomeTitle}</h2>
-              <p className="leading-relaxed text-[#505e72]">{service.outcome}</p>
+              <p className="text-body text-copy">{service.outcome}</p>
             </section>
-            <Link href="/services" className="inline-flex min-h-11 items-center gap-2 font-semibold text-[#0069df] hover:underline">
+            <Link href="/services" className="inline-flex min-h-11 items-center gap-2 font-semibold text-heading-accent hover:underline">
               <ArrowLeft size={18} aria-hidden="true" /> Back to all services
             </Link>
           </div>
 
           <aside className="space-y-6">
-            <nav aria-label="Service navigation" className="rounded-xl border border-[#e1eaf6] bg-white p-6">
+            <nav aria-label="Service navigation" className="typography-surface rounded-xl border border-[#e1eaf6] bg-white p-6">
               <h2 className="mb-4 text-section">Explore our services</h2>
               <ul className="space-y-2">
                 {serviceOfferings.map((offering) => (
                   <li key={offering.id}>
-                    <Link href={`/services/${offering.id}`} aria-current={offering.id === service.id ? "page" : undefined} className={`flex min-h-11 items-center justify-between gap-3 rounded-md px-3 py-3 text-body ${offering.id === service.id ? "bg-[#eef5ff] font-semibold text-[#0069df]" : "text-[#505e72] hover:bg-[#f4f9fd] hover:text-[#0069df]"} `}>
+                    <Link href={`/services/${offering.id}`} aria-current={offering.id === service.id ? "page" : undefined} className={`flex min-h-11 items-center justify-between gap-3 rounded-md px-3 py-3 text-body ${offering.id === service.id ? "bg-[#eef5ff] font-semibold text-heading-accent" : "text-copy hover:bg-[#f4f9fd] hover:text-heading-accent"} `}>
                       {offering.title}<ArrowRight size={16} className="shrink-0" aria-hidden="true" />
                     </Link>
                   </li>
@@ -100,8 +100,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </nav>
             <div className="rounded-xl bg-[#dfedfa] p-6">
               <h2 className="mb-3 text-section">Let’s talk about your needs</h2>
-              <p className="mb-5 leading-relaxed text-[#505e72]">Contact our team to discuss the right support for your goals and budget.</p>
-              <Link href="/consultation" className="inline-flex min-h-11 items-center gap-2 rounded-md bg-[#006bcf] px-5 py-3 font-semibold text-white hover:bg-[#0058ad]">Book a consultation <ArrowRight size={16} aria-hidden="true" /></Link>
+              <p className="mb-5 text-body text-copy">Contact our team to discuss the right support for your goals and budget.</p>
+              <Link href="/consultation" className="typography-inverse inline-flex min-h-11 items-center gap-2 rounded-md bg-[#006bcf] px-5 py-3 font-semibold text-white hover:bg-[#0058ad]">Book a consultation <ArrowRight size={16} aria-hidden="true" /></Link>
             </div>
           </aside>
         </div>
