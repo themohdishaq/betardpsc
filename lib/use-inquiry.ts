@@ -4,6 +4,7 @@ import { useRef, useState, type FormEvent } from "react";
 
 export function useInquiry(kind: "inquiry" | "consultation" = "inquiry", onSuccess?: () => void) {
   const [status, setStatus] = useState("");
+  const [statusKind, setStatusKind] = useState<"success" | "error" | null>(null);
   const [pending, setPending] = useState(false);
   const submitting = useRef(false);
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -15,6 +16,7 @@ export function useInquiry(kind: "inquiry" | "consultation" = "inquiry", onSucce
     submitting.current = true;
     setPending(true);
     setStatus("");
+    setStatusKind(null);
     try {
       const response = await fetch("/api/inquiries", {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -25,13 +27,15 @@ export function useInquiry(kind: "inquiry" | "consultation" = "inquiry", onSucce
       if (!response.ok) throw new Error(result.error || "Your message could not be sent. Please try again.");
       form.reset();
       onSuccess?.();
+      setStatusKind("success");
       setStatus(kind === "consultation" ? "Your consultation request has been submitted. Our team will contact you to discuss availability; an appointment is not yet confirmed." : "Your inquiry has been submitted. Our team will contact you using the details you provided.");
     } catch (error) {
+      setStatusKind("error");
       setStatus(error instanceof Error && error.name === "Error" ? error.message : "We could not confirm your submission. Please try again or use the contact details below.");
     } finally {
       submitting.current = false;
       setPending(false);
     }
   }
-  return { handleSubmit, status, pending };
+  return { handleSubmit, status, statusKind, pending };
 }

@@ -9,14 +9,14 @@ function CompanyTile({ company }: { company: CompanyRelationship }) {
   const [failedLogo, setFailedLogo] = useState<string | null>(null);
   const hasLogo = Boolean(company.logoSrc) && failedLogo !== company.logoSrc;
   const content = <>
-    <div className="typography-surface relative flex min-h-28 items-center justify-center overflow-hidden rounded-xl border border-[#e6edf6] bg-white px-5 py-4 text-center">
+    <div className="typography-surface relative flex min-h-28 items-center justify-center overflow-hidden rounded-xl border border-[var(--line)] bg-white px-5 py-4 text-center">
       {hasLogo ? <Image src={company.logoSrc} alt="" fill sizes="(max-width: 640px) 224px, 240px" className="object-contain p-5" onError={() => setFailedLogo(company.logoSrc)} /> : <span aria-hidden="true" className="min-w-0 break-words text-card-heading font-semibold text-brand">{company.displayName ?? company.name}</span>}
     </div>
-    <p className="mt-4 break-words text-body font-semibold text-ink">{company.name}{company.href && <ArrowUpRight size={14} className="ml-1 inline-block align-middle text-copy" aria-hidden="true" />}</p>
-    {company.category && <p className="mt-1 text-small text-copy">{company.category}</p>}
+    <p className="mt-4 break-words text-body font-semibold text-secondary-copy">{company.name}{company.href && <ArrowUpRight size={14} className="ml-1 inline-block align-middle text-copy" aria-hidden="true" />}</p>
+    {company.category && <p className="mt-1 text-small text-secondary-copy">{company.category}</p>}
   </>;
-  const tileClass = "block h-full rounded-2xl border border-[#d4dfed] bg-[#fbfdff] p-4 text-center";
-  return company.href ? <a href={company.href} target="_blank" rel="noopener noreferrer" aria-label={company.name + " (opens in a new tab)"} className={tileClass + " transition-[border-color,background-color,box-shadow] duration-300 hover:border-[#2E357E] hover:bg-[#f0f5fc] hover:shadow-[0_4px_16px_#183b6b0c] focus-visible:outline-2 focus-visible:outline-[#2E357E] focus-visible:outline-offset-4 motion-reduce:transition-none"}>{content}</a> : <div className={tileClass}>{content}</div>;
+  const tileClass = "block h-full rounded-2xl border border-[var(--line)] bg-white p-4 text-center";
+  return company.href ? <a href={company.href} target="_blank" rel="noopener noreferrer" aria-label={company.name + " (opens in a new tab)"} className={tileClass + " transition-[border-color,background-color,box-shadow] duration-300 hover:border-[var(--indigo-800)] hover:bg-white hover:shadow-[0_4px_16px_#1B22600c] focus-visible:outline-2 focus-visible:outline-[var(--indigo-800)] focus-visible:outline-offset-4 motion-reduce:transition-none"}>{content}</a> : <div className={tileClass}>{content}</div>;
 }
 
 export default function CompanyLogoRow({ id, title, companies, showTitle = true }: { id: string; title: string; companies: CompanyRelationship[]; showTitle?: boolean }) {
@@ -57,12 +57,12 @@ export default function CompanyLogoRow({ id, title, companies, showTitle = true 
   return (
     <div>
       <div className="mb-4 flex min-h-11 flex-wrap items-center justify-between gap-3">
-        {showTitle ? <h4 id={id + "-title"} className="text-card-heading font-semibold text-ink">{title}</h4> : <span id={id + "-title"} className="text-body text-copy">Our partner network</span>}
+        {showTitle ? <h4 id={id + "-title"} className="text-card-heading font-semibold text-card-ink">{title}</h4> : <span id={id + "-title"} className="text-body text-copy">Our partner network</span>}
         {(canScroll.left || canScroll.right) && <div className="ml-auto flex shrink-0 gap-2">
-          {([-1, 1] as const).map(direction => <button key={direction} type="button" aria-label={"Scroll " + title + (direction < 0 ? " left" : " right")} aria-controls={id} disabled={direction < 0 ? !canScroll.left : !canScroll.right} onClick={() => scroll(direction)} className="typography-surface grid size-11 place-items-center rounded-full border border-[#bdcde2] bg-white text-brand transition-colors duration-200 hover:border-[#2E357E] hover:bg-[#edf4ff] focus-visible:outline-2 focus-visible:outline-[#2E357E] focus-visible:outline-offset-4 disabled:cursor-default disabled:border-[#dce6f2] disabled:bg-[#f3f6fb] disabled:text-[#8491a6] motion-reduce:transition-none">{direction < 0 ? <ChevronLeft size={20} aria-hidden="true" /> : <ChevronRight size={20} aria-hidden="true" />}</button>)}
+          {([-1, 1] as const).map(direction => <button key={direction} type="button" aria-label={"Scroll " + title + (direction < 0 ? " left" : " right")} aria-controls={id} disabled={direction < 0 ? !canScroll.left : !canScroll.right} onClick={() => scroll(direction)} className="typography-surface grid size-11 place-items-center rounded-full border border-[var(--line)] bg-white text-brand transition-colors duration-200 hover:border-[var(--indigo-800)] hover:bg-white focus-visible:outline-2 focus-visible:outline-[var(--indigo-800)] focus-visible:outline-offset-4 disabled:cursor-default disabled:border-[var(--cyan-700)] disabled:bg-white disabled:text-[var(--graphite-400)] motion-reduce:transition-none">{direction < 0 ? <ChevronLeft size={20} aria-hidden="true" /> : <ChevronRight size={20} aria-hidden="true" />}</button>)}
         </div>}
       </div>
-      <ul ref={ref} id={id} aria-labelledby={id + "-title"} tabIndex={0} onKeyDown={handleKeyDown} className="flex snap-x snap-proximity scroll-px-2 gap-4 overflow-x-auto overscroll-x-contain px-2 pb-5 pt-2 [scrollbar-color:#718eb4_#eef3fa] [scrollbar-width:thin] focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-[#2E357E] focus-visible:outline-offset-4">
+      <ul ref={ref} id={id} aria-labelledby={id + "-title"} tabIndex={0} onKeyDown={handleKeyDown} className="flex snap-x snap-proximity scroll-px-2 gap-4 overflow-x-auto overscroll-x-contain px-2 pb-5 pt-2 [scrollbar-color:#718eb4_var(--indigo-50)] [scrollbar-width:thin] focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-[var(--indigo-800)] focus-visible:outline-offset-4">
         {companies.map(company => <li key={company.name} className="w-56 shrink-0 snap-start sm:w-60"><CompanyTile company={company} /></li>)}
       </ul>
     </div>

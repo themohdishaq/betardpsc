@@ -12,12 +12,16 @@
   --font-serif: var(--font-body);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-body);
-  --color-ink: var(--type-heading-color, #112744);
-  --color-copy: var(--type-copy-color, #52617f);
-  --color-brand: #2e357e;
-  --color-heading-accent: var(--type-heading-accent, #2e357e);
-  --color-inverse-copy: #e1ebf5;
-  --color-inverse-accent: #8ccbec;
+  --color-ink: var(--type-copy-color, var(--ink));
+  --color-heading: var(--type-heading-color, var(--indigo-900));
+  --color-card-ink: var(--type-card-color, var(--indigo-800));
+  --color-secondary-copy: var(--type-secondary-color, var(--graphite-600));
+  --color-eyebrow: var(--type-heading-accent, var(--cyan-800));
+  --color-copy: var(--type-copy-color, var(--ink));
+  --color-brand: var(--type-card-color, var(--indigo-800));
+  --color-heading-accent: var(--type-heading-accent, var(--cyan-800));
+  --color-inverse-copy: var(--white);
+  --color-inverse-accent: var(--cyan-300);
   /* One responsive type scale for every page. Sizes respect browser zoom. */
   --text-title: clamp(1.875rem, 1.4rem + 2vw, 2.5rem);
   --text-title--line-height: 1.18;
@@ -78,24 +82,43 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --indigo-900: #1B2260;
+  --indigo-800: #293484;
+  --indigo-50: #F3F4FA;
+  --ink: #111318;
+  --graphite-600: #646567;
+  --graphite-400: #8B8D91;
+  --line: #D9DCE8;
+  --cyan-800: #14607F;
+  --cyan-700: #1A7BA3;
+  --cyan-600: #2098C8;
+  --cyan-300: #5BB8E0;
+  --red-600: #C8102E;
+  --success: #1B6B43;
+  --warning: #8A5A00;
+  --white: #FFFFFF;
+  --on-dark-muted: #B9BEDD;
+  --error-bg: #FDECEE;
+  --success-bg: #E8F5EE;
+  --warning-bg: #FFF4D6;
+  --background: var(--white);
+  --foreground: var(--ink);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: var(--indigo-800);
+  --primary-foreground: var(--white);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: var(--graphite-600);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --destructive: var(--red-600);
+  --border: var(--line);
+  --input: var(--graphite-400);
+  --ring: var(--cyan-700);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -166,12 +189,12 @@
     @apply font-heading text-card-heading font-semibold;
   }
   h1, h2, h3, h4, h5, h6 {
-    color: var(--type-heading-color, #112744);
+    color: var(--type-heading-color, var(--indigo-900));
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
   p {
-    color: var(--type-copy-color, #52617f);
+    color: var(--type-copy-color, var(--ink));
     text-wrap: pretty;
   }
   input, select, textarea, button {
@@ -179,15 +202,137 @@
   }
 }
 
-/* Dark banners use the same type hierarchy with a readable inverse palette. */
+/* Semantic palettes apply equally to shared utilities and nested components. */
 .typography-inverse {
-  --type-heading-color: #fff;
-  --type-copy-color: #e1ebf5;
-  --type-heading-accent: #8ccbec;
+  --type-heading-color: var(--white);
+  --type-card-color: var(--white);
+  --type-copy-color: var(--white);
+  --type-secondary-color: var(--on-dark-muted);
+  --type-heading-accent: var(--cyan-300);
+  --button-fill: var(--white);
+  --button-text: var(--indigo-900);
+  --button-hover: var(--indigo-50);
+  --secondary-button-text: var(--white);
+  --secondary-button-hover: #FFFFFF1a;
+  --focus-color: var(--cyan-300);
 }
-
 .typography-surface {
-  --type-heading-color: #112744;
-  --type-copy-color: #52617f;
-  --type-heading-accent: #2e357e;
+  --type-heading-color: var(--indigo-900);
+  --type-card-color: var(--indigo-800);
+  --type-copy-color: var(--ink);
+  --type-secondary-color: var(--graphite-600);
+  --type-heading-accent: var(--cyan-800);
+  --button-fill: var(--indigo-800);
+  --button-text: var(--white);
+  --button-hover: var(--indigo-900);
+  --secondary-button-text: var(--indigo-800);
+  --secondary-button-hover: var(--indigo-50);
+  --focus-color: var(--cyan-700);
 }
+h3, h4, h5, h6 { color: var(--type-card-color, var(--indigo-800)); }
+h1, h2 { color: var(--type-heading-color, var(--indigo-900)); }
+h1 span, h2 span, h1 em, h2 em {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor;
+}
+a { text-underline-offset: 3px; }
+main a:not(.button-primary):not(.button-secondary):not([class*="card"]):not([class*="Card"]):not([class*="Tile"]) {
+  color: var(--type-heading-accent, var(--cyan-800));
+  text-decoration: underline;
+}
+main a:not(.button-primary):not(.button-secondary):hover { color: var(--type-card-color, var(--indigo-800)); }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--focus-color, var(--cyan-700)) !important;
+  outline-offset: 2px !important;
+}
+.button-primary, .button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  border-radius: 9px;
+  padding: 12px 22px;
+  font-weight: 600;
+  text-decoration: none !important;
+  background-image: none !important;
+  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+.button-primary {
+  border: none !important;
+  background-color: var(--button-fill, var(--indigo-800)) !important;
+  color: var(--button-text, var(--white)) !important;
+}
+.button-primary:hover { background-color: var(--button-hover, var(--indigo-900)) !important; }
+.button-secondary {
+  border: 1.5px solid var(--secondary-button-text, var(--indigo-800)) !important;
+  background-color: transparent !important;
+  color: var(--secondary-button-text, var(--indigo-800)) !important;
+}
+.button-secondary:hover { background-color: var(--secondary-button-hover, var(--indigo-50)) !important; }
+button:disabled, .button-primary:disabled {
+  background: var(--indigo-50) !important;
+  color: var(--graphite-400) !important;
+  border-color: transparent !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+form label { color: var(--type-copy-color, var(--ink)) !important; font-size: 14px !important; line-height: 1.6; }
+form input, form select, form textarea {
+  border: 1px solid var(--graphite-400) !important;
+  background: var(--white) !important;
+  color: var(--ink) !important;
+}
+form input::placeholder, form textarea::placeholder, form select:invalid { color: var(--graphite-600) !important; opacity: 1; }
+form input:focus-visible, form select:focus-visible, form textarea:focus-visible {
+  outline: 2px solid var(--cyan-700) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+form small, form [id$="-note"] { color: var(--type-secondary-color, var(--graphite-600)) !important; }
+.inquiry-feedback { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; padding: 14px; border-radius: 8px; font-size: 14px; line-height: 1.6; }
+.inquiry-feedback p { color: inherit; }
+.inquiry-feedback[data-kind="error"] { color: var(--red-600); background: var(--error-bg); }
+.inquiry-feedback[data-kind="success"] { color: var(--success); background: var(--success-bg); }
+.inquiry-feedback svg { flex-shrink: 0; margin-top: 2px; }
+header nav a:not(.button-primary) { color: var(--ink); text-decoration: none; }
+header nav a[aria-current="page"]:not(.button-primary) { color: var(--indigo-800) !important; }
+header nav a::after { height: 2px !important; background: var(--indigo-800) !important; }
+footer { background: var(--indigo-900); }
+footer a, footer p { color: var(--on-dark-muted) !important; }
+footer a:hover { color: var(--white) !important; }
+footer h2, footer h3, footer h4 { color: var(--white) !important; }
+footer .footer-photo { opacity: .15; }
+footer label { display: block; position: static; width: auto; height: auto; margin: 0 0 8px; overflow: visible; clip-path: none; color: var(--white) !important; }
+.logo-grayscale { filter: grayscale(1); opacity: .85; }
+@media (prefers-reduced-motion: reduce) { .button-primary, .button-secondary { transition: none; } }
+/* Keep content roles consistent when older layout utilities surround them. */
+p.text-caption:not(.uppercase), span.text-caption:not(.uppercase) { color: var(--type-secondary-color, var(--graphite-600)); }
+p.text-brand:not(.uppercase):not(.text-caption) { color: var(--type-copy-color, var(--ink)); }
+figure figcaption { background: #1B2260bf !important; }
+#departments { background: var(--indigo-50) !important; }
+.components-home-about-departments-about { background: var(--white) !important; }
+#why-choose article > div { background: var(--white); }
+
+:root {
+  --card: var(--white); --card-foreground: var(--ink);
+  --popover: var(--white); --popover-foreground: var(--ink);
+  --secondary: var(--indigo-50); --secondary-foreground: var(--indigo-800);
+  --muted: var(--indigo-50); --accent: var(--indigo-50); --accent-foreground: var(--indigo-800);
+  --chart-1: var(--indigo-800); --chart-2: var(--cyan-600); --chart-3: var(--cyan-800);
+  --chart-4: var(--graphite-600); --chart-5: var(--indigo-900);
+  --sidebar: var(--indigo-50); --sidebar-foreground: var(--ink); --sidebar-primary: var(--indigo-800);
+  --sidebar-primary-foreground: var(--white); --sidebar-accent: var(--white); --sidebar-accent-foreground: var(--indigo-800);
+  --sidebar-border: var(--line); --sidebar-ring: var(--cyan-700);
+}
+.dark {
+  --background: var(--indigo-900); --foreground: var(--white);
+  --card: var(--indigo-800); --card-foreground: var(--white);
+  --popover: var(--indigo-800); --popover-foreground: var(--white);
+  --primary: var(--white); --primary-foreground: var(--indigo-900);
+  --secondary: var(--indigo-800); --secondary-foreground: var(--white);
+  --muted: var(--indigo-800); --muted-foreground: var(--on-dark-muted);
+  --accent: var(--indigo-800); --accent-foreground: var(--white); --destructive: var(--red-600);
+  --border: var(--line); --input: var(--graphite-400); --ring: var(--cyan-300);
+}
+.photo-hero-overlay { position: absolute; inset: 0; z-index: -1; background: #1B2260bf; pointer-events: none; }
