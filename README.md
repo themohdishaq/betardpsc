@@ -1,4 +1,4 @@
-# RD Prestige Services Corp.
+# RD Prestidge Services Corp.
 
 Next.js App Router website using React, TypeScript, Tailwind CSS v4, and Lucide icons.
 

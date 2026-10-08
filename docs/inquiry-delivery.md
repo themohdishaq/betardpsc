@@ -8,7 +8,7 @@ Configure these server environment variables before enabling delivery:
 
 ```
 RESEND_API_KEY=<your sending API key>
-INQUIRY_FROM_EMAIL=RD Prestige Services Corp. <website@your-verified-domain>
+INQUIRY_FROM_EMAIL=RD Prestidge Services Corp. <website@your-verified-domain>
 ```
 
 Use a sender domain verified in your Resend account. Never expose these

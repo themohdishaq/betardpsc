@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "RD Prestige Services Corp.";
+const title = "RD Prestidge Services Corp.";
 const description = "Practical financial and professional services for businesses and individuals, with flexible, scalable solutions tailored to your needs and budget.";
 
 export const metadata: Metadata = {

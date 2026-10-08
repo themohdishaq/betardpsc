@@ -3,8 +3,8 @@ import LegalPage from "@/components/legal/legal-page";
 import { legalPolicies } from "@/lib/legal-policies";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | RD Prestige Services Corp.",
-  description: "How RD Prestige Services Corp. collects, uses, retains, and protects personal information, and how to contact the Privacy Officer.",
+  title: "Privacy Policy | RD Prestidge Services Corp.",
+  description: "How RD Prestidge Services Corp. collects, uses, retains, and protects personal information, and how to contact the Privacy Officer.",
 };
 
 export default function PrivacyPolicyPage() {

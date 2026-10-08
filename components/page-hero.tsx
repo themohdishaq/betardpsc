@@ -12,12 +12,12 @@ export default function PageHero({ title, description }: { title: string; descri
         <nav aria-label="Breadcrumb" className="mb-7 flex flex-wrap items-center gap-3 text-body text-inverse-accent"><Link href="/" className="hover:underline">Home</Link><span aria-hidden="true">/</span><span aria-current="page">{title}</span></nav>
         <div className="grid items-center gap-8 md:grid-cols-[1.3fr_.7fr]">
           <div className="min-w-0">
-            <p className="mb-3 text-caption font-semibold uppercase tracking-[.14em] text-inverse-accent">RD Prestige Services Corp.</p>
+            <p className="mb-3 text-caption font-semibold uppercase tracking-[.14em] text-inverse-accent">RD Prestidge Services Corp.</p>
             <h1 id="page-title" className="text-title">{words.join(" ")} <span className="text-heading-accent">{accent}</span></h1>
             <span aria-hidden="true" className="my-5 block h-0.75 w-13 bg-[var(--red-600)]" />
             <p className="max-w-150 text-body text-inverse-copy">{description}</p>
           </div>
-          <div className="hidden justify-center md:flex"><div className="typography-surface w-full max-w-76 rounded-xl bg-white/95 p-5 shadow-lg"><Image src="/logo/rdcsp_logo.png" alt="RD Prestige Services Corp." width={2000} height={1302} sizes="264px" className="h-auto w-full" /></div></div>
+          <div className="hidden justify-center md:flex"><div className="typography-surface w-full max-w-76 rounded-xl bg-white/95 p-5 shadow-lg"><Image src="/logo/rdcsp_logo.png" alt="RD Prestidge Services Corp." width={2000} height={1302} sizes="264px" className="h-auto w-full" /></div></div>
         </div>
       </div>
     </section>

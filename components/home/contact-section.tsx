@@ -85,7 +85,7 @@ export default function ContactSection() {
             <em>Together.</em>
           </h2>
           <p className="mt-7.25 mr-0 mb-7.75 ml-0 text-brand text-body tracking-[-.018em] max-[540px]:mt-5.75 max-[540px]:mb-5.75">
-            RD Prestige Services Corp. provides tailored financial and
+            RD Prestidge Services Corp. provides tailored financial and
             professional solutions for businesses and individuals, whatever your
             budget or stage of growth.
           </p>

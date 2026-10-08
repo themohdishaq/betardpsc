@@ -1,9 +1,13 @@
 import Image from "next/image";
+
 import CompanyStory from "@/components/about/company-story";
+
 import Link from "next/link";
+
 import { ArrowRight, Building2, ChartNoAxesCombined, Check, Diamond, Eye, Globe2, Handshake, Settings, ShieldCheck, Target, UsersRound } from "lucide-react";
 
 const values = ["Integrity", "Client Focus", "Excellence", "Collaboration", "Continuous Learning", "Community Impact"];
+
 const statistics = [
   { icon: UsersRound, value: "Hundreds", label: "of Returning Clients" },
   { icon: Building2, value: "7", label: "Service Areas" },
@@ -29,7 +33,7 @@ export default function AboutPage() {
           <h1 id="about-title">About <span>Us</span></h1>
           <p className="mt-2.5 mr-0 mb-0 ml-0 text-body">People. Process. Possibilities.</p>
           <span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[var(--red-600)] app-about-page-redLine" aria-hidden="true" />
-          <p className="w-[47%] mt-0 mr-0 mb-0 ml-0 text-body max-[1050px]:w-[51%] max-[760px]:w-[80%] max-[760px]:max-w-125 max-[420px]:w-full">At RD Prestige Services Corp. (RDPSC), we were founded on a simple belief: exceptional financial expertise should not be reserved for organizations with large budgets.</p>
+          <p className="w-[47%] mt-0 mr-0 mb-0 ml-0 text-body max-[1050px]:w-[51%] max-[760px]:w-[80%] max-[760px]:max-w-125 max-[420px]:w-full">At RD Prestidge Services Corp. (RDPSC), we were founded on a simple belief: exceptional financial expertise should not be reserved for organizations with large budgets.</p>
         </div>
         <p className="absolute top-12.5 right-7.5 mt-0 mr-0 mb-0 ml-0 text-ink text-right text-caption font-bold tracking-[.14em] uppercase max-[760px]:hidden app-about-page-heroWords [&_.app-about-page-redLine]:[width:34px] [&_.app-about-page-redLine]:[margin-left:auto]">Trust<br />Expertise<br />Growth<span className="block w-13 h-0.75 mt-5.5 mr-0 mb-5.5 ml-0 bg-[var(--red-600)] app-about-page-redLine" /></p>
       </section>

@@ -61,7 +61,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="inline-flex shrink-0 items-center rounded-md"
-          aria-label="RD Prestige Services Corp. — Home"
+          aria-label="RD Prestidge Services Corp. — Home"
           onClick={() => setOpen(false)}
         >
           <Image

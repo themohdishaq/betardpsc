@@ -29,7 +29,7 @@ export default function ServicesPage() {
             <h1 id="services-title">Our <span>Services</span></h1>
             <p className="text-body mt-2.5 mr-0 mb-0 ml-0">Practical Solutions. Professional Expertise.<br />Affordable Support.</p>
             <span className="block w-12 h-0.75 mt-5 mr-0 mb-5 ml-0 bg-[var(--red-600)] app-services-page-redLine" aria-hidden="true" />
-            <p className="text-body mt-0 mr-0 mb-0 ml-0 max-w-162.5">At RD Prestige Services Corp. (RDPSC), we believe every business and individual deserves access to high-quality financial and professional services, regardless of size, stage of growth, or budget.</p>
+            <p className="text-body mt-0 mr-0 mb-0 ml-0 max-w-162.5">At RD Prestidge Services Corp. (RDPSC), we believe every business and individual deserves access to high-quality financial and professional services, regardless of size, stage of growth, or budget.</p>
             <ul className={`grid grid-cols-3 list-none mt-6.25 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-0 max-w-145 [&_li]:relative [&_li]:text-center [&_li]:text-body [&_svg]:block [&_svg]:mt-0 [&_svg]:mr-auto [&_svg]:mb-2 [&_svg]:ml-auto [&_svg]:w-9.25 [&_svg]:h-9.25 [&_svg]:text-heading-accent max-[540px]:[&_svg]:w-7.75 max-[540px]:[&_svg]:h-7.75 app-services-page-trust [&_li_+_li::before]:[position:absolute] [&_li_+_li::before]:[left:0] [&_li_+_li::before]:[bottom:8px] [&_li_+_li::before]:[height:45%] [&_li_+_li::before]:[width:1px] [&_li_+_li::before]:[background:var(--cyan-600)] [&_li_+_li::before]:[content:""]`}><li><ShieldCheck aria-hidden="true" />Trusted<br />Expertise</li><li><UsersRound aria-hidden="true" />Client<br />Focused</li><li><ChartNoAxesCombined aria-hidden="true" />Real<br />Results</li></ul>
           </div>
         </div>

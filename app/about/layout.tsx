@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-const title = "About Us | RD Prestige Services Corp.";
-const description = "Learn about RD Prestige Services Corp., our commitment to affordable financial and professional services, personalized support, and scalable solutions for businesses and individuals.";
+const title = "About Us.";
+const description = "Learn about RD Prestidge Services Corp., our commitment to affordable financial and professional services, personalized support, and scalable solutions for businesses and individuals.";
 
 export const metadata: Metadata = {
   title,
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    siteName: "RD Prestige Services Corp.",
+    siteName: "RD Prestidge Services Corp.",
     locale: "en_CA",
     type: "website",
   },

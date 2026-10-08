@@ -86,14 +86,14 @@ function escapePdf(value) { return value.replaceAll("\\", "\\\\").replaceAll("("
 function makePdf(title, subtitle, lines) {
   const text = (value, x, y, size, color = "0.12 0.2 0.32") => `${color} rg BT /F1 ${size} Tf ${x} ${y} Td (${escapePdf(value)}) Tj ET\n`;
   let stream = "0.01 0.12 0.23 rg 0 690 612 102 re f\n";
-  stream += text("RD PRESTIGE SERVICES CORP.", 42, 755, 11, "0.4 0.75 1");
+  stream += text("RD PRESTIDGE SERVICES CORP.", 42, 755, 11, "0.4 0.75 1");
   stream += text(title, 42, 722, 23, "1 1 1");
   stream += text(subtitle, 42, 665, 12);
   stream += "0 0.42 0.85 RG 1.5 w 42 649 m 570 649 l S\n";
   lines.forEach((line, i) => { stream += text(line, 42, 619 - i * 29, 10); });
   stream += text("Preparation aid only; not a filing guide or personalized advice.", 42, 95, 9);
   stream += text("Keep completed worksheets private. Share sensitive records securely.", 42, 80, 9);
-  stream += text("RD Prestige Services Corp. | info@rdpsc.ca | +1 (437) 214-8299", 42, 50, 9);
+  stream += text("RD Prestidge Services Corp. | info@rdpsc.ca | +1 (437) 214-8299", 42, 50, 9);
   const objects = [
     "<< /Type /Catalog /Pages 2 0 R >>",
     "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",

@@ -19,7 +19,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const service = getService((await params).slug);
-  const title = `${service.title} | RD Prestige Services Corp.`;
+  const title = `${service.title} | RD Prestidge Services Corp.`;
   return {
     title,
     description: service.summary,
@@ -44,7 +44,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <li aria-current="page" className="text-white">{service.title}</li>
             </ol>
           </nav>
-          <p className="mb-4 text-caption font-semibold uppercase tracking-widest text-heading-accent">RD Prestige Services Corp.</p>
+          <p className="mb-4 text-caption font-semibold uppercase tracking-widest text-heading-accent">RD Prestidge Services Corp.</p>
           <h1 id="service-title" className="max-w-4xl text-title">{service.title}</h1>
           <div className="my-6 h-1 w-12 bg-[var(--red-600)]" aria-hidden="true" />
           <p className="max-w-3xl text-body text-inverse-copy">{service.tagline}</p>
